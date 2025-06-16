@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online pregnancy calculator to estimate your due date based on your last menstrual period (LMP) or conception date. Track important pregnancy milestones.">
+    <meta name="keywords" content="pregnancy calculator, due date calculator, pregnancy milestones, estimated due date, LMP calculator, CalcLogic">
+    <title>Pregnancy Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                 <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="financial-calculator.html">Financial</a></li>
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="math-calculator.html">Math</a></li>
+                    <li class="current"><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+             <div id="header-actions">
+                 <!-- <a href="#" class="btn btn-secondary">Sign In</a> -->
+             </div>
+        </div>
+    </header>
+
+    <section class="calculator-page-section">
+        <div class="container calculator-title-section">
+            <h2>Pregnancy Calculator</h2>
+            <p class="description">Estimate your baby's due date and track key pregnancy milestones.</p>
+        </div>
+
+        <div class="container pregnancy-layout">
+            <div class="calculator-inputs card-style">
+                <form id="pregnancy-form" class="calculator-form">
+                     <div class="form-group">
+                         <label for="calcMethod">Calculate based on:</label>
+                         <select id="calcMethod">
+                             <option value="lmp" selected>Last Menstrual Period (LMP)</option>
+                             <option value="conception">Conception Date</option>
+                             <option value="ivf">IVF Transfer Date</option>
+                         </select>
+                     </div>
+
+                    <div class="form-group" id="lmpDateGroup">
+                        <label for="lmpDate">First Day of Last Menstrual Period:</label>
+                        <input type="date" id="lmpDate" required>
+                    </div>
+
+                     <div class="form-group" id="conceptionDateGroup" style="display: none;">
+                         <label for="conceptionDate">Estimated Conception Date:</label>
+                         <input type="date" id="conceptionDate">
+                     </div>
+
+                     <div class="form-group" id="ivfDateGroup" style="display: none;">
+                        <label for="ivfTransferDate">IVF Transfer Date:</label>
+                        <input type="date" id="ivfTransferDate">
+                        <label for="ivfDay" style="margin-top: 10px;">Day of embryo transfer:</label>
+                        <select id="ivfDay">
+                            <option value="3">Day 3</option>
+                            <option value="5">Day 5</option>
+                        </select>
+                     </div>
+
+                    <div class="form-group" id="cycleLengthGroup">
+                        <label for="cycleLength">Average Cycle Length (days):</label>
+                        <input type="number" id="cycleLength" value="28" min="20" max="45">
+                        <small>Default is 28 days. Adjust if your cycle is different.</small>
+                    </div>
+
+                    <button type="submit" class="btn">Calculate Due Date</button>
+                </form>
+            </div>
+
+            <div class="pregnancy-results-panel card-style">
+                <h4>Estimated Due Date & Milestones</h4>
+                <div id="pregnancy-result-display" class="result-display">
+                     <div class="result-placeholder">Enter details and calculate</div>
+                     <!-- Results will be populated here -->
+                      <!-- Example Structure:
+                     <div class="result-item highlight">
+                         <span class="result-label">Estimated Due Date:</span>
+                         <span class="result-value main-result">October 26, 2024</span>
+                     </div>
+                     <div class="result-item">
+                         <span class="result-label">Current Gestational Age:</span>
+                         <span class="result-value">10 weeks, 3 days</span>
+                     </div>
+                     <div class="result-item">
+                         <span class="result-label">Current Trimester:</span>
+                         <span class="result-value">First Trimester</span>
+                     </div>
+                      <div class="result-item">
+                         <span class="result-label">Estimated Conception Date:</span>
+                         <span class="result-value">February 2, 2024</span>
+                     </div>
+                     -->
+                </div>
+                <div class="trimester-info">
+                    <h4>Trimester Timeline (Approximate):</h4>
+                    <ul>
+                        <li><strong>First Trimester:</strong> Week 1 - Week 13</li>
+                        <li><strong>Second Trimester:</strong> Week 14 - Week 27</li>
+                        <li><strong>Third Trimester:</strong> Week 28 - Birth</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <hr class="calc-divider container">
+
+     <section class="calculator-info-section">
+         <div class="container">
+             <h3>Understanding Due Date Calculation</h3>
+             <p>Estimating your due date is an exciting first step! Most pregnancies last around 40 weeks (or 280 days) from the first day of the last menstrual period (LMP). This calculator uses common methods to provide an estimate.</p>
+             <div class="info-cards-container pregnancy-info-cards">
+                 <div class="info-card">
+                     <h4>Naegele's Rule (LMP Method)</h4>
+                     <p>The most common method: Add 7 days to the first day of your LMP and subtract 3 months (or add 9 months). This assumes a 28-day cycle with ovulation on day 14.</p>
+                 </div>
+                 <div class="info-card">
+                     <h4>Conception Date Method</h4>
+                     <p>If you know the exact date of conception, the due date is typically estimated as 266 days (38 weeks) from that date.</p>
+                 </div>
+                 <div class="info-card">
+                     <h4>Cycle Length Adjustment</h4>
+                     <p>If your cycle is longer or shorter than 28 days, the calculator adjusts the due date accordingly, as ovulation likely occurs earlier or later than day 14.</p>
+                 </div>
+                  <div class="info-card">
+                     <h4>Important Note</h4>
+                     <p>This calculator provides an estimate. Your actual due date may vary. Ultrasound measurements during the first trimester often provide the most accurate dating. Always consult your healthcare provider.</p>
+                 </div>
+             </div>
+         </div>
+     </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="pregnancy-calculator.js"></script>
+</body>
+</html> 

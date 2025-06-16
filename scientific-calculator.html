@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online scientific calculator with advanced mathematical functions, trigonometry, logarithms, and more.">
+    <meta name="keywords" content="scientific calculator, trigonometry calculator, logarithm calculator, math functions, CalcLogic">
+    <title>Scientific Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="financial-calculator.html">Financial</a></li>
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="math-calculator.html">Math</a></li>
+                    <li><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="calculator-page-section">
+        <div class="container">
+            <div class="calculator-container card-style">
+                <h2>Scientific Calculator</h2>
+                <p class="description">Perform advanced mathematical calculations with our comprehensive scientific calculator.</p>
+
+                <div class="scientific-calculator">
+                    <div class="calculator-display">
+                        <div id="expression" class="expression"></div>
+                        <div id="result" class="result">0</div>
+                    </div>
+
+                    <div class="calculator-buttons">
+                        <!-- Row 1 -->
+                        <div class="button-row">
+                            <button class="calc-btn memory" data-action="mc">MC</button>
+                            <button class="calc-btn memory" data-action="mr">MR</button>
+                            <button class="calc-btn memory" data-action="m-plus">M+</button>
+                            <button class="calc-btn memory" data-action="m-minus">M-</button>
+                            <button class="calc-btn memory" data-action="ms">MS</button>
+                        </div>
+                        <!-- Row 2 -->
+                        <div class="button-row">
+                            <button class="calc-btn function" data-action="2nd">2nd</button>
+                            <button class="calc-btn function" data-action="pi">π</button>
+                            <button class="calc-btn function" data-action="e">e</button>
+                            <button class="calc-btn operator" data-action="clear">C</button>
+                            <button class="calc-btn operator" data-action="backspace">⌫</button>
+                        </div>
+                        <!-- Row 3 -->
+                        <div class="button-row">
+                            <button class="calc-btn function" data-action="square">x²</button>
+                            <button class="calc-btn function" data-action="power">xʸ</button>
+                            <button class="calc-btn function" data-action="sin">sin</button>
+                            <button class="calc-btn function" data-action="cos">cos</button>
+                            <button class="calc-btn function" data-action="tan">tan</button>
+                        </div>
+                        <!-- Row 4 -->
+                        <div class="button-row">
+                            <button class="calc-btn function" data-action="sqrt">√</button>
+                            <button class="calc-btn function" data-action="nth-root">ⁿ√</button>
+                            <button class="calc-btn function" data-action="sin-1">sin⁻¹</button>
+                            <button class="calc-btn function" data-action="cos-1">cos⁻¹</button>
+                            <button class="calc-btn function" data-action="tan-1">tan⁻¹</button>
+                        </div>
+                        <!-- Row 5 -->
+                        <div class="button-row">
+                            <button class="calc-btn function" data-action="log">log</button>
+                            <button class="calc-btn function" data-action="ln">ln</button>
+                            <button class="calc-btn number">7</button>
+                            <button class="calc-btn number">8</button>
+                            <button class="calc-btn number">9</button>
+                        </div>
+                        <!-- Row 6 -->
+                        <div class="button-row">
+                            <button class="calc-btn function" data-action="10-power">10ˣ</button>
+                            <button class="calc-btn function" data-action="e-power">eˣ</button>
+                            <button class="calc-btn number">4</button>
+                            <button class="calc-btn number">5</button>
+                            <button class="calc-btn number">6</button>
+                        </div>
+                        <!-- Row 7 -->
+                        <div class="button-row">
+                             <button class="calc-btn operator" data-action="multiply">×</button>
+                             <button class="calc-btn operator" data-action="divide">÷</button>
+                             <button class="calc-btn number">1</button>
+                             <button class="calc-btn number">2</button>
+                             <button class="calc-btn number">3</button>
+                         </div>
+                        <!-- Row 8 -->
+                        <div class="button-row">
+                             <button class="calc-btn operator" data-action="add">+</button>
+                             <button class="calc-btn operator" data-action="subtract">−</button>
+                             <button class="calc-btn number">0</button>
+                             <button class="calc-btn number">.</button>
+                             <button class="calc-btn operator equals" data-action="equals">=</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calculator-modes">
+                    <button class="mode-btn active" data-mode="rad">RAD</button>
+                    <button class="mode-btn" data-mode="deg">DEG</button>
+                    <button class="mode-btn" data-mode="grad">GRAD</button>
+                </div>
+
+                <div class="calculator-history">
+                    <h3>Calculation History</h3>
+                    <div id="history-list" class="history-list">
+                        <!-- History items will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-info card-style">
+                <h3>How to Use</h3>
+                <div class="info-section">
+                    <h4>Basic Operations</h4>
+                    <ul>
+                        <li>Use number keys for input</li>
+                        <li>Basic operators: +, −, ×, ÷</li>
+                        <li>Press = or Enter to calculate</li>
+                        <li>C clears all, ⌫ deletes last character</li>
+                    </ul>
+                </div>
+                <div class="info-section">
+                    <h4>Scientific Functions</h4>
+                    <ul>
+                        <li>Trigonometric: sin, cos, tan and their inverses</li>
+                        <li>Logarithmic: log (base 10), ln (natural log)</li>
+                        <li>Powers: x², xʸ, 10ˣ, eˣ</li>
+                        <li>Constants: π (pi), e (Euler's number)</li>
+                    </ul>
+                </div>
+                <div class="info-section">
+                    <h4>Memory Functions</h4>
+                    <ul>
+                        <li>MC - Memory Clear</li>
+                        <li>MR - Memory Recall</li>
+                        <li>M+ - Memory Add</li>
+                        <li>M- - Memory Subtract</li>
+                        <li>MS - Memory Store</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="scientific-calculator.js"></script>
+</body>
+</html> 

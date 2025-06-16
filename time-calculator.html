@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online time calculator to add or subtract time durations (days, hours, minutes, seconds) and calculate the difference between two times.">
+    <meta name="keywords" content="time calculator, time duration calculator, add time, subtract time, time difference, CalcLogic">
+    <title>Time Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                 <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="financial-calculator.html">Financial</a></li>
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="math-calculator.html">Math</a></li>
+                    <li class="current"><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+             <div id="header-actions">
+                 <!-- <a href="#" class="btn btn-secondary">Sign In</a> -->
+             </div>
+        </div>
+    </header>
+
+    <section class="calculator-page-section">
+         <div class="container calculator-title-section">
+             <h2>Time Calculator</h2>
+             <p class="description">Perform calculations with time, including adding/subtracting durations and finding the difference between times.</p>
+         </div>
+
+        <div class="container time-calculator-container">
+            <!-- Time Duration Calculator -->
+            <div class="sub-calculator card-style">
+                 <h4 class="sub-calc-title">Calculate Duration Between Two Times</h4>
+                 <form id="time-duration-form" class="calculator-form">
+                     <div class="form-group time-input-group">
+                         <label>Start Time:</label>
+                         <input type="number" id="start-hour" placeholder="HH" min="0" max="23" required>
+                         <span>:</span>
+                         <input type="number" id="start-min" placeholder="MM" min="0" max="59" required>
+                         <span>:</span>
+                         <input type="number" id="start-sec" placeholder="SS" min="0" max="59" value="0">
+                         <select id="start-ampm">
+                            <option value="am">AM</option>
+                            <option value="pm">PM</option>
+                         </select>
+                     </div>
+                      <div class="form-group time-input-group">
+                         <label>End Time:</label>
+                         <input type="number" id="end-hour" placeholder="HH" min="0" max="23" required>
+                         <span>:</span>
+                         <input type="number" id="end-min" placeholder="MM" min="0" max="59" required>
+                         <span>:</span>
+                         <input type="number" id="end-sec" placeholder="SS" min="0" max="59" value="0">
+                         <select id="end-ampm">
+                             <option value="am">AM</option>
+                             <option value="pm">PM</option>
+                         </select>
+                     </div>
+                     <button type="submit" class="btn">Calculate Duration</button>
+                     <div id="duration-result" class="sub-result" style="margin-top: 15px;"></div>
+                 </form>
+            </div>
+
+            <hr class="calc-divider">
+
+             <!-- Add/Subtract Time -->
+             <div class="sub-calculator card-style">
+                 <h4 class="sub-calc-title">Add or Subtract Time Duration</h4>
+                 <form id="time-add-subtract-form" class="calculator-form">
+                    <div class="form-group time-input-group">
+                        <label>Start Time:</label>
+                        <input type="number" id="op-start-hour" placeholder="HH" min="0" max="23" required>
+                        <span>:</span>
+                        <input type="number" id="op-start-min" placeholder="MM" min="0" max="59" required>
+                        <span>:</span>
+                        <input type="number" id="op-start-sec" placeholder="SS" min="0" max="59" value="0">
+                         <select id="op-start-ampm">
+                            <option value="am">AM</option>
+                            <option value="pm">PM</option>
+                         </select>
+                    </div>
+                     <div class="form-group">
+                        <label>Operation:</label>
+                        <select id="time-operation">
+                            <option value="add">Add (+)</option>
+                            <option value="subtract">Subtract (−)</option>
+                        </select>
+                     </div>
+                     <div class="form-group time-input-group duration-inputs">
+                         <label>Time Duration:</label>
+                         <input type="number" id="op-days" placeholder="Days" min="0" value="0">
+                         <input type="number" id="op-hours" placeholder="Hours" min="0" value="0">
+                         <input type="number" id="op-minutes" placeholder="Minutes" min="0" value="0">
+                         <input type="number" id="op-seconds" placeholder="Seconds" min="0" value="0">
+                     </div>
+                     <button type="submit" class="btn">Calculate New Time</button>
+                     <div id="add-subtract-result" class="sub-result" style="margin-top: 15px;"></div>
+                 </form>
+             </div>
+        </div>
+    </section>
+
+    <hr class="calc-divider container">
+
+    <section class="calculator-info-section">
+        <div class="container">
+             <h3>Working with Time</h3>
+             <p>Time calculations are fundamental for scheduling, planning events, tracking work hours, or simply understanding time differences across zones.</p>
+            <div class="info-cards-container time-info-cards">
+                <div class="info-card">
+                    <h4>Time Duration</h4>
+                    <p>Calculate the exact length of time (in days, hours, minutes, seconds) between a specified start time and end time.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Adding/Subtracting Time</h4>
+                    <p>Determine a future or past time by adding or subtracting a duration (days, hours, minutes, seconds) from a given start time.</p>
+                </div>
+                 <div class="info-card">
+                    <h4>AM/PM and 24-Hour</h4>
+                    <p>This calculator uses the 12-hour AM/PM format for input clarity but performs calculations internally using a 24-hour system to avoid ambiguity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="math-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="time-calculator.js"></script>
+</body>
+</html> 

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your ideal macronutrient ratios with CalcLogic's free macro calculator. Plan your nutrition for weight loss, muscle gain, or maintenance.">
+    <meta name="keywords" content="macro calculator, macronutrients, protein calculator, carbs calculator, nutrition planning, CalcLogic">
+    <title>Macro Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="financial-calculator.html">Financial</a></li>
+                    <li class="current"><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="percentage-calculator.html">Math</a></li>
+                    <li><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="calculator-page-section">
+        <div class="container">
+            <div class="calculator-title-section">
+                <h2>Macro Calculator</h2>
+                <p>Calculate your ideal macronutrient ratios based on your goals and activity level</p>
+            </div>
+
+            <div class="calculator-container card-style">
+                <form id="macro-calculator-form" class="calculator-form">
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" min="15" max="100" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="weight">Weight</label>
+                        <div class="input-with-suffix">
+                            <input type="number" id="weight" name="weight" min="30" max="300" required>
+                            <span class="suffix">kg</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="height">Height</label>
+                        <div class="input-with-suffix">
+                            <input type="number" id="height" name="height" min="120" max="250" required>
+                            <span class="suffix">cm</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="activity-level">Activity Level</label>
+                        <select id="activity-level" name="activity-level" required>
+                            <option value="1.2">Sedentary (Office Job)</option>
+                            <option value="1.375">Light Exercise (1-2 days/week)</option>
+                            <option value="1.55">Moderate Exercise (3-5 days/week)</option>
+                            <option value="1.725">Heavy Exercise (6-7 days/week)</option>
+                            <option value="1.9">Athlete (2x per day)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="goal">Goal</label>
+                        <select id="goal" name="goal" required>
+                            <option value="lose">Weight Loss</option>
+                            <option value="maintain">Maintain Weight</option>
+                            <option value="gain">Muscle Gain</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn">Calculate Macros</button>
+                </form>
+
+                <div class="calculator-results">
+                    <div class="results-summary">
+                        <div class="result-item highlight">
+                            <span class="result-label">Daily Calories</span>
+                            <span id="total-calories" class="result-value">0</span>
+                        </div>
+                    </div>
+
+                    <div class="macro-breakdown">
+                        <h3>Daily Macronutrients</h3>
+                        <div class="macro-grid">
+                            <div class="macro-item">
+                                <div class="macro-icon protein">
+                                    <i class="fas fa-drumstick-bite"></i>
+                                </div>
+                                <div class="macro-details">
+                                    <h4>Protein</h4>
+                                    <span id="protein-grams">0g</span>
+                                    <span id="protein-calories">0 kcal</span>
+                                    <span id="protein-percent">0%</span>
+                                </div>
+                            </div>
+                            <div class="macro-item">
+                                <div class="macro-icon carbs">
+                                    <i class="fas fa-bread-slice"></i>
+                                </div>
+                                <div class="macro-details">
+                                    <h4>Carbs</h4>
+                                    <span id="carbs-grams">0g</span>
+                                    <span id="carbs-calories">0 kcal</span>
+                                    <span id="carbs-percent">0%</span>
+                                </div>
+                            </div>
+                            <div class="macro-item">
+                                <div class="macro-icon fats">
+                                    <i class="fas fa-cheese"></i>
+                                </div>
+                                <div class="macro-details">
+                                    <h4>Fats</h4>
+                                    <span id="fats-grams">0g</span>
+                                    <span id="fats-calories">0 kcal</span>
+                                    <span id="fats-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chart-container">
+                            <canvas id="macro-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="calculator-info-section">
+        <div class="container">
+            <h3>Understanding Macronutrients</h3>
+            <p>Learn how to balance your macros for optimal health and fitness results.</p>
+
+            <div class="info-cards-container">
+                <div class="info-card">
+                    <h4>Protein (4 kcal/g)</h4>
+                    <ul>
+                        <li>Essential for muscle growth and repair</li>
+                        <li>Helps maintain lean body mass</li>
+                        <li>Increases satiety and metabolism</li>
+                        <li>Sources: meat, fish, eggs, dairy, legumes</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4>Carbohydrates (4 kcal/g)</h4>
+                    <ul>
+                        <li>Primary energy source</li>
+                        <li>Fuels brain and muscle function</li>
+                        <li>Spares protein from being used for energy</li>
+                        <li>Sources: grains, fruits, vegetables, legumes</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4>Fats (9 kcal/g)</h4>
+                    <ul>
+                        <li>Essential for hormone production</li>
+                        <li>Helps absorb fat-soluble vitamins</li>
+                        <li>Provides energy and insulation</li>
+                        <li>Sources: oils, nuts, seeds, avocados</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="health-calculator.js"></script>
+</body>
+</html> 

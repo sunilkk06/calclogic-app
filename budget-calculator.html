@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create and manage your monthly budget with our Budget Calculator">
+    <title>Budget Calculator | CalcLogic</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="/">
+                    <span>Calc</span><span>Logic</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/financial" class="active">Financial</a></li>
+                <li><a href="/fitness">Fitness</a></li>
+                <li><a href="/math">Math</a></li>
+                <li><a href="/other">Other</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="calculator-container">
+        <div class="calculator-header">
+            <h1>Budget Calculator</h1>
+            <p class="calculator-description">Create a detailed monthly budget to track your income and expenses. Visualize your spending patterns and identify areas for savings.</p>
+        </div>
+
+        <div class="calculator-card">
+            <form id="budget-form" class="calculator-form">
+                <div class="input-section">
+                    <h2>Income</h2>
+                    <div class="input-group">
+                        <label for="monthly-income">Monthly Income</label>
+                        <div class="input-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="monthly-income" required min="0" step="0.01" value="5000">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="other-income">Other Monthly Income</label>
+                        <div class="input-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="other-income" min="0" step="0.01" value="0">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <h2>Fixed Expenses</h2>
+                    <div class="input-group">
+                        <label for="housing">Housing (Rent/Mortgage)</label>
+                        <div class="input-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="housing" required min="0" step="0.01" value="1500">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="utilities">Utilities</label>
+                        <div class="input-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="utilities" required min="0" step="0.01" value="200">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="insurance">Insurance</label>
+                        <div class="input-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="insurance" required min="0" step="0.01" value="300">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="debt-payments">Debt Payments</label>
+                        <div class="input-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="debt-payments" required min="0" step="0.01" value="500">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <h2>Variable Expenses</h2>
+                    <div class="input-group">
+                        <label for="groceries">Groceries</label>
+                        <div class="input-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="groceries" required min="0" step="0.01" value="400">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="transportation">Transportation</label>
+                        <div class="input-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="transportation" required min="0" step="0.01" value="200">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="entertainment">Entertainment</label>
+                        <div class="input-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="entertainment" required min="0" step="0.01" value="300">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="other-expenses">Other Expenses</label>
+                        <div class="input-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="other-expenses" required min="0" step="0.01" value="200">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <h2>Savings Goals</h2>
+                    <div class="input-group">
+                        <label for="savings-percent">Monthly Savings Target</label>
+                        <div class="input-field">
+                            <input type="number" id="savings-percent" required min="0" max="100" step="0.1" value="20">
+                            <span class="percentage-symbol">%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="calculate-btn">Calculate Budget</button>
+            </form>
+
+            <div id="results" class="results-section hidden">
+                <h2>Your Monthly Budget Summary</h2>
+                <div class="results-grid">
+                    <div class="result-item">
+                        <span class="result-label">Total Income</span>
+                        <span class="result-value" id="total-income">$---,---</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Total Expenses</span>
+                        <span class="result-value" id="total-expenses">$---,---</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Monthly Savings</span>
+                        <span class="result-value" id="monthly-savings">$---,---</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Savings Rate</span>
+                        <span class="result-value" id="savings-rate">--%</span>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="budgetChart"></canvas>
+                </div>
+
+                <div class="breakdown-table">
+                    <h3>Expense Breakdown</h3>
+                    <div class="table-wrapper">
+                        <table id="expenseTable">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Amount</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-cards">
+            <div class="info-card">
+                <h3>50/30/20 Rule</h3>
+                <p>A popular budgeting guideline suggests allocating 50% of income to needs, 30% to wants, and 20% to savings and debt repayment.</p>
+            </div>
+            <div class="info-card">
+                <h3>Emergency Fund</h3>
+                <p>Financial experts recommend having 3-6 months of living expenses saved in an emergency fund for unexpected situations.</p>
+            </div>
+            <div class="info-card">
+                <h3>Budgeting Tips</h3>
+                <p>Track your spending, set realistic goals, and review your budget regularly. Small changes can lead to significant savings over time.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="js/budget-calculator.js"></script>
+</body>
+</html> 

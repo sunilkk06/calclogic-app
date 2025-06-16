@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your Basal Metabolic Rate (BMR) and daily caloric needs with CalcLogic's free BMR calculator. Plan your nutrition based on scientific formulas.">
+    <meta name="keywords" content="BMR calculator, basal metabolic rate, calorie calculator, daily caloric needs, Mifflin-St Jeor equation, CalcLogic">
+    <title>BMR Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="financial-calculator.html">Financial</a></li>
+                    <li class="current"><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="percentage-calculator.html">Math</a></li>
+                    <li><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="calculator-page-section">
+        <div class="container">
+            <div class="calculator-title-section">
+                <h2>BMR Calculator</h2>
+                <p>Calculate your Basal Metabolic Rate (BMR) and daily caloric needs based on your activity level.</p>
+            </div>
+
+            <div class="calculator-container card-style bmr-layout">
+                <div class="calculator-inputs">
+                    <form id="bmr-calculator-form" class="calculator-form">
+                        <div class="unit-selector">
+                            <label>
+                                <input type="radio" name="bmr-units" value="metric" checked> Metric (cm/kg)
+                            </label>
+                            <label>
+                                <input type="radio" name="bmr-units" value="imperial"> Imperial (in/lb)
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bmr-gender">Gender</label>
+                            <select id="bmr-gender" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bmr-age">Age (years)</label>
+                            <input type="number" id="bmr-age" required min="15" max="120">
+                        </div>
+
+                        <div id="metric-bmr-inputs">
+                            <div class="form-group">
+                                <label for="bmr-height-cm">Height (cm)</label>
+                                <input type="number" id="bmr-height-cm" required min="50" max="300" step="0.1">
+                            </div>
+                            <div class="form-group">
+                                <label for="bmr-weight-kg">Weight (kg)</label>
+                                <input type="number" id="bmr-weight-kg" required min="20" max="500" step="0.1">
+                            </div>
+                        </div>
+
+                        <div id="imperial-bmr-inputs" style="display: none;">
+                            <div class="form-group">
+                                <label for="bmr-height-in">Height (in)</label>
+                                <input type="number" id="bmr-height-in" required min="20" max="120" step="0.1">
+                            </div>
+                            <div class="form-group">
+                                <label for="bmr-weight-lb">Weight (lb)</label>
+                                <input type="number" id="bmr-weight-lb" required min="44" max="1100" step="0.1">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="activity-level">Activity Level</label>
+                            <select id="activity-level" required>
+                                <option value="1.2">Sedentary (little or no exercise)</option>
+                                <option value="1.375">Lightly Active (light exercise 1-3 days/week)</option>
+                                <option value="1.55">Moderately Active (moderate exercise 3-5 days/week)</option>
+                                <option value="1.725">Very Active (hard exercise 6-7 days/week)</option>
+                                <option value="1.9">Extra Active (very hard exercise & physical job)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn">Calculate BMR</button>
+                    </form>
+                </div>
+
+                <div class="calculator-results bmr-results-panel">
+                    <div class="result-item highlight">
+                        <span class="result-label">Your BMR</span>
+                        <span class="result-value main-result" id="bmr-result">----<span class="result-unit">calories/day</span></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Daily Caloric Needs</span>
+                        <span class="result-value" id="tdee-result">----<span class="result-unit">calories/day</span></span>
+                    </div>
+                    <div class="caloric-goals">
+                        <h4>Caloric Goals</h4>
+                        <div class="result-item">
+                            <span class="result-label">Weight Loss</span>
+                            <span class="result-value" id="weight-loss">----<span class="result-unit">calories/day</span></span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Weight Maintenance</span>
+                            <span class="result-value" id="maintenance">----<span class="result-unit">calories/day</span></span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Weight Gain</span>
+                            <span class="result-value" id="weight-gain">----<span class="result-unit">calories/day</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="calculator-info-section">
+        <div class="container">
+            <h3>Understanding BMR and Daily Caloric Needs</h3>
+            <p>Basal Metabolic Rate (BMR) represents the minimum number of calories your body burns to maintain basic life functions at rest. This calculator uses the Mifflin-St Jeor equation, which is considered one of the most accurate formulas for estimating BMR.</p>
+
+            <div class="info-cards-container bmr-info-cards">
+                <div class="info-card">
+                    <h4>BMR Formula (Mifflin-St Jeor)</h4>
+                    <p><strong>For Men:</strong><br>
+                    BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age) + 5</p>
+                    <p><strong>For Women:</strong><br>
+                    BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age) - 161</p>
+                </div>
+                <div class="info-card">
+                    <h4>Activity Level Multipliers</h4>
+                    <ul>
+                        <li><strong>Sedentary:</strong> × 1.2 (Office job, little exercise)</li>
+                        <li><strong>Light Activity:</strong> × 1.375 (Light exercise 1-3 days/week)</li>
+                        <li><strong>Moderate Activity:</strong> × 1.55 (Moderate exercise 3-5 days/week)</li>
+                        <li><strong>Very Active:</strong> × 1.725 (Hard exercise 6-7 days/week)</li>
+                        <li><strong>Extra Active:</strong> × 1.9 (Very hard exercise & physical job)</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4>Weight Management Goals</h4>
+                    <ul>
+                        <li><strong>Weight Loss:</strong> TDEE - 500 calories/day</li>
+                        <li><strong>Maintenance:</strong> TDEE</li>
+                        <li><strong>Weight Gain:</strong> TDEE + 500 calories/day</li>
+                    </ul>
+                    <p>Note: A 500-calorie deficit or surplus typically results in about 1 pound (0.45 kg) of weight change per week.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="health-calculator.js"></script>
+</body>
+</html> 

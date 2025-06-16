@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate mortgage payments, interest costs, and view amortization schedules with our free mortgage calculator.">
+    <meta name="keywords" content="mortgage calculator, home loan calculator, mortgage payment calculator, CalcLogic">
+    <title>Mortgage Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current"><a href="financial-calculator.html">Financial</a></li>
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="percentage-calculator.html">Math</a></li>
+                    <li><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="calculator-page-section">
+        <div class="container">
+            <div class="calculator-title-section">
+                <h2>Mortgage Calculator</h2>
+                <p>Calculate your monthly mortgage payments, view amortization schedule, and understand the total cost of your home loan.</p>
+            </div>
+
+            <div class="calculator-container card-style loan-layout">
+                <div class="calculator-inputs">
+                    <form id="mortgage-calculator-form" class="calculator-form">
+                        <div class="form-group">
+                            <h2>Loan Details</h2>
+                            <div class="input-group">
+                                <label for="home-price">Home Price</label>
+                                <div class="input-wrapper">
+                                    <span class="currency-symbol">$</span>
+                                    <input type="number" id="home-price" required min="0" step="1000" value="300000">
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="down-payment">Down Payment</label>
+                                <div class="input-wrapper">
+                                    <span class="currency-symbol">$</span>
+                                    <input type="number" id="down-payment" required min="0" step="1000" value="60000">
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="loan-term">Loan Term (Years)</label>
+                                <select id="loan-term" required>
+                                    <option value="30">30 Years</option>
+                                    <option value="20">20 Years</option>
+                                    <option value="15">15 Years</option>
+                                    <option value="10">10 Years</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="interest-rate">Interest Rate (%)</label>
+                                <input type="number" id="interest-rate" class="percentage-input" required min="0" step="0.01" value="3.5">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h2>Additional Costs</h2>
+                            <div class="input-group">
+                                <label for="property-tax">Property Tax Rate (%)</label>
+                                <input type="number" id="property-tax" class="percentage-input" required min="0" step="0.01" value="1.2">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="home-insurance">Annual Home Insurance</label>
+                                <div class="input-wrapper">
+                                    <span class="currency-symbol">$</span>
+                                    <input type="number" id="home-insurance" required min="0" step="100" value="1200">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="calculate-button">Calculate Mortgage</button>
+                    </form>
+                </div>
+
+                <div class="calculator-results loan-results-panel">
+                    <div class="result-item highlight">
+                        <span class="result-label">Monthly Payment</span>
+                        <span class="result-value main-result" id="monthly-payment">$---.--</span>
+                    </div>
+
+                    <div class="loan-summary">
+                        <div class="result-item">
+                            <span class="result-label">Principal & Interest</span>
+                            <span class="result-value" id="principal-interest">$---.--</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Property Tax</span>
+                            <span class="result-value" id="monthly-tax">$---.--</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Home Insurance</span>
+                            <span class="result-value" id="monthly-insurance">$---.--</span>
+                        </div>
+                        <div class="result-item total">
+                            <span class="result-label">Total Monthly Payment</span>
+                            <span class="result-value" id="total-payment">$---.--</span>
+                        </div>
+                    </div>
+
+                    <div class="loan-chart-container">
+                        <div class="loan-breakdown">
+                            <h4>Payment Breakdown</h4>
+                            <div class="breakdown-bar">
+                                <div id="principal-bar" class="principal-portion"></div>
+                                <div id="interest-bar" class="interest-portion"></div>
+                                <div id="escrow-bar" class="escrow-portion"></div>
+                            </div>
+                            <div class="breakdown-labels">
+                                <div><span class="color-dot principal"></span>Principal</div>
+                                <div><span class="color-dot interest"></span>Interest</div>
+                                <div><span class="color-dot escrow"></span>Escrow</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="amortization-schedule">
+                        <h4>Amortization Schedule</h4>
+                        <div class="schedule-table-container">
+                            <table id="amortization-table">
+                                <thead>
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Principal</th>
+                                        <th>Interest</th>
+                                        <th>Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="amortization-body">
+                                    <!-- JavaScript will populate this -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="calculator-info-section">
+        <div class="container">
+            <h3>Understanding Mortgage Payments</h3>
+            <p>A mortgage payment typically consists of four components, commonly known as PITI: Principal, Interest, Taxes, and Insurance.</p>
+
+            <div class="info-cards-container">
+                <div class="info-card">
+                    <h4>Principal & Interest</h4>
+                    <p>The principal is the amount you borrow, and interest is the cost of borrowing. Your monthly payment includes both, with early payments having a higher proportion of interest.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Property Taxes</h4>
+                    <p>Annual property taxes are often divided into monthly payments and held in an escrow account. The amount varies by location and property value.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Insurance</h4>
+                    <p>Homeowners insurance is typically required by lenders and is often included in your monthly payment. Private Mortgage Insurance (PMI) may be required if your down payment is less than 20%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="mortgage-calculator.js"></script>
+</body>
+</html> 

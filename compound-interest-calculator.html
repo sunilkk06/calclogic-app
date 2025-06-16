@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate compound interest and visualize your investment growth with CalcLogic's free compound interest calculator.">
+    <meta name="keywords" content="compound interest calculator, investment calculator, financial planning, CalcLogic">
+    <title>Compound Interest Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current"><a href="financial-calculator.html">Financial</a></li>
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="percentage-calculator.html">Math</a></li>
+                    <li><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="calculator-page-section">
+        <div class="container">
+            <div class="calculator-title-section">
+                <h2>Compound Interest Calculator</h2>
+                <p>Calculate how your investments can grow with compound interest over time</p>
+            </div>
+
+            <div class="calculator-container card-style">
+                <form id="compound-interest-form" class="calculator-form">
+                    <div class="form-group">
+                        <label for="principal">Initial Investment</label>
+                        <div class="input-with-prefix">
+                            <span class="prefix">$</span>
+                            <input type="number" id="principal" name="principal" min="0" step="100" value="10000" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contribution">Monthly Contribution</label>
+                        <div class="input-with-prefix">
+                            <span class="prefix">$</span>
+                            <input type="number" id="contribution" name="contribution" min="0" step="50" value="100" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interest-rate">Annual Interest Rate</label>
+                        <div class="input-with-suffix">
+                            <input type="number" id="interest-rate" name="interest-rate" min="0" max="100" step="0.1" value="7" required>
+                            <span class="suffix">%</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="compound-frequency">Compound Frequency</label>
+                        <select id="compound-frequency" name="compound-frequency" required>
+                            <option value="12">Monthly</option>
+                            <option value="4">Quarterly</option>
+                            <option value="2">Semi-annually</option>
+                            <option value="1">Annually</option>
+                            <option value="365">Daily</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time-period">Time Period</label>
+                        <div class="input-with-suffix">
+                            <input type="number" id="time-period" name="time-period" min="1" max="50" value="10" required>
+                            <span class="suffix">years</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn">Calculate</button>
+                </form>
+
+                <div class="calculator-results">
+                    <div class="results-summary">
+                        <div class="result-item highlight">
+                            <span class="result-label">Future Value</span>
+                            <span id="future-value" class="result-value">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Total Contributions</span>
+                            <span id="total-contributions" class="result-value">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Total Interest Earned</span>
+                            <span id="total-interest" class="result-value">$0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="investment-breakdown">
+                        <h3>Investment Breakdown</h3>
+                        <div class="breakdown-bars">
+                            <div class="breakdown-bar">
+                                <div class="bar-label">Principal</div>
+                                <div class="bar-container">
+                                    <div class="bar initial-portion" id="principal-portion"></div>
+                                </div>
+                                <div class="bar-value" id="principal-value">$0.00</div>
+                            </div>
+                            <div class="breakdown-bar">
+                                <div class="bar-label">Contributions</div>
+                                <div class="bar-container">
+                                    <div class="bar contributions-portion" id="contributions-portion"></div>
+                                </div>
+                                <div class="bar-value" id="contributions-value">$0.00</div>
+                            </div>
+                            <div class="breakdown-bar">
+                                <div class="bar-label">Interest</div>
+                                <div class="bar-container">
+                                    <div class="bar returns-portion" id="interest-portion"></div>
+                                </div>
+                                <div class="bar-value" id="interest-value">$0.00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="growth-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="calculator-info-section">
+        <div class="container">
+            <h3>Understanding Compound Interest</h3>
+            <p>Learn how compound interest can help grow your investments over time.</p>
+
+            <div class="info-cards-container">
+                <div class="info-card">
+                    <h4>What is Compound Interest?</h4>
+                    <p>Compound interest is interest earned on both your initial investment and previously accumulated interest. This creates a snowball effect that accelerates your wealth growth over time.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Compound Frequency</h4>
+                    <ul>
+                        <li>Daily: Interest calculated 365 times per year</li>
+                        <li>Monthly: Interest calculated 12 times per year</li>
+                        <li>Quarterly: Interest calculated 4 times per year</li>
+                        <li>Annually: Interest calculated once per year</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4>Investment Tips</h4>
+                    <ul>
+                        <li>Start early to maximize compound growth</li>
+                        <li>Make regular contributions to boost returns</li>
+                        <li>Reinvest dividends for additional growth</li>
+                        <li>Consider your risk tolerance when choosing investments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="financial-calculator.js"></script>
+</body>
+</html> 

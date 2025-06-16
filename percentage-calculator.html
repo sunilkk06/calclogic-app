@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate various percentage problems easily with CalcLogic's suite of percentage calculators.">
+    <meta name="keywords" content="percentage calculator, math calculator, calculate percentage, CalcLogic">
+    <title>Percentage Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="financial-calculator.html">Financial</a></li>
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li class="current"><a href="percentage-calculator.html">Math</a></li>
+                    <li><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Percentage Calculator Section -->
+    <section class="calculator-page-section">
+        <div class="container">
+            <div class="calculator-title-section">
+                <h2>Percentage Calculators</h2>
+                <p>Percentages are a fundamental part of many areas, from finance to statistics. Our percentage calculators help you solve various percentage-related problems quickly and accurately. Use them to find a percentage of a number, calculate percentage increase or decrease, determine what percentage one number is of another, and more.</p>
+            </div>
+
+            <div class="calculator-container card-style">
+                <!-- Sub-calculator 1: What is X% of Y? -->
+                <div class="sub-calculator" id="percent-of-number">
+                    <h4 class="sub-calc-title">1. Calculate Percentage of a Number (What is X% of Y?)</h4>
+                    <form id="percent-of-number-form" class="calculator-form form-group-inline">
+                        <div class="form-group">
+                            <label for="pon-percent">What is</label>
+                            <input type="number" id="pon-percent" step="any" placeholder="e.g., 20"> <span class="inline-symbol">%</span>
+                        </div>
+                         <div class="form-group">
+                            <label for="pon-number">of</label>
+                            <input type="number" id="pon-number" step="any" placeholder="e.g., 150">
+                         </div>
+                         <div class="form-group" style="align-self: flex-end;">
+                            <button type="button" id="calculate-pon-btn" class="btn">Calculate</button>
+                         </div>
+                    </form>
+                    <div class="sub-result" id="pon-result" style="display: none;">
+                        Result: <span id="pon-result-value"></span>
+                    </div>
+                </div>
+
+                <hr class="calc-divider"> <!-- Divider -->
+
+                <!-- Sub-calculator 2: X is what % of Y? -->
+                <div class="sub-calculator" id="is-what-percent">
+                    <h4 class="sub-calc-title">2. Find What Percentage One Number is of Another (X is what % of Y?)</h4>
+                    <form id="is-what-percent-form" class="calculator-form form-group-inline">
+                        <div class="form-group">
+                            <label for="iwp-part">X is</label>
+                            <input type="number" id="iwp-part" step="any" placeholder="e.g., 30">
+                        </div>
+                         <div class="form-group">
+                            <label for="iwp-total">of Y</label>
+                            <input type="number" id="iwp-total" step="any" placeholder="e.g., 150">
+                         </div>
+                         <div class="form-group" style="align-self: flex-end;">
+                            <button type="button" id="calculate-iwp-btn" class="btn">Calculate %</button>
+                         </div>
+                    </form>
+                    <div class="sub-result" id="iwp-result" style="display: none;">
+                        Result: <span id="iwp-result-value"></span>%
+                    </div>
+                </div>
+
+                <hr class="calc-divider"> <!-- Divider -->
+
+                 <!-- Sub-calculator 3: Percentage Change -->
+                <div class="sub-calculator" id="percent-change">
+                    <h4 class="sub-calc-title">3. Calculate Percentage Change (Increase/Decrease)</h4>
+                    <form id="percent-change-form" class="calculator-form form-group-inline">
+                        <div class="form-group">
+                            <label for="pc-value1">Initial Value (V1)</label>
+                            <input type="number" id="pc-value1" step="any" placeholder="e.g., 100">
+                        </div>
+                         <div class="form-group">
+                            <label for="pc-value2">New Value (V2)</label>
+                            <input type="number" id="pc-value2" step="any" placeholder="e.g., 125">
+                         </div>
+                         <div class="form-group" style="align-self: flex-end;">
+                            <button type="button" id="calculate-pc-btn" class="btn">Calculate Change</button>
+                         </div>
+                    </form>
+                    <div class="sub-result" id="pc-result" style="display: none;">
+                        Result: <span id="pc-result-value"></span>% (<span id="pc-result-type"></span>)
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="percentage-calculator.js"></script>
+</body>
+</html> 

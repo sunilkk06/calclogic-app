@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your credit card payoff time and interest costs with our Credit Card Calculator">
+    <title>Credit Card Calculator | CalcLogic</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="/">
+                    <span>Calc</span><span>Logic</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/financial" class="active">Financial</a></li>
+                <li><a href="/fitness">Fitness</a></li>
+                <li><a href="/math">Math</a></li>
+                <li><a href="/other">Other</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="calculator-container">
+        <div class="calculator-header">
+            <h1>Credit Card Calculator</h1>
+            <p class="calculator-description">Calculate your credit card payoff time and interest costs. See how different payment strategies can help you become debt-free faster.</p>
+        </div>
+
+        <div class="calculator-card">
+            <form id="credit-card-form" class="calculator-form">
+                <div class="input-section">
+                    <h2>Credit Card Details</h2>
+                    <div class="input-group">
+                        <label for="balance">Current Balance</label>
+                        <div class="input-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="balance" required min="0" step="0.01" value="5000">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="apr">Annual Interest Rate (APR)</label>
+                        <div class="input-field">
+                            <input type="number" id="apr" required min="0" max="100" step="0.01" value="18">
+                            <span class="percentage-symbol">%</span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="min-payment">Minimum Payment</label>
+                        <div class="input-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="min-payment" required min="0" step="0.01" value="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <h2>Payment Strategy</h2>
+                    <div class="input-group">
+                        <label for="payment-type">Payment Type</label>
+                        <select id="payment-type" required>
+                            <option value="fixed">Fixed Monthly Payment</option>
+                            <option value="percentage">Percentage of Balance</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="monthly-payment">Monthly Payment</label>
+                        <div class="input-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="monthly-payment" required min="0" step="0.01" value="200">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="extra-payment">Extra Monthly Payment</label>
+                        <div class="input-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="extra-payment" min="0" step="0.01" value="0">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="calculate-btn">Calculate Payoff Plan</button>
+            </form>
+
+            <div id="results" class="results-section hidden">
+                <h2>Your Credit Card Payoff Plan</h2>
+                <div class="results-grid">
+                    <div class="result-item">
+                        <span class="result-label">Time to Payoff</span>
+                        <span class="result-value" id="payoff-time">-- months</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Total Interest Paid</span>
+                        <span class="result-value" id="total-interest">$---,---</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Total Amount Paid</span>
+                        <span class="result-value" id="total-paid">$---,---</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Interest Saved</span>
+                        <span class="result-value" id="interest-saved">$---,---</span>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="payoffChart"></canvas>
+                </div>
+
+                <div class="breakdown-table">
+                    <h3>Payment Schedule</h3>
+                    <div class="table-wrapper">
+                        <table id="payoffTable">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Payment</th>
+                                    <th>Principal</th>
+                                    <th>Interest</th>
+                                    <th>Remaining Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-cards">
+            <div class="info-card">
+                <h3>Understanding APR</h3>
+                <p>APR (Annual Percentage Rate) is the yearly interest rate charged on outstanding balances. A lower APR means you'll pay less in interest over time.</p>
+            </div>
+            <div class="info-card">
+                <h3>Minimum Payments</h3>
+                <p>Making only minimum payments can significantly extend your payoff time and increase total interest paid. Try to pay more than the minimum whenever possible.</p>
+            </div>
+            <div class="info-card">
+                <h3>Extra Payments</h3>
+                <p>Even small extra payments can make a big difference in reducing your total interest and payoff time. Consider allocating windfalls or bonuses to credit card payments.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="js/credit-card-calculator.js"></script>
+</body>
+</html> 

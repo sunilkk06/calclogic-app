@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online grade calculator to determine your weighted course grade based on assignment categories, weights, and scores.">
+    <meta name="keywords" content="grade calculator, course grade calculator, weighted grade calculator, final grade calculator, CalcLogic">
+    <title>Grade Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                 <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="financial-calculator.html">Financial</a></li>
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="math-calculator.html">Math</a></li>
+                    <li class="current"><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+             <div id="header-actions">
+                 <!-- <a href="#" class="btn btn-secondary">Sign In</a> -->
+             </div>
+        </div>
+    </header>
+
+    <section class="calculator-page-section">
+        <div class="container calculator-title-section">
+            <h2>Grade Calculator</h2>
+            <p class="description">Calculate your final course grade based on weighted assignments and categories.</p>
+        </div>
+
+        <div class="container grade-layout">
+            <div class="calculator-inputs card-style">
+                <form id="grade-form" class="calculator-form">
+                    <h4>Course Assignments/Categories</h4>
+                    <div id="assignments-container">
+                        <!-- Assignment rows will be added here by JS -->
+                        <div class="assignment-row form-group-inline">
+                            <input type="text" class="assignment-name" placeholder="Assignment/Category (e.g., Homework)">
+                            <input type="number" class="assignment-weight" placeholder="Weight (%)" min="0" max="100" step="any" required>
+                            <input type="number" class="assignment-grade" placeholder="Grade (%)" min="0" step="any" required>
+                            <button type="button" class="btn btn-remove-assignment" title="Remove Assignment"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                         <button type="button" id="add-assignment-btn" class="btn btn-secondary"><i class="fas fa-plus"></i> Add Assignment</button>
+                         <div id="total-weight" style="font-weight: bold;">Total Weight: 0%</div>
+                     </div>
+
+                    <hr class="calc-divider" style="margin: 25px 0;">
+
+                    <!-- Optional: Calculate Grade Needed -->
+                    <!-- <div class="sub-calculator">
+                        <h4 class="sub-calc-title">Grade Needed on Final</h4>
+                        <div class="form-group">
+                            <label for="desired-grade">Desired Overall Course Grade (%):</label>
+                            <input type="number" id="desired-grade" min="0" max="100" step="any" placeholder="e.g., 85">
+                        </div>
+                        <div class="form-group">
+                            <label for="final-weight">Final Exam Weight (%):</label>
+                            <input type="number" id="final-weight" min="0" max="100" step="any" placeholder="e.g., 20">
+                        </div>
+                        <button type="button" id="calc-needed-btn" class="btn">Calculate Needed Grade</button>
+                        <div id="needed-grade-result" class="sub-result" style="margin-top: 15px;"></div>
+                    </div> -->
+
+                     <button type="submit" class="btn" style="margin-top: 20px;">Calculate Overall Grade</button>
+                </form>
+            </div>
+
+            <div class="grade-results-panel card-style">
+                 <h4>Calculated Grade</h4>
+                 <div id="grade-result-display" class="result-display">
+                     <div class="result-placeholder">Enter assignment details and calculate</div>
+                     <!-- Results will be populated here -->
+                     <!-- Example Structure:
+                     <div class="result-item highlight">
+                         <span class="result-label">Overall Course Grade:</span>
+                         <span class="result-value main-result">88.5%</span>
+                     </div>
+                     <div class="result-item">
+                        <span class="result-label">Letter Grade (Approximate):</span>
+                        <span class="result-value">B+</span>
+                    </div>
+                     -->
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="calc-divider container">
+
+     <section class="calculator-info-section">
+        <div class="container">
+            <h3>Understanding Weighted Grades</h3>
+            <p>Many courses use weighted categories (like homework, quizzes, exams) to calculate a final grade. This calculator helps you determine your overall grade based on these weights.</p>
+            <div class="info-cards-container grade-info-cards">
+                <div class="info-card">
+                    <h4>Weights</h4>
+                    <p>The weight (%) represents how much each category contributes to the final grade. Ensure the total weight of all categories adds up to 100% for an accurate calculation.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Calculation</h4>
+                    <p>The calculator multiplies the grade received in each category by its weight, sums these weighted scores, and then divides by the sum of the weights entered.</p>
+                </div>
+                 <div class="info-card">
+                    <h4>Planning Ahead</h4>
+                    <p>Use this tool to track your progress throughout the semester and understand how performance in different areas impacts your overall course grade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="script.js"></script> <!-- General script -->
+</body>
+</html> 

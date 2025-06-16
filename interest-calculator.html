@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate compound and simple interest with CalcLogic's free interest calculator. Compare different interest rates and payment scenarios.">
+    <meta name="keywords" content="interest calculator, compound interest, simple interest, APR calculator, investment calculator, CalcLogic">
+    <title>Interest Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current"><a href="financial-calculator.html">Financial</a></li>
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="percentage-calculator.html">Math</a></li>
+                    <li><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="calculator-page-section">
+        <div class="container">
+            <div class="calculator-title-section">
+                <h2>Interest Calculator</h2>
+                <p>Calculate and compare both simple and compound interest for your investments and loans.</p>
+            </div>
+
+            <div class="calculator-container card-style interest-layout">
+                <div class="calculator-inputs">
+                    <form id="interest-calculator-form" class="calculator-form">
+                        <div class="form-group">
+                            <label for="principal">Principal Amount ($)</label>
+                            <input type="number" id="principal" required min="0" step="0.01" placeholder="10000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="interest-rate">Annual Interest Rate (%)</label>
+                            <input type="number" id="interest-rate" required min="0" max="100" step="0.01" placeholder="5">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time-years">Time Period (Years)</label>
+                            <input type="number" id="time-years" required min="0" step="0.1" placeholder="5">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="compound-frequency">Compound Frequency</label>
+                            <select id="compound-frequency" required>
+                                <option value="1">Annually</option>
+                                <option value="2">Semi-annually</option>
+                                <option value="4">Quarterly</option>
+                                <option value="12" selected>Monthly</option>
+                                <option value="24">Semi-monthly</option>
+                                <option value="26">Bi-weekly</option>
+                                <option value="52">Weekly</option>
+                                <option value="365">Daily</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="additional-contribution">Additional Contribution ($)</label>
+                            <input type="number" id="additional-contribution" min="0" step="0.01" placeholder="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contribution-frequency">Contribution Frequency</label>
+                            <select id="contribution-frequency">
+                                <option value="12" selected>Monthly</option>
+                                <option value="1">Annually</option>
+                                <option value="4">Quarterly</option>
+                                <option value="26">Bi-weekly</option>
+                                <option value="52">Weekly</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn">Calculate Interest</button>
+                    </form>
+                </div>
+
+                <div class="calculator-results interest-results-panel">
+                    <div class="result-tabs">
+                        <button class="tab-btn active" data-tab="compound">Compound Interest</button>
+                        <button class="tab-btn" data-tab="simple">Simple Interest</button>
+                    </div>
+
+                    <div class="tab-content" id="compound-tab">
+                        <div class="result-item highlight">
+                            <span class="result-label">Final Balance</span>
+                            <span class="result-value" id="compound-final-balance">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Total Interest Earned</span>
+                            <span class="result-value" id="compound-interest-earned">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Total Contributions</span>
+                            <span class="result-value" id="total-contributions">$0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="tab-content hidden" id="simple-tab">
+                        <div class="result-item highlight">
+                            <span class="result-label">Final Balance</span>
+                            <span class="result-value" id="simple-final-balance">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Total Interest Earned</span>
+                            <span class="result-value" id="simple-interest-earned">$0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="interest-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="calculator-info-section">
+        <div class="container">
+            <h3>Understanding Interest Calculations</h3>
+            <p>Interest is the cost of borrowing money or the return on investment. Understanding how it's calculated is crucial for making informed financial decisions.</p>
+
+            <div class="info-cards-container interest-info-cards">
+                <div class="info-card">
+                    <h4>Compound Interest Formula</h4>
+                    <p>A = P(1 + r/n)^(nt)</p>
+                    <ul>
+                        <li>A = Final amount</li>
+                        <li>P = Principal amount</li>
+                        <li>r = Annual interest rate (decimal)</li>
+                        <li>n = Number of times interest is compounded per year</li>
+                        <li>t = Time in years</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4>Simple Interest Formula</h4>
+                    <p>A = P(1 + rt)</p>
+                    <ul>
+                        <li>A = Final amount</li>
+                        <li>P = Principal amount</li>
+                        <li>r = Annual interest rate (decimal)</li>
+                        <li>t = Time in years</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4>Common Compound Frequencies</h4>
+                    <ul>
+                        <li>Annually: 1 time per year</li>
+                        <li>Semi-annually: 2 times per year</li>
+                        <li>Quarterly: 4 times per year</li>
+                        <li>Monthly: 12 times per year</li>
+                        <li>Daily: 365 times per year</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="financial-calculator.js"></script>
+</body>
+</html> 

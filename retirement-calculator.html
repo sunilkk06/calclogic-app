@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plan your retirement with our comprehensive retirement calculator. Estimate your retirement savings, analyze different scenarios, and plan for your future.">
+    <meta name="keywords" content="retirement calculator, retirement planning, retirement savings, retirement age calculator, retirement income calculator">
+    <title>Retirement Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current"><a href="financial-calculator.html">Financial</a></li>
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="percentage-calculator.html">Math</a></li>
+                    <li><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="calculator-container">
+        <h1>Retirement Calculator</h1>
+        <p class="calculator-intro">Plan your retirement by estimating your savings and analyzing different scenarios.</p>
+
+        <div class="calculator-layout">
+            <form id="retirement-calculator-form" class="calculator-form">
+                <div class="form-section">
+                    <h2>Current Status</h2>
+                    <div class="input-group">
+                        <label for="current-age">Current Age</label>
+                        <input type="number" id="current-age" min="18" max="100" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="retirement-age">Planned Retirement Age</label>
+                        <input type="number" id="retirement-age" min="40" max="100" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="life-expectancy">Life Expectancy</label>
+                        <input type="number" id="life-expectancy" min="50" max="120" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Current Savings</h2>
+                    <div class="input-group">
+                        <label for="current-savings">Current Retirement Savings ($)</label>
+                        <input type="number" id="current-savings" min="0" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="monthly-contribution">Monthly Contribution ($)</label>
+                        <input type="number" id="monthly-contribution" min="0" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="employer-match">Employer Match (%)</label>
+                        <input type="number" id="employer-match" min="0" max="100">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Investment Details</h2>
+                    <div class="input-group">
+                        <label for="investment-return">Expected Annual Return (%)</label>
+                        <input type="number" id="investment-return" min="0" max="20" step="0.1" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="inflation-rate">Expected Inflation Rate (%)</label>
+                        <input type="number" id="inflation-rate" min="0" max="10" step="0.1" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Retirement Income</h2>
+                    <div class="input-group">
+                        <label for="desired-income">Desired Annual Retirement Income ($)</label>
+                        <input type="number" id="desired-income" min="0" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="social-security">Expected Annual Social Security ($)</label>
+                        <input type="number" id="social-security" min="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="other-income">Other Annual Income ($)</label>
+                        <input type="number" id="other-income" min="0">
+                    </div>
+                </div>
+
+                <button type="button" id="calculate-retirement-btn" class="calculate-btn">Calculate Retirement Plan</button>
+            </form>
+
+            <div class="results-panel">
+                <h2>Retirement Analysis</h2>
+                <div class="retirement-summary">
+                    <div class="result-item">
+                        <span class="label">Total Savings at Retirement:</span>
+                        <span id="total-savings" class="value">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Monthly Income in Retirement:</span>
+                        <span id="monthly-retirement-income" class="value">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Income Gap:</span>
+                        <span id="income-gap" class="value">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Savings Goal Progress:</span>
+                        <div class="progress-bar">
+                            <div id="savings-progress" class="progress" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="retirement-chart"></canvas>
+                </div>
+
+                <div class="retirement-breakdown">
+                    <h3>Savings Breakdown</h3>
+                    <table id="savings-breakdown">
+                        <thead>
+                            <tr>
+                                <th>Age</th>
+                                <th>Year</th>
+                                <th>Annual Savings</th>
+                                <th>Investment Returns</th>
+                                <th>Total Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="breakdown-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <section class="calculator-info">
+            <h2>Understanding Your Retirement Planning</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>Investment Returns</h3>
+                    <p>Historical average stock market returns have been around 7-10% annually before inflation. Consider your risk tolerance when setting expected returns.</p>
+                </div>
+                <div class="info-item">
+                    <h3>Inflation Impact</h3>
+                    <p>Inflation reduces purchasing power over time. The historical average is about 3% annually. Your retirement savings need to account for this.</p>
+                </div>
+                <div class="info-item">
+                    <h3>Social Security</h3>
+                    <p>Social Security benefits can provide supplemental retirement income. Visit the Social Security Administration website to estimate your benefits.</p>
+                </div>
+                <div class="info-item">
+                    <h3>Savings Rate</h3>
+                    <p>Financial experts often recommend saving 10-15% of your income for retirement. Employer matches can help you reach this goal.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="retirement-calculator.js"></script>
+</body>
+</html> 

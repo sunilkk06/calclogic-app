@@ -1,0 +1,2565 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa; /* Lighter background */
+}
+
+.container {
+    max-width: 1100px; /* Adjusted container width */
+    margin: auto;
+    overflow: visible;
+    padding: 0 20px;
+}
+
+a {
+    color: #3498db; /* Updated link color */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: #3498db; /* Primary button color */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    background: #2980b9;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background: #2ecc71; /* Green button color */
+    padding: 8px 18px; /* Adjust padding for sign-in */
+}
+
+.btn-secondary:hover {
+    background: #27ae60;
+}
+
+/* Header/Navbar */
+header {
+    background: #2c3e50; /* Dark header background */
+    color: #ecf0f1; /* Light text color */
+    padding: 10px 0;
+    min-height: auto;
+    border-bottom: none;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header .container,
+nav.nav-container /* Apply container and flex rules here too */
+{
+    max-width: 1100px; /* Need container width */
+    margin: auto;      /* Need centering */
+    padding: 0 20px;   /* Need padding */
+    display: flex;           /* Needs flex */
+    justify-content: space-between; /* Needs space-between */
+    align-items: center;     /* Needs align-items */
+}
+
+header #branding h1 a {
+    color: #ecf0f1; /* Light brand text */
+    text-decoration: none;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+/* Style for the logo icon */
+header #branding h1 a .logo-icon,
+header .logo a .logo-icon /* Added selector for .logo */
+{
+    color: #3498db; /* Blue icon */
+    font-size: 0.9em;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Style for the split brand name */
+header #branding h1 a .brand-part1,
+header .logo a .brand-part1 /* Added selector for .logo */
+{
+    color: #ecf0f1; /* Light text */
+}
+
+header #branding h1 a .brand-part2,
+header .logo a .brand-part2 /* Added selector for .logo */
+{
+    color: #3498db; /* Blue text */
+}
+
+/* Ensure logo link itself has base styling */
+header .logo a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 26px; /* Match h1 font-size */
+    font-weight: bold; /* Match h1 font-weight */
+    display: inline-flex; /* Align icon and text */
+    align-items: center;
+}
+
+header nav ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    display: flex;
+}
+
+header nav li {
+    margin-left: 25px;
+}
+
+header nav a {
+    color: #bdc3c7; /* Lighter gray for nav links */
+    text-decoration: none;
+    text-transform: none;
+    font-size: 16px;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover,
+header nav .current a {
+    color: #ffffff; /* White on hover/current */
+    border-bottom: 2px solid #3498db; /* Blue underline */
+    text-decoration: none;
+}
+
+header #header-actions {
+    margin-left: 20px; /* Space before sign-in button */
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #4e73df 0%, #1cc88a 100%); /* Updated Blue/Green gradient */
+    color: #fff;
+    padding: 80px 0 60px 0;
+    text-align: left;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Increased gap */
+}
+
+.calculator-widget.simple-calc-widget {
+    background: rgba(44, 62, 80, 0.75); /* Semi-transparent dark background */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    width: 400px;
+    flex-shrink: 0;
+    color: #ecf0f1; /* Light text color */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.calculator-display#hero-calc-display {
+    background-color: rgba(0, 0, 0, 0.2); /* Darker transparent background */
+    color: #ffffff; /* White text */
+    font-size: 2.8em;
+    font-weight: 300;
+    padding: 15px 20px;
+    text-align: right;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: none; /* Removed border */
+}
+
+.simple-calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.simple-calc-buttons button {
+    padding: 12px 5px;
+    font-size: 1em;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Lighter border */
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background */
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+    color: #ffffff; /* White text */
+}
+
+.simple-calc-buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.simple-calc-buttons button.op-btn {
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly different background for operators */
+    color: #1cc88a; /* Accent color for operators */
+    font-weight: 500;
+}
+
+.simple-calc-buttons button.eq-btn {
+    background-color: #1cc88a; /* Accent color */
+    color: #fff;
+    font-weight: bold;
+    border-color: #1cc88a;
+}
+
+.simple-calc-buttons button.op-btn:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+.simple-calc-buttons button.eq-btn:hover {
+    background-color: #18a874; /* Darker accent */
+    border-color: #18a874;
+}
+
+/* Hero text styling */
+.hero-text {
+    flex-grow: 1;
+}
+
+.hero-text h2 {
+    font-size: 42px; /* Larger heading */
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.search-form {
+    display: flex;
+    /* background: #fff; */ /* Removed white background */
+    border-radius: 5px;
+    overflow: hidden;
+    max-width: 450px;
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.1); */ /* Removed shadow */
+    margin-top: 25px; /* Added margin */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6); /* Add bottom border */
+}
+
+.search-form input[type="search"] {
+    padding: 12px 15px;
+    border: none;
+    flex-grow: 1;
+    font-size: 16px;
+    /* color: #555; */
+    color: rgba(255, 255, 255, 0.9); /* Lighter text */
+    background: transparent; /* Transparent background */
+    placeholder-color: rgba(255, 255, 255, 0.7); /* Lighter placeholder */
+}
+
+.search-form input[type="search"]::placeholder { /* Standard */
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 1; /* Firefox */
+}
+
+.search-form input[type="search"]:-ms-input-placeholder { /* IE/Edge */
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-form input[type="search"]::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-form input[type="search"]:focus {
+    outline: none;
+    background: rgba(0,0,0,0.1); /* Subtle focus background */
+}
+
+.search-form .btn {
+    border-radius: 0; /* Remove button radius */
+    padding: 12px 20px;
+    /* background-color: #2ecc71; */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent button */
+    border: none;
+    color: #fff;
+}
+.search-form .btn:hover {
+     background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Calculator Section */
+.calculator-section {
+     padding: 60px 0;
+}
+
+/* Calculator Category Styling (like the screenshot) */
+.calculator-category {
+    background: #fff;
+    margin-bottom: 40px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e3e6f0;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.category-icon {
+    font-size: 2.5em;
+    color: #fff;
+    background-color: #4e73df; /* Icon background */
+    padding: 15px;
+    border-radius: 50%;
+    margin-right: 20px;
+    width: 70px;
+    height: 70px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.calculator-category h2 {
+    color: #4e73df; /* Match icon background */
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    /* Remove old h2 styles */
+    /* border-bottom: 2px solid #eee; */
+    /* padding-bottom: 10px; */
+}
+
+.calculator-grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Responsive grid */
+    gap: 20px 30px; /* Row and column gap */
+}
+
+.calculator-grid li {
+    /* Add border-bottom style to mimic screenshot */
+    border-bottom: 1px solid #e3e6f0;
+    padding-bottom: 10px;
+}
+
+.calculator-grid li a {
+    text-decoration: none;
+    color: #5a5c69; /* Subtle link color */
+    display: block;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    font-size: 15px;
+}
+
+.calculator-grid li a:hover {
+    color: #007bff;
+    text-decoration: none; /* No underline on hover needed */
+}
+
+.category-footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.category-footer .btn {
+    background-color: #4e73df;
+    border: 1px solid #4e73df;
+}
+.category-footer .btn:hover {
+     background-color: #3b5bb4;
+     border-color: #3b5bb4;
+}
+
+
+/* Explore More Section */
+.explore-more {
+    background: linear-gradient(135deg, #4e73df 0%, #1cc88a 100%); /* Match hero gradient */
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.explore-more h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.explore-more p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.explore-more .btn {
+    background: #fff;
+    color: #4e73df;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.explore-more .btn:hover {
+    background: #f1f1f1;
+    color: #3b5bb4;
+}
+
+/* Footer */
+footer {
+    background: #34495e; /* Dark gray-blue background */
+    color: #ecf0f1; /* Light text */
+    padding: 40px 0;
+    margin-top: 40px;
+    /* border-top: 3px solid #3498db; */ /* Removed this line */
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
+.footer-section h4 {
+    color: #ffffff; /* White headings */
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 1px solid #46637f;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.footer-section p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul a {
+    color: #dfe6e9; /* Made links slightly brighter */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul a:hover {
+    color: #ffffff; /* White on hover */
+}
+
+.footer-bottom {
+    background: #1f2b38; /* Even darker bottom bar */
+    color: #95a5a6; /* Dimmer text */
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+    font-size: 13px;
+}
+
+/* Calculator Page Specific Styles */
+.calculator-page-section {
+    padding: 60px 0;
+    background-color: #f8f9fa; /* Match body background */
+}
+
+.calculator-container.card-style {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e3e6f0;
+    max-width: 700px; /* Limit width for better readability */
+    margin: 0 auto; /* Center the calculator */
+}
+
+.calculator-container h2 {
+    text-align: center;
+    color: #4e73df;
+    margin-bottom: 15px;
+}
+
+.calculator-container .description {
+    text-align: center;
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+
+.calculator-form .form-group {
+    margin-bottom: 20px;
+}
+
+.calculator-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #5a5c69;
+}
+
+.calculator-form input[type="number"],
+.calculator-form input[type="date"],
+.calculator-form select /* Add select styling */
+{
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d3e2;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+    background-color: #fff; /* Ensure select background is white */
+    appearance: none; /* Remove default select arrow */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 0.65em auto;
+    padding-right: 2.5em; /* Make space for arrow */
+}
+
+/* Style for select focus */
+.calculator-form select:focus {
+     outline: none;
+    border-color: #4e73df;
+    box-shadow: 0 0 0 2px rgba(78, 115, 223, 0.25);
+}
+
+.calculator-form input[type="range"] {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    appearance: none;
+    background: #dee2e6;
+    border-radius: 5px;
+    outline: none;
+    margin-top: 8px; /* Space above slider */
+}
+
+/* Slider thumb styling (Chrome, Edge, Safari) */
+.calculator-form input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid #fff;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+
+/* Slider thumb styling (Firefox) */
+.calculator-form input[type="range"]::-moz-range-thumb {
+    width: 15px; /* Slightly smaller for FF */
+    height: 15px;
+    background: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid #fff;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+
+.slider-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-slider-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.input-slider-wrapper input[type="number"] {
+    width: 80px; /* Fixed width for number input next to slider */
+    flex-shrink: 0;
+    padding: 5px 8px; /* Smaller padding */
+    font-size: 14px;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.calculator-form .form-group-inline {
+    display: flex;
+    gap: 15px;
+}
+
+.calculator-form .form-group-inline > div {
+    flex: 1;
+}
+
+.calculator-form .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.unit-selector {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.unit-selector label {
+    margin: 0 10px 0 5px;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.unit-selector input[type="radio"] {
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+.calculator-result {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e9f5ff; /* Light blue background */
+    border: 1px solid #b8dfff;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.calculator-result h4 {
+    margin-bottom: 15px;
+    color: #0056b3;
+}
+
+.calculator-result p {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.calculator-result span {
+    font-weight: bold;
+    color: #004085;
+}
+
+/* Styles for Percentage Calculator Page */
+.sub-calculator {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    /* border-bottom: 1px solid #e3e6f0; */ /* Use hr instead */
+}
+
+.calc-divider {
+    border: 0;
+    height: 1px;
+    background-color: #e3e6f0;
+    margin: 30px 0;
+}
+
+.sub-calculator:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    /* border-bottom: none; */
+}
+
+h4.sub-calc-title {
+    color: #5a5c69;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.sub-calculator .btn {
+    width: auto; /* Don't make sub-calc buttons full width */
+    padding: 8px 15px;
+    font-size: 14px;
+    margin-top: 0;
+}
+
+.sub-result {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #0056b3;
+    font-weight: bold;
+}
+
+/* Percentage Calculator Specific Styles */
+.calculator-form.form-group-inline {
+    /* Overwrite display: flex for sub-calculator forms if needed, */
+    /* or adjust alignment for the specific layout */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 15px 20px; /* Row and column gap */
+    align-items: flex-end; /* Align items to the bottom by default */
+}
+
+.calculator-form.form-group-inline .form-group {
+    flex: 1 1 auto; /* Allow items to grow and shrink, auto basis */
+    margin-bottom: 0; /* Remove default bottom margin */
+    min-width: 100px; /* Prevent inputs from becoming too small */
+}
+
+/* Specific adjustments for percentage inputs */
+.calculator-form.form-group-inline .form-group input[type="number"] {
+    width: calc(100% - 30px); /* Adjust width to accommodate inline symbol */
+    display: inline-block; /* Allow symbol span next to it */
+    margin-right: 5px;
+}
+
+.calculator-form.form-group-inline .form-group .inline-symbol {
+    font-size: 16px;
+    color: #5a5c69;
+    display: inline-block;
+    width: 20px; /* Fixed width for symbol */
+}
+
+/* Adjust button alignment/size in inline forms */
+.calculator-form.form-group-inline .form-group button.btn {
+    width: auto; /* Button doesn't need to be full width */
+    padding: 10px 20px; /* Match standard input height */
+    margin-bottom: 0; /* Remove potential margin inherited */
+}
+
+/* Ensure labels are above inputs in inline forms */
+.calculator-form.form-group-inline .form-group label {
+    display: block; /* Ensure label is on its own line */
+    margin-bottom: 8px;
+}
+
+/* Style for sub-result display */
+.sub-result {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #e9f5ff;
+    border: 1px solid #b8dfff;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #0056b3;
+    font-weight: normal;
+}
+
+.sub-result span {
+    font-weight: bold;
+}
+
+/* Responsive Adjustments for Percentage Calculators */
+@media(max-width: 576px) {
+    .calculator-form.form-group-inline {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: stretch; /* Stretch items to full width */
+    }
+
+    .calculator-form.form-group-inline .form-group {
+        min-width: 100%; /* Full width */
+    }
+
+     .calculator-form.form-group-inline .form-group input[type="number"] {
+        width: calc(100% - 35px); /* Adjust width slightly for smaller screens */
+    }
+
+    .calculator-form.form-group-inline .form-group button.btn {
+        width: 100%; /* Make button full width */
+    }
+}
+
+/* Responsive Adjustments */
+
+@media(max-width: 991px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .calculator-widget {
+        width: 100%; /* Full width on smaller screens */
+        max-width: 400px; /* Max width */
+        margin-bottom: 30px;
+    }
+    .hero-text {
+        align-items: center;
+    }
+    .search-form {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .footer-content {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media(max-width: 767px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    header nav {
+        margin-top: 10px;
+        width: 100%; /* Full width nav */
+    }
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    header nav li {
+        margin-left: 0;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+     header nav a {
+        display: block; /* Make links full width */
+        padding: 8px 0;
+    }
+    header nav .current a,
+    header nav a:hover {
+        border-bottom: none; /* Remove border on mobile */
+        background-color: #f1f1f1;
+        padding-left: 10px; /* Indent on hover/active */
+    }
+    header #header-actions {
+        margin-top: 10px;
+        width: 100%;
+    }
+    header #header-actions .btn {
+        display: block; /* Full width button */
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .hero {
+        padding: 40px 0;
+    }
+    .hero-text h2 {
+        font-size: 28px;
+    }
+    .search-form input[type="search"],
+    .search-form .btn {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    .calculator-category {
+        padding: 20px;
+    }
+    .category-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .category-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    .calculator-category h2 {
+        font-size: 20px;
+    }
+    .calculator-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 15px;
+    }
+    .calculator-grid li {
+        text-align: center;
+    }
+
+    .explore-more h2 {
+        font-size: 26px;
+    }
+    .explore-more p {
+        font-size: 16px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr; /* Single column footer */
+        text-align: center;
+    }
+    .footer-section h4 {
+        display: block;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 10px;
+    }
+    .footer-section h4::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 2px;
+        background: #46637f;
+        margin: 5px auto 10px;
+    }
+
+    .calculator-container.card-style {
+        padding: 20px;
+    }
+}
+
+/* Remove old responsive styles if they conflict */
+/* @media(min-width: 768px) { ... } */
+/* @media(min-width: 992px) { ... } */
+
+/* Add layout for BMI page */
+.bmi-layout {
+    display: flex;
+    gap: 40px;
+    max-width: 1000px; /* Wider container for two columns */
+}
+
+.calculator-inputs {
+    flex: 1; /* Take available space */
+    min-width: 0; /* Prevent overflow issues in flex */
+}
+
+.calculator-results {
+    flex-basis: 300px; /* Fixed width for results panel */
+    flex-shrink: 0;
+    background-color: #f8f9fa; /* Light background for panel */
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e3e6f0;
+    text-align: center;
+}
+
+.calculator-title-section {
+    max-width: 1000px; /* Match calculator width */
+    margin: 0 auto 30px auto; /* Center and add bottom margin */
+    text-align: center;
+}
+
+.calculator-title-section h2 {
+    color: #4e73df;
+    margin-bottom: 10px;
+}
+
+.calculator-title-section p {
+     color: #6c757d;
+     font-size: 16px;
+     line-height: 1.7;
+}
+
+/* Update result display */
+.calculator-result {
+    /* Remove old styles, handled by .calculator-results panel now */
+    /* margin-top: 30px; */
+    /* padding: 20px; */
+    /* background-color: #e9f5ff; */
+    /* border: 1px solid #b8dfff; */
+    /* border-radius: 5px; */
+    /* text-align: center; */
+}
+
+.bmi-results-panel .result-item {
+    margin-bottom: 20px;
+}
+
+.bmi-results-panel .result-label {
+    display: block;
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.bmi-results-panel .result-value {
+    display: block;
+    font-size: 1.5em; /* Larger font for values */
+    font-weight: 600;
+    color: #333;
+}
+
+.bmi-results-panel .result-value.main-result {
+     font-size: 2.8em; /* Even larger for main BMI value */
+     color: #007bff;
+     margin-bottom: 10px;
+}
+
+/* BMI Scale Styles */
+.bmi-scale-container {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.bmi-scale-bar {
+    position: relative;
+    height: 15px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden; /* Important for gradient */
+    margin-bottom: 10px;
+}
+
+.bmi-scale-gradient {
+    height: 100%;
+    width: 100%;
+    /* Updated gradient based on categories */
+    background: linear-gradient(to right,
+        #6dd5ed 0%, /* Underweight Blue */
+        #59cd90 calc(18.5 / 40 * 100%), /* Normal Green start */
+        #fbbd08 calc(25 / 40 * 100%), /* Overweight Yellow start */
+        #f2711c calc(30 / 40 * 100%), /* Obese Orange start */
+        #db2828 calc(35 / 40 * 100%) /* Extreme Obese Red start */
+    );
+}
+
+.bmi-scale-indicator {
+    position: absolute;
+    bottom: -5px; /* Position slightly below the bar */
+    left: 0%; /* Start at 0, JS will update */
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 12px solid #333; /* Triangle pointing up */
+    transition: left 0.5s ease-out; /* Smooth transition */
+    z-index: 10;
+}
+
+.bmi-scale-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #6c757d;
+    text-align: center;
+    padding: 0 5px; /* Add padding to align text better */
+}
+
+.bmi-scale-labels > div {
+    /* Adjust widths to roughly match gradient stops */
+    width: auto; /* Let flexbox handle width based on content */
+    line-height: 1.2;
+    flex-shrink: 0; /* Prevent labels from shrinking */
+    padding: 0 2px; /* Small padding around text */
+}
+.bmi-scale-labels span {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+/* Style for the BMI info cards container */
+.bmi-info-cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust minmax for potentially 3 cards */
+}
+
+.bmi-info-cards .info-card ul {
+    list-style: none; /* Remove default list style */
+    padding-left: 0;
+}
+
+.bmi-info-cards .info-card ul li {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Style for the divider */
+.calc-divider.container {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    max-width: 1200px; /* Ensure divider uses container width */
+}
+
+/* Responsive Adjustments */
+@media(max-width: 767px) {
+    /* Adjust BMI layout for mobile */
+     .bmi-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .calculator-results {
+        flex-basis: auto; /* Allow results panel to grow */
+    }
+    /* ... other mobile styles ... */
+}
+
+/* Loan Calculator Specific Styles */
+.loan-layout {
+    display: flex;
+    gap: 40px;
+    max-width: 1000px;
+}
+
+.loan-results-panel {
+    flex-basis: 300px;
+    flex-shrink: 0;
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e3e6f0;
+    text-align: center;
+}
+
+.loan-summary {
+    margin: 30px 0;
+    padding: 20px 0;
+    border-top: 1px solid #e3e6f0;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.loan-summary .result-item {
+    margin-bottom: 15px;
+}
+
+.loan-summary .result-item.total {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed #e3e6f0;
+}
+
+.loan-chart-container {
+    margin-top: 30px;
+}
+
+.loan-breakdown {
+    text-align: left;
+}
+
+.breakdown-bar {
+    height: 20px;
+    background: #f1f1f1;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.breakdown-bar .principal-portion {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #4e73df;
+    transition: width 0.5s ease-out;
+}
+
+.breakdown-bar .interest-portion {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-color: #1cc88a;
+    transition: width 0.5s ease-out;
+}
+
+.breakdown-labels {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.color-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.color-dot.principal {
+    background-color: #4e73df;
+}
+
+.color-dot.interest {
+    background-color: #1cc88a;
+}
+
+.result-item.highlight {
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.result-item .main-result {
+    font-size: 2.5em;
+    color: #4e73df;
+    font-weight: 600;
+}
+
+/* Responsive adjustments for loan calculator */
+@media(max-width: 767px) {
+    .loan-layout {
+        flex-direction: column;
+    }
+    
+    .loan-results-panel {
+        flex-basis: auto;
+    }
+}
+
+/* Informational Content Section Styles */
+.calculator-info-section {
+    padding: 40px 0 60px 0;
+    background-color: #fff; /* White background for contrast */
+    border-top: 1px solid #e3e6f0;
+}
+
+.calculator-info-section h3 {
+    color: #4e73df;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e3e6f0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.calculator-info-section h3:first-child {
+    margin-top: 0;
+}
+
+.calculator-info-section p,
+.calculator-info-section ul {
+    color: #5a5c69;
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.calculator-info-section ul {
+    list-style: disc;
+    padding-left: 25px;
+}
+
+.calculator-info-section ul li {
+    margin-bottom: 10px;
+}
+
+/* Info Cards */
+.info-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.info-card {
+    background-color: #f8f9fa; /* Light background for cards */
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e3e6f0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.info-card h4 {
+    color: #4e73df;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.info-card p {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 0;
+}
+
+/* Calorie Calculator Specific Styles */
+.calorie-layout {
+    display: flex;
+    gap: 40px;
+    max-width: 1000px;
+}
+
+.calorie-layout .calculator-inputs {
+    flex: 1;
+    min-width: 0;
+}
+
+.calorie-results-panel {
+    flex-basis: 350px; /* Slightly wider panel for calorie goals */
+    flex-shrink: 0;
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e3e6f0;
+}
+
+.calorie-results-panel .highlight {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.calorie-results-panel .main-result {
+    display: block; /* Ensure it takes full width */
+    font-size: 2.8em;
+    color: #007bff; /* Match BMI main result color */
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.calorie-results-panel .result-unit {
+    display: block;
+    font-size: 14px;
+    color: #6c757d;
+    margin-top: -5px; /* Bring unit closer to value */
+}
+
+.calorie-goals {
+    margin-top: 20px;
+    border-top: 1px solid #e3e6f0;
+    padding-top: 20px;
+}
+
+.calorie-goals h4 {
+    text-align: center;
+    color: #5a5c69;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.calorie-goals .result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #e3e6f0;
+}
+
+.calorie-goals .result-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.calorie-goals .result-label {
+    font-size: 14px;
+    color: #6c757d;
+    text-align: left;
+    flex-basis: 65%; /* Give label more space */
+}
+
+.calorie-goals .result-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+}
+
+/* Responsive adjustments for calorie calculator */
+@media(max-width: 767px) {
+    .calorie-layout {
+        flex-direction: column;
+    }
+    
+    .calorie-results-panel {
+        flex-basis: auto;
+        margin-top: 30px; /* Add space when stacking */
+    }
+
+    .calorie-goals .result-item {
+        flex-direction: column; /* Stack label and value */
+        align-items: flex-start; /* Align items left */
+        gap: 5px;
+    }
+
+    .calorie-goals .result-label,
+    .calorie-goals .result-value {
+        text-align: left;
+        flex-basis: auto;
+    }
+}
+
+/* Style for the Calorie info cards container */
+.calorie-info-cards {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Style for the divider */
+.calc-divider.container {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    max-width: 1200px; /* Ensure divider uses container width */
+}
+
+/* Responsive Adjustments */
+@media(max-width: 767px) {
+    /* Adjust BMI layout for mobile */
+     .bmi-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .calculator-results {
+        flex-basis: auto; /* Allow results panel to grow */
+    }
+    /* ... other mobile styles ... */
+}
+
+/* Body Fat Calculator Specific Styles */
+.bodyfat-layout {
+    display: flex;
+    gap: 40px;
+    max-width: 1000px;
+}
+
+.bodyfat-layout .calculator-inputs {
+    flex: 1;
+    min-width: 0;
+}
+
+.bodyfat-results-panel {
+    flex-basis: 350px;
+    flex-shrink: 0;
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e3e6f0;
+}
+
+.bodyfat-results-panel .highlight {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.bodyfat-results-panel .main-result {
+    display: block;
+    font-size: 2.8em;
+    color: #1cc88a; /* Use a different color, maybe green */
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.bodyfat-results-panel .result-unit {
+    display: inline-block; /* Display unit next to value or on next line depending on context */
+    font-size: 14px;
+    color: #6c757d;
+    margin-left: 3px;
+}
+
+.bodyfat-results-panel .result-item {
+     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #e3e6f0;
+}
+
+.bodyfat-results-panel .result-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.bodyfat-results-panel .result-label {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.bodyfat-results-panel .result-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+}
+
+/* Style for the Body Fat info cards */
+.bodyfat-info-cards {
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.bodyfat-info-cards .info-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.bodyfat-info-cards .info-card ul li {
+    font-size: 13px; /* Slightly smaller text */
+    color: #6c757d;
+    margin-bottom: 6px;
+}
+
+.bodyfat-info-cards .info-card small {
+     display: block;
+     margin-top: 10px;
+     font-size: 12px;
+     color: #858796;
+}
+
+/* BMR Calculator Specific Styles */
+.bmr-layout {
+    display: flex;
+    gap: 40px;
+    max-width: 1000px;
+}
+
+.bmr-layout .calculator-inputs {
+    flex: 1;
+    min-width: 0;
+}
+
+.bmr-results-panel {
+    flex-basis: 350px;
+    flex-shrink: 0;
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e3e6f0;
+    text-align: center; /* Center BMR result */
+}
+
+.bmr-results-panel .highlight {
+    margin-bottom: 0; /* Remove margin as it's the only item */
+}
+
+.bmr-results-panel .main-result {
+    display: block;
+    font-size: 2.8em;
+    color: #f6c23e; /* Use another color, maybe yellow/orange */
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.bmr-results-panel .result-unit {
+    display: block;
+    font-size: 14px;
+    color: #6c757d;
+    margin-top: -5px;
+}
+
+/* Style for the BMR info cards */
+.bmr-info-cards {
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Responsive adjustments for Body Fat & BMR */
+@media(max-width: 767px) {
+    .bodyfat-layout,
+    .bmr-layout {
+        flex-direction: column;
+    }
+
+    .bodyfat-results-panel,
+    .bmr-results-panel {
+        flex-basis: auto;
+        margin-top: 30px;
+    }
+}
+
+/* Age Calculator Specific Styles */
+.age-layout {
+    display: flex;
+    gap: 40px;
+    max-width: 800px; /* Can be narrower than fitness calculators */
+}
+
+.age-layout .calculator-inputs {
+    flex: 1;
+    min-width: 0;
+}
+
+.age-results-panel {
+    flex-basis: 300px;
+    flex-shrink: 0;
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e3e6f0;
+    text-align: center;
+}
+
+.age-results-panel .highlight {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.age-results-panel .result-label {
+    display: block;
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+#age-result-display .result-value {
+    display: block; /* Each part (Y, M, D) on its own line */
+    font-size: 2.2em; /* Slightly smaller than main results */
+    font-weight: 600;
+    color: #36b9cc; /* Use a different color, maybe teal */
+    line-height: 1.2;
+    margin-bottom: 5px;
+}
+
+#age-result-display .result-value.main-result { /* Style for Years */
+    font-size: 2.8em;
+}
+
+#age-result-display .result-value span { /* Unit text like Years, Months */
+    font-size: 0.5em; /* Make unit text smaller */
+    font-weight: normal;
+    color: #858796;
+    margin-left: 5px;
+}
+
+.age-results-panel .additional-info .result-label {
+    margin-bottom: 5px;
+}
+
+.age-results-panel .additional-info .result-value {
+     font-size: 1.5em;
+     font-weight: 600;
+     color: #5a5c69;
+}
+
+/* Style for the Age info cards */
+.age-info-cards {
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Responsive adjustments */
+@media(max-width: 767px) {
+    .age-layout {
+        flex-direction: column;
+    }
+    .age-results-panel {
+        flex-basis: auto;
+        margin-top: 30px;
+    }
+}
+
+/* Date Calculator Specific Styles */
+.date-layout .sub-calculator:last-child {
+    /* Remove bottom border/margin if it's the placeholder */
+}
+
+/* Styles for duration results */
+#duration-result strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #5a5c69;
+}
+
+#duration-details span {
+    font-weight: bold;
+    color: #e74a3b; /* Use a different color, maybe red */
+    font-size: 1.2em;
+}
+
+#duration-result div:last-child { /* Total days */
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+#duration-result div:last-child span {
+    color: #e74a3b; /* Match color */
+    font-size: 1.2em; /* Match size */
+}
+
+/* Style for the Date info cards */
+.date-info-cards {
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Responsive adjustments */
+@media(max-width: 767px) {
+    /* Add specific responsive styles if needed */
+}
+
+/* Simple Interest Calculator Specific Styles */
+.simple-interest-layout {
+    display: flex;
+    gap: 40px;
+    max-width: 800px; /* Can be narrower */
+}
+
+.simple-interest-layout .calculator-inputs {
+    flex: 1;
+    min-width: 0;
+}
+
+.si-results-panel {
+    flex-basis: 300px;
+    flex-shrink: 0;
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e3e6f0;
+    text-align: center;
+}
+
+.si-results-panel .highlight {
+     margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.si-results-panel .result-label {
+    display: block;
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.si-results-panel .main-result {
+    display: block;
+    font-size: 2.8em;
+    color: #4e73df; /* Match financial theme */
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.si-results-panel .result-item .result-value {
+     font-size: 1.8em;
+     font-weight: 600;
+     color: #5a5c69;
+}
+
+/* Style for the Simple Interest info cards */
+.si-info-cards {
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.si-info-cards .info-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.si-info-cards .info-card ul li {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+/* Responsive Adjustments */
+@media(max-width: 767px) {
+    .simple-interest-layout {
+        flex-direction: column;
+    }
+    .si-results-panel {
+        flex-basis: auto;
+        margin-top: 30px;
+    }
+}
+
+/* Auto Loan Calculator Specific Styles */
+.auto-loan-layout {
+    display: flex;
+    gap: 40px;
+    max-width: 1000px; /* Wider layout */
+}
+
+.auto-loan-layout .calculator-inputs {
+    flex: 2; /* Give inputs slightly more space */
+    min-width: 0;
+}
+
+.al-results-panel {
+    flex: 1; /* Give results less space */
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e3e6f0;
+}
+
+.al-results-panel .highlight {
+     text-align: center;
+     margin-bottom: 25px;
+     padding-bottom: 20px;
+     border-bottom: 1px solid #e3e6f0;
+}
+
+.al-results-panel .result-label {
+    display: block;
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.al-results-panel .main-result {
+    display: block;
+    font-size: 2.8em;
+    color: #4e73df; /* Match financial theme */
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.al-results-panel .result-item {
+     display: flex;
+     justify-content: space-between;
+     align-items: center; /* Align label and value */
+     margin-bottom: 15px;
+     padding-bottom: 15px;
+     border-bottom: 1px dashed #e3e6f0;
+}
+
+.al-results-panel .result-item:last-child {
+     margin-bottom: 0;
+     padding-bottom: 0;
+     border-bottom: none;
+}
+
+.al-results-panel .result-item.total .result-label {
+    font-weight: bold;
+    color: #5a5c69;
+}
+
+.al-results-panel .result-item .result-value {
+     font-size: 1.5em; /* Slightly smaller value */
+     font-weight: 600;
+     color: #5a5c69;
+     text-align: right;
+}
+
+.al-results-panel .result-item.total .result-value {
+     font-size: 1.6em; /* Make total value slightly larger */
+     font-weight: bold;
+     color: #4e73df;
+}
+
+/* Style for the Auto Loan info cards */
+.al-info-cards {
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.al-info-cards .info-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.al-info-cards .info-card ul li {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+/* Responsive Adjustments */
+@media(max-width: 767px) {
+    .auto-loan-layout {
+        flex-direction: column;
+    }
+    .al-results-panel {
+        flex-basis: auto;
+        margin-top: 30px;
+    }
+}
+
+/* Calculator Category Section Styles */
+.calculator-category-section {
+    padding: 40px 0;
+    background-color: #f9f9f9;
+}
+
+.calculator-category-section h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    text-align: center;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.calculator-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calculator-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+}
+
+.calculator-icon {
+    font-size: 2.5em;
+    color: #2196F3;
+    margin-bottom: 20px;
+}
+
+.calculator-card h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.calculator-card p {
+    color: #666;
+    margin-bottom: 20px;
+    min-height: 60px;
+}
+
+.calculator-card .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2196F3;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.calculator-card .btn:hover {
+    background-color: #1976D2;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .calculator-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+    
+    .calculator-card {
+        padding: 20px;
+    }
+}
+
+/* Mortgage Calculator Specific Styles */
+.calculator-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.calculator-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.calculator-header h1 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.calculator-header i {
+    margin-right: 0.5rem;
+    color: #3498db;
+}
+
+.calculator-main {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.calculator-form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group h2 {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #34495e;
+    font-weight: 500;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.currency-symbol {
+    position: absolute;
+    left: 1rem;
+    color: #7f8c8d;
+}
+
+.input-wrapper input {
+    padding-left: 2rem;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus,
+select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.calculate-button {
+    width: 100%;
+    padding: 1rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calculate-button:hover {
+    background: #2980b9;
+}
+
+.results-section {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.results-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.result-item {
+    text-align: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.result-item h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.result-value {
+    color: #3498db;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.result-item small {
+    color: #7f8c8d;
+    font-size: 0.875rem;
+}
+
+.chart-container {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.chart-container h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.amortization-schedule {
+    margin-top: 2rem;
+}
+
+.amortization-schedule h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.calculator-footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: #7f8c8d;
+}
+
+.calculator-nav {
+    margin-top: 1rem;
+}
+
+.calculator-nav a {
+    color: #3498db;
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+.calculator-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .calculator-main {
+        grid-template-columns: 1fr;
+    }
+    
+    .results-summary {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .calculator-container {
+        padding: 1rem;
+    }
+    
+    .calculator-form,
+    .results-section {
+        padding: 1.5rem;
+    }
+}
+
+/* Scientific Calculator Styles - Updated */
+.calculator-page-section .scientific-calculator {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.calculator-page-section .calculator-display {
+    background-color: #f8f9fa;
+    border: 1px solid #e3e6f0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    text-align: right;
+    font-family: 'Courier New', monospace;
+}
+
+.calculator-page-section .expression {
+    font-size: 16px;
+    color: #858796;
+    min-height: 24px;
+    margin-bottom: 8px;
+    word-wrap: break-word;
+}
+
+.calculator-page-section .result {
+    font-size: 32px;
+    color: #4e73df;
+    font-weight: bold;
+    min-height: 40px;
+    word-wrap: break-word;
+}
+
+.calculator-page-section .calculator-buttons {
+    display: grid;
+    gap: 10px; /* Gap between rows */
+}
+
+.calculator-page-section .button-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 buttons per row */
+    gap: 8px; /* Gap between buttons in a row */
+}
+
+.calculator-page-section .calc-btn {
+    padding: 15px 10px;
+    border: 1px solid #e3e6f0;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: #fff;
+    color: #5a5c69;
+    font-weight: 500;
+    text-align: center;
+}
+
+.calculator-page-section .calc-btn:hover {
+    background-color: #f8f9fc;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.calculator-page-section .calc-btn:active {
+    transform: translateY(0);
+}
+
+.calculator-page-section .calc-btn.memory {
+    background-color: #f0f3ff; /* Lighter blue */
+    color: #4e73df;
+}
+
+.calculator-page-section .calc-btn.function {
+    background-color: #edfcf5; /* Lighter green */
+    color: #1cc88a;
+}
+
+.calculator-page-section .calc-btn.operator {
+    background-color: #fef6f5; /* Lighter red */
+    color: #e74a3b;
+}
+
+.calculator-page-section .calc-btn.number {
+    background-color: #fff;
+    font-weight: 600;
+}
+
+.calculator-page-section .calc-btn.equals {
+    background-color: #4e73df;
+    color: #fff;
+}
+.calculator-page-section .calc-btn.equals:hover {
+    background-color: #375abc;
+}
+
+.calculator-page-section .calculator-modes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.calculator-page-section .mode-btn {
+    padding: 8px 20px;
+    border: 1px solid #e3e6f0;
+    border-radius: 20px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+    color: #5a5c69;
+}
+
+.calculator-page-section .mode-btn.active {
+    background-color: #4e73df;
+    color: #fff;
+    border-color: #4e73df;
+}
+
+.calculator-page-section .calculator-history {
+    margin-top: 35px;
+    padding: 25px;
+    background-color: #f8f9fc;
+    border-radius: 10px;
+    border: 1px solid #e3e6f0;
+}
+
+.calculator-page-section .calculator-history h3 {
+    color: #4e73df;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.calculator-page-section .history-list {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.calculator-page-section .history-item {
+    padding: 12px;
+    border-bottom: 1px solid #e3e6f0;
+    background-color: #fff;
+    margin-bottom: 8px;
+    border-radius: 6px;
+}
+
+.calculator-page-section .history-item:last-child {
+    margin-bottom: 0;
+}
+
+.calculator-page-section .history-expression {
+    font-size: 14px;
+    color: #858796;
+    margin-bottom: 5px;
+}
+
+.calculator-page-section .history-result {
+    font-size: 16px;
+    color: #4e73df;
+    font-weight: 600;
+}
+
+@media (max-width: 576px) {
+    .calculator-page-section .scientific-calculator {
+        padding: 20px;
+    }
+
+    .calculator-page-section .calculator-display {
+        padding: 15px;
+    }
+
+    .calculator-page-section .button-row {
+        gap: 6px;
+    }
+
+    .calculator-page-section .calc-btn {
+        padding: 12px 8px;
+        font-size: 14px;
+    }
+
+    .calculator-page-section .result {
+        font-size: 28px;
+    }
+}
+
+/* About Page Specific Styles (or ensure global styles apply) */
+
+/* Apply container-like constraints to the main content area */
+.about-container {
+    max-width: 1100px; /* Or your preferred content width */
+    margin: 30px auto; /* Add top/bottom margin and auto left/right for centering */
+    padding: 0 20px;   /* Add horizontal padding */
+}
+
+.about-hero {
+    text-align: center; /* Center the hero title/subtitle */
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.about-hero h1 {
+    font-size: 2.5em;
+    color: #4e73df;
+    margin-bottom: 10px;
+}
+
+.about-hero .subtitle {
+    font-size: 1.1em;
+    color: #858796;
+}
+
+.about-content h2 {
+    font-size: 1.8em;
+    color: #5a5c69;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #e3e6f0;
+}
+
+.about-content p,
+.about-content ul {
+    color: #5a5c69;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.about-content ul {
+    list-style: disc;
+    padding-left: 25px;
+}
+
+.about-content ul li strong {
+    color: #4e73df;
+}
+
+.about-container .values-section {
+    margin-top: 40px;
+}
+
+.about-container .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.about-container .value-card {
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #e3e6f0;
+}
+
+.about-container .value-card i {
+    font-size: 2.5em;
+    color: #4e73df;
+    margin-bottom: 15px;
+    display: block; /* Ensure icon is block for margin */
+}
+
+.about-container .value-card h3 {
+    color: #5a5c69;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.about-container .value-card p {
+    color: #6c757d;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Styling for the added image on About page */
+.about-image-section {
+    text-align: center; /* Center the image horizontally */
+    margin: 40px 0; /* Add vertical spacing above and below */
+}
+
+.about-graphic {
+    max-width: 100%; /* Ensure image doesn't overflow container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: add rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: add subtle shadow */
+}
+
+/* Specific styles for category landing pages like health-calculator.html */
+.category-header-section { /* Assuming a wrapper div or apply to the section tag if appropriate */
+    padding-top: 40px; /* Add padding above the icon/title */
+    padding-bottom: 30px;
+    background-color: #f8f9fa; /* Match body background or use a subtle color */
+    text-align: center;
+}
+
+.category-header-section .category-icon {
+    font-size: 3em;
+    color: #fff;
+    background-color: #4e73df; /* Or specific color for the category */
+    padding: 20px;
+    border-radius: 50%;
+    margin: 0 auto 20px auto; /* Center icon and add bottom margin */
+    width: 90px;
+    height: 90px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.category-header-section h2 {
+    color: #4e73df; /* Match icon background */
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.category-header-section p {
+    color: #6c757d;
+    font-size: 16px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Adjust existing .category-header if used differently elsewhere */
+.calculator-category .category-header {
+    /* Keep existing styles or adjust if needed */
+    /* display: flex; */
+    /* align-items: center; */
+    /* margin-bottom: 30px; */
+    /* padding-bottom: 15px; */
+    /* border-bottom: 1px solid #e3e6f0; */
+}
+
+/* Ensure spacing after header section */
+.calculators-grid { /* Target the grid section below the header */
+    padding-top: 40px;
+} 
+
+/* Styles specific to the health calculator category page */
+.health-category-page .calculators-grid .container {
+    /* Override default grid settings if needed, or apply here */
+    display: block; /* Change from grid to block for stacking */
+}
+
+.health-category-page .calculator-card {
+    display: block; /* Ensure card takes full width */
+    max-width: 800px; /* Set a max width for the cards */
+    margin: 0 auto 40px auto; /* Center card and add bottom margin */
+    padding: 40px; /* Increase padding */
+    text-align: center; /* Center content */
+    /* Keep existing border/shadow/transition from general .calculator-card */
+}
+
+/* Adjust icon size/margin within the health page card */
+.health-category-page .calculator-card .card-icon {
+    font-size: 2.8em; /* Slightly larger icon */
+    margin-bottom: 25px;
+}
+
+/* Adjust heading size/margin within the health page card */
+.health-category-page .calculator-card h3 {
+    font-size: 1.5em; /* Larger heading */
+    margin-bottom: 15px;
+}
+
+/* Adjust paragraph margin within the health page card */
+.health-category-page .calculator-card p {
+    margin-bottom: 25px;
+    min-height: auto; /* Remove fixed min-height if set previously */
+    font-size: 1.1em;
+}
+
+/* Adjust button size/margin within the health page card */
+.health-category-page .calculator-card .btn {
+    padding: 12px 30px; /* Larger button padding */
+    font-size: 1.1em;
+}
+
+/* Remove hover effect if it looks weird with this layout */
+/* .health-category-page .calculator-card:hover {
+    transform: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+} */

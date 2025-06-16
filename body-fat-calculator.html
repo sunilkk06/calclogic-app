@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Estimate your body fat percentage using the US Navy method with CalcLogic's free body fat calculator. Track your fitness progress.">
+    <meta name="keywords" content="body fat calculator, body fat percentage, US Navy method, fitness calculator, health calculator, CalcLogic">
+    <title>Body Fat Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="financial-calculator.html">Financial</a></li>
+                    <li class="current"><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="percentage-calculator.html">Math</a></li>
+                    <li><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="calculator-page-section">
+        <div class="container">
+            <div class="calculator-title-section">
+                <h2>Body Fat Calculator</h2>
+                <p>Estimate your body fat percentage using the U.S. Navy method based on body measurements.</p>
+            </div>
+
+            <div class="calculator-container card-style bodyfat-layout">
+                <div class="calculator-inputs">
+                    <form id="bodyfat-calculator-form" class="calculator-form">
+                        <div class="unit-selector">
+                            <label>
+                                <input type="radio" name="bf-units" value="metric" checked> Metric (cm)
+                            </label>
+                            <label>
+                                <input type="radio" name="bf-units" value="imperial"> Imperial (in)
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bf-gender">Gender</label>
+                            <select id="bf-gender" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+
+                        <div id="metric-bf-inputs">
+                             <div class="form-group">
+                                <label for="bf-height-cm">Height (cm)</label>
+                                <input type="number" id="bf-height-cm" required min="50" step="0.1">
+                            </div>
+                            <div class="form-group">
+                                <label for="bf-neck-cm">Neck Circumference (cm)</label>
+                                <input type="number" id="bf-neck-cm" required min="10" step="0.1">
+                            </div>
+                            <div class="form-group">
+                                <label for="bf-waist-cm">Waist Circumference (cm)</label>
+                                <input type="number" id="bf-waist-cm" required min="30" step="0.1">
+                            </div>
+                             <div class="form-group female-only" style="display: none;"> <!-- Female only -->
+                                <label for="bf-hip-cm">Hip Circumference (cm)</label>
+                                <input type="number" id="bf-hip-cm" min="30" step="0.1">
+                            </div>
+                        </div>
+
+                        <div id="imperial-bf-inputs" style="display: none;">
+                            <div class="form-group">
+                                <label for="bf-height-in">Height (in)</label>
+                                <input type="number" id="bf-height-in" required min="20" step="0.1">
+                            </div>
+                             <div class="form-group">
+                                <label for="bf-neck-in">Neck Circumference (in)</label>
+                                <input type="number" id="bf-neck-in" required min="5" step="0.1">
+                            </div>
+                            <div class="form-group">
+                                <label for="bf-waist-in">Waist Circumference (in)</label>
+                                <input type="number" id="bf-waist-in" required min="15" step="0.1">
+                            </div>
+                            <div class="form-group female-only" style="display: none;"> <!-- Female only -->
+                                <label for="bf-hip-in">Hip Circumference (in)</label>
+                                <input type="number" id="bf-hip-in" min="15" step="0.1">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn">Calculate Body Fat</button>
+                    </form>
+                </div>
+
+                <div class="calculator-results bodyfat-results-panel">
+                    <div class="result-item highlight">
+                        <span class="result-label">Body Fat Percentage</span>
+                        <span class="result-value main-result" id="bf-percentage">--.-<span class="result-unit">%</span></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Body Fat Mass</span>
+                        <span class="result-value" id="bf-mass">--.- <span class="result-unit">kg/lb</span></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Lean Body Mass</span>
+                        <span class="result-value" id="lbm-mass">--.- <span class="result-unit">kg/lb</span></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Category</span>
+                        <span class="result-value" id="bf-category">---</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="calculator-info-section">
+        <div class="container">
+            <h3>Understanding Body Fat Percentage</h3>
+            <p>Body fat percentage (BFP) is the total mass of fat divided by total body mass, multiplied by 100. It's a better indicator of fitness level than body weight alone. This calculator uses the U.S. Navy method, which relies on body circumference measurements.</p>
+
+            <div class="info-cards-container bodyfat-info-cards">
+                <div class="info-card">
+                    <h4>Healthy Ranges (Approximate)</h4>
+                    <ul>
+                        <li><strong>Essential Fat:</strong> Men 2-5%, Women 10-13%</li>
+                        <li><strong>Athletes:</strong> Men 6-13%, Women 14-20%</li>
+                        <li><strong>Fitness:</strong> Men 14-17%, Women 21-24%</li>
+                        <li><strong>Acceptable:</strong> Men 18-24%, Women 25-31%</li>
+                        <li><strong>Obesity:</strong> Men 25%+, Women 32%+</li>
+                    </ul>
+                    <small>Source: American Council on Exercise (ACE)</small>
+                </div>
+                <div class="info-card">
+                    <h4>Measurement Tips</h4>
+                    <p>Ensure accurate measurements for best results:</p>
+                    <ul>
+                        <li>Use a flexible tape measure.</li>
+                        <li>Measure directly on skin if possible.</li>
+                        <li>Keep the tape snug but not compressing the skin.</li>
+                        <li><strong>Neck:</strong> Below the larynx (Adam's apple).</li>
+                        <li><strong>Waist:</strong> At the narrowest point (males) or at the navel level (females).</li>
+                        <li><strong>Hips (Females):</strong> At the widest point.</li>
+                    </ul>
+                </div>
+                 <div class="info-card">
+                    <h4>Method Limitations</h4>
+                    <p>The US Navy method is an estimation and can have inaccuracies. Factors like hydration levels, recent exercise, and individual body composition variations can affect results. For precise measurements, consider methods like DEXA scans or hydrostatic weighing.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="health-calculator.js"></script>
+</body>
+</html> 

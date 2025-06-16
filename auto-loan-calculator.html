@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Estimate your monthly car payment, total interest, and total cost with CalcLogic's Auto Loan Calculator.">
+    <meta name="keywords" content="auto loan calculator, car payment calculator, car loan calculator, vehicle finance, CalcLogic">
+    <title>Auto Loan Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current"><a href="#">Financial</a></li> <!-- Adjust -->
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="percentage-calculator.html">Math</a></li>
+                    <li><a href="#">Other</a></li> <!-- Adjust -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Auto Loan Calculator Section -->
+    <section class="calculator-page-section">
+        <div class="container">
+            <div class="calculator-title-section">
+                <h2>Auto Loan Calculator</h2>
+                <p>Estimate your monthly car payment and see how factors like loan term, down payment, and interest rate affect your costs.</p>
+            </div>
+
+            <div class="calculator-container card-style auto-loan-layout">
+                <div class="calculator-inputs">
+                    <form id="auto-loan-form" class="calculator-form">
+                        <div class="form-group">
+                            <label for="al-vehicle-price">Vehicle Price ($)</label>
+                            <input type="number" id="al-vehicle-price" step="0.01" placeholder="e.g., 25000">
+                        </div>
+                        <div class="form-group">
+                            <label for="al-down-payment">Down Payment ($)</label>
+                            <input type="number" id="al-down-payment" step="0.01" placeholder="e.g., 5000" value="0">
+                        </div>
+                         <div class="form-group">
+                            <label for="al-trade-in">Trade-in Value ($)</label>
+                            <input type="number" id="al-trade-in" step="0.01" placeholder="e.g., 2000" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="al-sales-tax">Sales Tax Rate (%)</label>
+                            <input type="number" id="al-sales-tax" step="0.01" placeholder="e.g., 6" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="al-rate">Annual Interest Rate (APR %)</label>
+                            <input type="number" id="al-rate" step="0.01" placeholder="e.g., 4.5">
+                        </div>
+                        <div class="form-group">
+                            <label for="al-term">Loan Term (Months)</label>
+                            <input type="number" id="al-term" step="1" placeholder="e.g., 60" value="60">
+                        </div>
+                        <button type="button" id="calculate-al-btn" class="btn">Calculate Payment</button>
+                    </form>
+                </div>
+                 <div class="calculator-results al-results-panel">
+                    <div class="result-item highlight">
+                        <span class="result-label">Estimated Monthly Payment</span>
+                        <span class="result-value main-result" id="al-monthly-payment">$---.--</span>
+                    </div>
+                     <div class="result-item">
+                        <span class="result-label">Total Loan Amount</span>
+                        <span class="result-value" id="al-total-loan">$---.--</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Total Interest Paid</span>
+                        <span class="result-value" id="al-total-interest">$---.--</span>
+                    </div>
+                     <div class="result-item total">
+                        <span class="result-label">Total Cost (Loan + Down Payment)</span>
+                        <span class="result-value" id="al-total-cost">$---.--</span>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auto Loan Informational Content Section -->
+    <section class="calculator-info-section">
+        <div class="container">
+            <h3>Understanding Auto Loans</h3>
+            <p>An auto loan allows you to borrow money to purchase a vehicle. You repay the loan, plus interest, in fixed monthly installments over a set period (the loan term).</p>
+            <div class="info-cards-container al-info-cards">
+                 <div class="info-card">
+                    <h4>Key Loan Components</h4>
+                    <ul>
+                        <li><strong>Vehicle Price:</strong> The starting cost of the car.</li>
+                        <li><strong>Down Payment/Trade-in:</strong> Reduces the amount you need to borrow.</li>
+                        <li><strong>Sales Tax:</strong> Added to the price, increasing the loan amount if financed.</li>
+                         <li><strong>Interest Rate (APR):</strong> The annual cost of borrowing, expressed as a percentage.</li>
+                         <li><strong>Loan Term:</strong> The length of time you have to repay the loan (in months).</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4>Factors Affecting Your Payment</h4>
+                    <p>Your monthly payment is primarily influenced by the total loan amount, the interest rate (APR), and the loan term. A larger down payment, lower APR, or longer term generally reduces the monthly payment, but a longer term means paying more total interest.</p>
+                </div>
+                 <div class="info-card">
+                    <h4>APR vs. Interest Rate</h4>
+                    <p>The Annual Percentage Rate (APR) includes the interest rate plus any lender fees, providing a more complete picture of the borrowing cost. This calculator uses the provided rate as the APR for simplicity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="auto-loan-calculator.js"></script> 
+</body>
+</html> 

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online ratio calculator to simplify ratios or solve for a missing value in a proportion (A:B = C:D).">
+    <meta name="keywords" content="ratio calculator, simplify ratio, proportion calculator, solve ratio, aspect ratio, CalcLogic">
+    <title>Ratio Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                 <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Master</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="financial-calculator.html">Financial</a></li>
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li class="current"><a href="math-calculator.html">Math</a></li>
+                    <li><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+             <div id="header-actions">
+                 <a href="#" class="btn btn-secondary">Sign In</a>
+             </div>
+        </div>
+    </header>
+
+    <section class="calculator-page-section">
+         <div class="container calculator-title-section">
+             <h2>Ratio Calculator</h2>
+             <p class="description">Simplify ratios or solve for a missing value in a proportion (e.g., A : B = C : D).</p>
+         </div>
+
+        <div class="container ratio-layout">
+            <div class="calculator-inputs card-style">
+                <form id="ratio-form" class="calculator-form">
+                    <h4>Enter Ratio / Proportion</h4>
+                    <div class="ratio-input-group">
+                        <div class="ratio-part">
+                             <input type="number" id="ratioA" placeholder="A">
+                        </div>
+                         <span class="ratio-colon">:</span>
+                         <div class="ratio-part">
+                            <input type="number" id="ratioB" placeholder="B">
+                         </div>
+                         <span class="ratio-equals">=</span>
+                         <div class="ratio-part">
+                            <input type="number" id="ratioC" placeholder="C">
+                         </div>
+                         <span class="ratio-colon">:</span>
+                         <div class="ratio-part">
+                            <input type="number" id="ratioD" placeholder="D">
+                         </div>
+                    </div>
+                    <p class="input-note">Enter numbers for A, B, C, and D. Leave one field blank (or enter 'x') to solve for the missing value. If only A and B are entered, the ratio will be simplified.</p>
+
+                    <button type="submit" class="btn">Calculate Ratio</button>
+                </form>
+            </div>
+
+            <div class="ratio-results-panel card-style">
+                <h4>Result</h4>
+                <div id="ratio-result-display" class="result-display">
+                     <div class="result-placeholder">Enter ratio values to calculate</div>
+                    <!-- Result will be populated here -->
+                     <!-- Example Structures:
+                     Simplified Ratio: <span class="result-value">1 : 2</span>
+                     Solved Value: <span class="result-value">X = 10</span>
+                     -->
+                </div>
+                <div id="ratio-explanation" class="calculation-steps">
+                   <h4>Explanation:</h4>
+                   <div id="explanation-content">
+                       <!-- Explanation will appear here -->
+                   </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="calc-divider container">
+
+    <section class="calculator-info-section">
+        <div class="container">
+            <h3>Understanding Ratios and Proportions</h3>
+            <p>A ratio compares two quantities. It shows how much of one thing there is compared to another. For example, if there are 3 apples and 2 oranges, the ratio of apples to oranges is 3:2.</p>
+            <p>A proportion is an equation stating that two ratios are equal. For example, 1:2 = 3:6 is a proportion. This calculator can solve for a missing value in a proportion (like finding 'x' in A:B = C:x) or simplify a single ratio (like simplifying 6:12 to 1:2).</p>
+
+            <div class="info-cards-container ratio-info-cards">
+                <div class="info-card">
+                    <h4>Simplifying Ratios</h4>
+                    <p>To simplify a ratio (e.g., A:B), find the greatest common divisor (GCD) of A and B. Divide both A and B by their GCD to get the simplest form.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Solving Proportions</h4>
+                    <p>In a proportion A:B = C:D, the product of the means (B and C) equals the product of the extremes (A and D). Use this cross-multiplication property (A × D = B × C) to solve for the unknown value.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Real-World Uses</h4>
+                    <p>Ratios are used in cooking (scaling recipes), maps (scale ratio), finance (debt-to-income ratio), and comparing quantities in various fields like science and engineering.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="ratio-calculator.js"></script>
+</body>
+</html> 

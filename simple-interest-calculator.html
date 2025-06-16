@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate simple interest on a principal amount using the I=PRT formula with CalcLogic's Simple Interest Calculator.">
+    <meta name="keywords" content="simple interest calculator, interest calculator, finance calculator, I=PRT, CalcLogic">
+    <title>Simple Interest Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current"><a href="financial-calculator.html">Financial</a></li> <!-- Adjust if Financial becomes a category page -->
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="percentage-calculator.html">Math</a></li>
+                    <li><a href="#">Other</a></li> <!-- Adjust -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Simple Interest Calculator Section -->
+    <section class="calculator-page-section">
+        <div class="container">
+            <div class="calculator-title-section">
+                <h2>Simple Interest Calculator</h2>
+                <p>Calculate the simple interest earned or paid on a principal amount over a period of time.</p>
+            </div>
+
+            <div class="calculator-container card-style simple-interest-layout">
+                <div class="calculator-inputs">
+                    <form id="simple-interest-form" class="calculator-form">
+                        <div class="form-group">
+                            <label for="si-principal">Principal Amount ($)</label>
+                            <input type="number" id="si-principal" step="0.01" placeholder="e.g., 1000">
+                        </div>
+                        <div class="form-group">
+                            <label for="si-rate">Annual Interest Rate (%)</label>
+                            <input type="number" id="si-rate" step="0.01" placeholder="e.g., 5">
+                        </div>
+                        <div class="form-group form-group-inline">
+                             <div style="flex: 2;">
+                                <label for="si-time">Time Period</label>
+                                <input type="number" id="si-time" step="1" placeholder="e.g., 2">
+                             </div>
+                             <div style="flex: 1;">
+                                 <label for="si-time-unit">&nbsp;</label> <!-- Spacer label -->
+                                <select id="si-time-unit">
+                                    <option value="years" selected>Years</option>
+                                    <option value="months">Months</option>
+                                    <option value="days">Days</option>
+                                </select>
+                             </div>
+                        </div>
+                        <button type="button" id="calculate-si-btn" class="btn">Calculate Interest</button>
+                    </form>
+                </div>
+                 <div class="calculator-results si-results-panel">
+                    <div class="result-item highlight">
+                        <span class="result-label">Total Simple Interest</span>
+                        <span class="result-value main-result" id="si-interest">$---.--</span>
+                    </div>
+                     <div class="result-item">
+                        <span class="result-label">Total Principal + Interest</span>
+                        <span class="result-value" id="si-total-amount">$---.--</span>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Interest Informational Content Section -->
+    <section class="calculator-info-section">
+        <div class="container">
+            <h3>Understanding Simple Interest</h3>
+            <p>Simple interest is a basic method of calculating the interest charge on a loan or investment. It is calculated only on the original principal amount and does not include interest earned in previous periods (unlike compound interest).</p>
+            <div class="info-cards-container si-info-cards">
+                 <div class="info-card">
+                    <h4>The Formula (I = PRT)</h4>
+                    <p>Simple Interest (I) = Principal (P) × Rate (R) × Time (T).</p>
+                    <ul>
+                        <li><strong>P:</strong> The initial amount of money (loan or investment).</li>
+                        <li><strong>R:</strong> The annual interest rate (expressed as a decimal).</li>
+                        <li><strong>T:</strong> The time period the money is borrowed or invested for (in years).</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4>How It's Used</h4>
+                    <p>Simple interest is often used for short-term loans, like auto loans or certain personal loans. It's straightforward to calculate but typically yields lower returns on investments compared to compound interest over longer periods.</p>
+                </div>
+                 <div class="info-card">
+                    <h4>Simple vs. Compound Interest</h4>
+                    <p>The key difference is that compound interest calculates interest on the principal *plus* any accumulated interest from previous periods (interest on interest). Simple interest is always calculated *only* on the original principal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="simple-interest-calculator.js"></script> 
+</body>
+</html> 

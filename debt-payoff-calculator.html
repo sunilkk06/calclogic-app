@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create a plan to pay off your debts faster with our Debt Payoff Calculator">
+    <title>Debt Payoff Calculator | CalcLogic</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="/">
+                    <span>Calc</span><span>Logic</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/financial" class="active">Financial</a></li>
+                <li><a href="/fitness">Fitness</a></li>
+                <li><a href="/math">Math</a></li>
+                <li><a href="/other">Other</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="calculator-container">
+        <div class="calculator-header">
+            <h1>Debt Payoff Calculator</h1>
+            <p class="calculator-description">Create a plan to pay off your debts faster. Compare different repayment strategies and see how extra payments can accelerate your debt-free journey.</p>
+        </div>
+
+        <div class="calculator-card">
+            <form id="debt-form" class="calculator-form">
+                <div class="input-section">
+                    <h2>Your Debts</h2>
+                    <div id="debts-container">
+                        <div class="debt-entry">
+                            <div class="input-group">
+                                <input type="text" class="debt-name" placeholder="Debt Name" required>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-field">
+                                    <span class="currency-symbol">$</span>
+                                    <input type="number" class="debt-balance" placeholder="Balance" min="0" step="0.01" required>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-field">
+                                    <input type="number" class="debt-rate" placeholder="Interest Rate" min="0" max="100" step="0.01" required>
+                                    <span class="percentage-symbol">%</span>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-field">
+                                    <span class="currency-symbol">$</span>
+                                    <input type="number" class="debt-payment" placeholder="Min Payment" min="0" step="0.01" required>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-remove-debt" title="Remove Debt">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="button" id="add-debt-btn" class="btn-secondary">
+                        <i class="fas fa-plus"></i> Add Another Debt
+                    </button>
+                </div>
+
+                <div class="input-section">
+                    <h2>Payment Strategy</h2>
+                    <div class="input-group">
+                        <label for="monthly-payment">Total Monthly Payment</label>
+                        <div class="input-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="monthly-payment" required min="0" step="1" value="500">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="strategy">Repayment Strategy</label>
+                        <select id="strategy" required>
+                            <option value="avalanche">Debt Avalanche (Highest Interest First)</option>
+                            <option value="snowball">Debt Snowball (Lowest Balance First)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="extra-payment">Extra Monthly Payment</label>
+                        <div class="input-field">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="extra-payment" min="0" step="1" value="0">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="calculate-btn">Calculate Payoff Plan</button>
+            </form>
+
+            <div id="results" class="results-section hidden">
+                <h2>Your Debt Payoff Plan</h2>
+                <div class="results-grid">
+                    <div class="result-item">
+                        <span class="result-label">Total Debt</span>
+                        <span class="result-value" id="total-debt">$---,---</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Time to Debt Free</span>
+                        <span class="result-value" id="payoff-time">-- months</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Total Interest Paid</span>
+                        <span class="result-value" id="total-interest">$---,---</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Interest Saved</span>
+                        <span class="result-value" id="interest-saved">$---,---</span>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="payoffChart"></canvas>
+                </div>
+
+                <div class="breakdown-table">
+                    <h3>Payment Schedule</h3>
+                    <div class="table-wrapper">
+                        <table id="payoffTable">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Debt Name</th>
+                                    <th>Payment</th>
+                                    <th>Principal</th>
+                                    <th>Interest</th>
+                                    <th>Remaining</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-cards">
+            <div class="info-card">
+                <h3>Debt Avalanche</h3>
+                <p>The Debt Avalanche method prioritizes paying off debts with the highest interest rates first. This strategy minimizes the total interest paid and typically results in the fastest payoff time.</p>
+            </div>
+            <div class="info-card">
+                <h3>Debt Snowball</h3>
+                <p>The Debt Snowball method focuses on paying off the smallest debts first. While it may cost more in interest, the psychological boost from quick wins can help maintain motivation.</p>
+            </div>
+            <div class="info-card">
+                <h3>Extra Payments</h3>
+                <p>Making extra payments, even small ones, can significantly reduce your total interest paid and help you become debt-free faster. Consider allocating windfalls or bonuses to debt repayment.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/debt-payoff-calculator.js"></script>
+</body>
+</html> 

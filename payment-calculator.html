@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate various types of payments including monthly payments, biweekly payments, and payment schedules with CalcLogic's Payment Calculator.">
+    <meta name="keywords" content="payment calculator, monthly payment, biweekly payment, payment schedule, CalcLogic">
+    <title>Payment Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current"><a href="financial-calculator.html">Financial</a></li>
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="percentage-calculator.html">Math</a></li>
+                    <li><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="calculator-page-section">
+        <div class="container">
+            <div class="calculator-title-section">
+                <h2>Payment Calculator</h2>
+                <p>Calculate different types of payments and create payment schedules based on various payment frequencies.</p>
+            </div>
+
+            <div class="calculator-container card-style payment-layout">
+                <!-- Payment Type Selector -->
+                <div class="payment-type-selector">
+                    <label for="payment-type">Select Payment Type:</label>
+                    <select id="payment-type">
+                        <option value="monthly">Monthly Payment</option>
+                        <option value="biweekly">Biweekly Payment</option>
+                        <option value="weekly">Weekly Payment</option>
+                    </select>
+                </div>
+
+                <div class="calculator-inputs">
+                    <form id="payment-calculator-form" class="calculator-form">
+                        <div class="form-group">
+                            <label for="payment-amount">Total Amount ($)</label>
+                            <input type="number" id="payment-amount" step="0.01" placeholder="e.g., 10000">
+                        </div>
+                        <div class="form-group">
+                            <label for="payment-rate">Annual Interest Rate (%)</label>
+                            <input type="number" id="payment-rate" step="0.01" placeholder="e.g., 5">
+                        </div>
+                        <div class="form-group">
+                            <label for="payment-term">Term (Years)</label>
+                            <input type="number" id="payment-term" step="0.25" placeholder="e.g., 5">
+                        </div>
+                        <div class="form-group">
+                            <label for="payment-start">Start Date</label>
+                            <input type="date" id="payment-start">
+                        </div>
+                        <button type="button" id="calculate-payment-btn" class="btn">Calculate Payment</button>
+                    </form>
+                </div>
+
+                <div class="calculator-results payment-results-panel">
+                    <div class="result-item highlight">
+                        <span class="result-label">Regular Payment Amount</span>
+                        <span class="result-value main-result" id="regular-payment">$---.--</span>
+                    </div>
+                    <div class="payment-summary">
+                        <div class="result-item">
+                            <span class="result-label">Total Principal</span>
+                            <span class="result-value" id="total-principal">$---.--</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Total Interest</span>
+                            <span class="result-value" id="total-interest">$---.--</span>
+                        </div>
+                        <div class="result-item total">
+                            <span class="result-label">Total Amount</span>
+                            <span class="result-value" id="total-amount">$---.--</span>
+                        </div>
+                    </div>
+
+                    <!-- Payment Schedule Table -->
+                    <div class="payment-schedule">
+                        <h4>Payment Schedule</h4>
+                        <div class="schedule-table-container">
+                            <table id="payment-schedule-table">
+                                <thead>
+                                    <tr>
+                                        <th>Payment #</th>
+                                        <th>Date</th>
+                                        <th>Payment</th>
+                                        <th>Principal</th>
+                                        <th>Interest</th>
+                                        <th>Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="schedule-body">
+                                    <!-- JavaScript will populate this -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Calculator Information Section -->
+    <section class="calculator-info-section">
+        <div class="container">
+            <h3>Understanding Payment Calculations</h3>
+            <p>Payment calculations help you determine regular payment amounts for loans, mortgages, or any financial obligation that requires periodic payments. Different payment frequencies can affect the total amount paid and the time to pay off the debt.</p>
+
+            <div class="info-cards-container payment-info-cards">
+                <div class="info-card">
+                    <h4>Payment Frequencies</h4>
+                    <ul>
+                        <li><strong>Monthly Payments:</strong> Most common payment schedule, with 12 payments per year</li>
+                        <li><strong>Biweekly Payments:</strong> 26 payments per year, can help reduce interest and loan term</li>
+                        <li><strong>Weekly Payments:</strong> 52 payments per year, smallest individual payment amount</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4>Benefits of Different Payment Schedules</h4>
+                    <p>More frequent payments (biweekly or weekly) can reduce the total interest paid and help pay off the debt faster. However, monthly payments might be easier to budget and manage. Choose the schedule that best fits your financial situation.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Payment Components</h4>
+                    <p>Each payment consists of two parts: principal and interest. Early payments have a higher proportion of interest, while later payments have more principal. This is known as amortization. The payment schedule shows how each payment is split between principal and interest.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="payment-calculator.js"></script>
+</body>
+</html> 

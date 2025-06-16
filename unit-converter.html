@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online unit converter for length, weight, temperature, volume, area, speed, and more. Quick and accurate conversions.">
+    <meta name="keywords" content="unit converter, conversion calculator, length converter, weight converter, temperature converter, volume converter, CalcLogic">
+    <title>Unit Converter - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                 <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="financial-calculator.html">Financial</a></li>
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li class="current"><a href="math-calculator.html">Math</a></li>
+                    <li><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+             <div id="header-actions">
+                 <!-- <a href="#" class="btn btn-secondary">Sign In</a> -->
+             </div>
+        </div>
+    </header>
+
+    <section class="calculator-page-section">
+        <div class="container calculator-title-section">
+            <h2>Unit Converter</h2>
+            <p class="description">Convert between various units of measurement for length, weight, temperature, and more.</p>
+        </div>
+
+        <div class="container unit-converter-layout card-style">
+            <form id="unit-converter-form" class="calculator-form">
+                <div class="form-group">
+                    <label for="conversionType">Conversion Type:</label>
+                    <select id="conversionType">
+                        <option value="length">Length</option>
+                        <option value="weight">Weight/Mass</option>
+                        <option value="temperature">Temperature</option>
+                        <option value="volume">Volume</option>
+                        <option value="area">Area</option>
+                        <option value="speed">Speed</option>
+                        <!-- Add more types as needed -->
+                    </select>
+                </div>
+
+                <div class="conversion-row">
+                    <!-- From Unit -->
+                    <div class="form-group unit-group">
+                        <label for="fromUnit">From:</label>
+                        <input type="number" id="fromValue" placeholder="Enter value" required>
+                        <select id="fromUnit">
+                            <!-- Options will be populated by JS -->
+                        </select>
+                    </div>
+
+                    <!-- Swap Button -->
+                     <div class="swap-button-container">
+                         <button type="button" id="swapUnitsBtn" class="swap-btn" title="Swap Units">
+                             <i class="fas fa-exchange-alt"></i>
+                         </button>
+                     </div>
+
+                    <!-- To Unit -->
+                    <div class="form-group unit-group">
+                        <label for="toUnit">To:</label>
+                        <input type="text" id="toValue" placeholder="Result" readonly>
+                        <select id="toUnit">
+                            <!-- Options will be populated by JS -->
+                        </select>
+                    </div>
+                </div>
+                 <!-- No separate calculate button, conversion happens on input/select change -->
+            </form>
+        </div>
+
+    </section>
+
+    <hr class="calc-divider container">
+
+    <section class="calculator-info-section">
+        <div class="container">
+             <h3>Common Unit Conversions</h3>
+             <p>Understanding unit conversions is essential in many fields, from science and engineering to cooking and travel. This tool helps you quickly convert between commonly used units.</p>
+            <div class="info-cards-container unit-converter-info-cards">
+                <div class="info-card">
+                    <h4>Length</h4>
+                    <p>Convert between meters, kilometers, feet, miles, inches, yards, and more. Useful for measuring distances, heights, or dimensions.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Weight/Mass</h4>
+                    <p>Switch between kilograms, grams, pounds, ounces, stones, and metric tons. Important for weighing ingredients, objects, or people.</p>
+                </div>
+                 <div class="info-card">
+                    <h4>Temperature</h4>
+                    <p>Convert Celsius, Fahrenheit, and Kelvin. Crucial for weather forecasts, scientific experiments, and cooking instructions.</p>
+                </div>
+                 <div class="info-card">
+                    <h4>Volume</h4>
+                    <p>Translate between liters, milliliters, gallons (US & UK), quarts, pints, cups, and fluid ounces. Needed for measuring liquids in recipes or capacities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="unit-converter.js"></script> 
+</body>
+</html> 

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your ideal weight using multiple scientific formulas with CalcLogic's free ideal weight calculator.">
+    <meta name="keywords" content="ideal weight calculator, healthy weight, BMI calculator, body weight, CalcLogic">
+    <title>Ideal Weight Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="financial-calculator.html">Financial</a></li>
+                    <li class="current"><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="percentage-calculator.html">Math</a></li>
+                    <li><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="calculator-page-section">
+        <div class="container">
+            <div class="calculator-title-section">
+                <h2>Ideal Weight Calculator</h2>
+                <p>Calculate your ideal weight based on height, gender, and body frame using multiple formulas</p>
+            </div>
+
+            <div class="calculator-container card-style">
+                <form id="ideal-weight-form" class="calculator-form">
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="height">Height</label>
+                        <div class="input-with-suffix">
+                            <input type="number" id="height" name="height" min="120" max="250" required>
+                            <span class="suffix">cm</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="frame-size">Body Frame Size</label>
+                        <select id="frame-size" name="frame-size" required>
+                            <option value="small">Small Frame</option>
+                            <option value="medium" selected>Medium Frame</option>
+                            <option value="large">Large Frame</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" min="18" max="100" required>
+                    </div>
+
+                    <button type="submit" class="btn">Calculate Ideal Weight</button>
+                </form>
+
+                <div class="calculator-results">
+                    <div class="results-summary">
+                        <div class="result-item highlight">
+                            <span class="result-label">Recommended Weight Range</span>
+                            <span id="weight-range" class="result-value">0 - 0 kg</span>
+                        </div>
+                    </div>
+
+                    <div class="weight-formulas">
+                        <h3>Weight Calculations by Formula</h3>
+                        <div class="formula-grid">
+                            <div class="formula-item">
+                                <h4>Devine Formula</h4>
+                                <span id="devine-weight" class="formula-value">0 kg</span>
+                            </div>
+                            <div class="formula-item">
+                                <h4>Hamwi Formula</h4>
+                                <span id="hamwi-weight" class="formula-value">0 kg</span>
+                            </div>
+                            <div class="formula-item">
+                                <h4>Miller Formula</h4>
+                                <span id="miller-weight" class="formula-value">0 kg</span>
+                            </div>
+                            <div class="formula-item">
+                                <h4>Robinson Formula</h4>
+                                <span id="robinson-weight" class="formula-value">0 kg</span>
+                            </div>
+                        </div>
+
+                        <div class="chart-container">
+                            <canvas id="weight-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bmi-range">
+                        <h3>BMI Weight Ranges</h3>
+                        <div class="bmi-grid">
+                            <div class="bmi-item underweight">
+                                <h4>Underweight</h4>
+                                <span id="underweight-range">0 - 0 kg</span>
+                                <span class="bmi-label">&lt; 18.5 BMI</span>
+                            </div>
+                            <div class="bmi-item normal">
+                                <h4>Normal Weight</h4>
+                                <span id="normal-range">0 - 0 kg</span>
+                                <span class="bmi-label">18.5 - 24.9 BMI</span>
+                            </div>
+                            <div class="bmi-item overweight">
+                                <h4>Overweight</h4>
+                                <span id="overweight-range">0 - 0 kg</span>
+                                <span class="bmi-label">25 - 29.9 BMI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="calculator-info-section">
+        <div class="container">
+            <h3>Understanding Ideal Weight</h3>
+            <p>Learn about different methods to determine your healthy weight range.</p>
+
+            <div class="info-cards-container">
+                <div class="info-card">
+                    <h4>Body Frame Size</h4>
+                    <ul>
+                        <li>Small Frame: Wrist circumference < 16.5 cm</li>
+                        <li>Medium Frame: Wrist 16.5-18.5 cm</li>
+                        <li>Large Frame: Wrist > 18.5 cm</li>
+                        <li>Frame size affects ideal weight range</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4>Weight Formulas</h4>
+                    <ul>
+                        <li>Devine: Standard medical calculations</li>
+                        <li>Hamwi: Classic method from 1964</li>
+                        <li>Miller: Updated modern formula</li>
+                        <li>Robinson: Research-based approach</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4>Healthy Weight Tips</h4>
+                    <ul>
+                        <li>Consider muscle mass vs. fat mass</li>
+                        <li>Account for age and activity level</li>
+                        <li>Focus on overall health, not just weight</li>
+                        <li>Consult healthcare providers for guidance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="health-calculator.js"></script>
+</body>
+</html> 

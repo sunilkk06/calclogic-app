@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate the duration (days, weeks, months, years) between two dates or find a date by adding/subtracting time with the CalcLogic Date Calculator.">
+    <meta name="keywords" content="date calculator, duration between dates, time calculator, days between dates, date difference, CalcLogic">
+    <title>Date Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="financial-calculator.html">Financial</a></li>
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="percentage-calculator.html">Math</a></li>
+                    <li class="current"><a href="#">Other</a></li> <!-- Adjust -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Date Calculator Section -->
+    <section class="calculator-page-section">
+        <div class="container">
+            <div class="calculator-title-section">
+                <h2>Date Calculator</h2>
+                <p>Calculate the duration between two dates or find a date by adding or subtracting days, weeks, months, or years.</p>
+            </div>
+
+            <div class="calculator-container card-style date-layout">
+                <!-- Duration Between Dates -->
+                <div class="sub-calculator" id="duration-between-dates">
+                    <h4 class="sub-calc-title">Calculate Duration Between Two Dates</h4>
+                     <form id="duration-form" class="calculator-form">
+                        <div class="form-group-inline">
+                            <div class="form-group">
+                                <label for="start-date">Start Date</label>
+                                <input type="date" id="start-date" name="start-date" required>
+                            </div>
+                             <div class="form-group">
+                                <label for="end-date">End Date</label>
+                                <input type="date" id="end-date" name="end-date" required>
+                            </div>
+                         </div>
+                         <div class="form-group">
+                             <input type="checkbox" id="include-end-date" name="include-end-date" style="margin-right: 5px; vertical-align: middle;">
+                            <label for="include-end-date" style="display: inline; font-weight: normal;">Include end date in calculation (adds 1 day)</label>
+                         </div>
+                        <button type="button" id="calculate-duration-btn" class="btn">Calculate Duration</button>
+                    </form>
+                    <div class="sub-result" id="duration-result" style="display: none;">
+                        <strong>Duration:</strong>
+                        <div id="duration-details">
+                            <span id="duration-years">--</span> Years, 
+                            <span id="duration-months">--</span> Months, 
+                            <span id="duration-days">--</span> Days
+                        </div>
+                        <div>Total: <span id="duration-total-days">----</span> Days</div>
+                        <!-- Add other totals like weeks if needed -->
+                    </div>
+                </div>
+
+                <hr class="calc-divider"> 
+
+                <!-- Add/Subtract Dates (Placeholder) -->
+                <div class="sub-calculator" id="add-subtract-dates">
+                    <h4 class="sub-calc-title">Add or Subtract from a Date</h4>
+                    <p style="text-align:center; padding: 20px;">Coming Soon!</p> 
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Date Calculator Informational Content Section -->
+    <section class="calculator-info-section">
+        <div class="container">
+            <h3>Working with Dates</h3>
+            <p>Calculating durations between dates or finding future/past dates is common for planning events, tracking project timelines, calculating ages, or determining deadlines.</p>
+            <div class="info-cards-container date-info-cards">
+                 <div class="info-card">
+                    <h4>Duration Calculation</h4>
+                    <p>To find the duration, the difference between the start and end dates is calculated. This difference is then broken down into years, months, and days, accounting for the varying lengths of months and leap years.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Adding/Subtracting Time</h4>
+                    <p>Finding a future or past date involves adding or subtracting a specific number of days, weeks, months, or years to a starting date. The calculator handles date rollovers across months and years automatically.</p>
+                </div>
+                 <div class="info-card">
+                    <h4>Include End Date Option</h4>
+                    <p>When calculating duration for billing cycles or events spanning multiple days, you might need to count both the start and end days. Checking the "Include end date" option adds one day to the total duration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="date-calculator.js"></script> 
+</body>
+</html> 

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online calculators for all your needs - financial, health, math and more. Simple, accurate, and easy to use.">
+    <meta name="keywords" content="calculator, online calculator, financial calculator, math calculator, CalcLogic">
+    <title>CalcLogic - Free Online Calculators</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="index.html">Home</a></li>
+                    <li><a href="financial-calculator.html">Financial</a></li>
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="math-calculator.html">Math</a></li>
+                    <li><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+            <div id="header-actions">
+                <a href="#" class="btn btn-secondary">Sign In</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="calculator-widget simple-calc-widget">
+                <div class="calculator-display" id="hero-calc-display">0</div>
+                <div class="calc-modes" style="margin-bottom: 10px;">
+                    <button class="mode-btn active" data-mode="deg">Deg</button>
+                    <button class="mode-btn" data-mode="rad">Rad</button>
+                </div>
+                <div class="calculator-buttons simple-calc-buttons">
+                    <button>sin⁻¹</button>
+                    <button>cos⁻¹</button>
+                    <button>tan⁻¹</button>
+                    <button>π</button>
+                    <button>e</button>
+                    <button>x²</button>
+                    <button>x³</button>
+                    <button>xʸ</button>
+                    <button>eˣ</button>
+                    <button>10ˣ</button>
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button class="op-btn">+</button>
+                    <button class="op-btn">C</button>
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button class="op-btn">-</button>
+                    <button class="op-btn">M+</button>
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button class="op-btn">×</button>
+                    <button class="op-btn">M-</button>
+                    <button>0</button>
+                    <button>.</button>
+                    <button class="eq-btn">=</button>
+                    <button class="op-btn">÷</button>
+                    <button class="op-btn">MR</button>
+                </div>
+            </div>
+            <div class="hero-text">
+                <h2>Free Online Calculators</h2>
+                <form class="search-form">
+                    <input type="search" placeholder="Search calculators...">
+                    <button type="submit" class="btn">Search</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="calculator-section">
+        <div class="container">
+            <!-- Financial Calculators -->
+            <div class="calculator-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h2>Financial Calculators</h2>
+                </div>
+                <ul class="calculator-grid">
+                    <li><a href="payment-calculator.html">Payment Calculator</a></li>
+                    <li><a href="retirement-calculator.html">Retirement Calculator</a></li>
+                    <li><a href="mortgage-calculator.html">Mortgage Calculator</a></li>
+                    <li><a href="investment-calculator.html">Investment Calculator</a></li>
+                    <li><a href="compound-interest-calculator.html">Compound Interest Calculator</a></li>
+                    <li><a href="interest-calculator.html">Interest Calculator</a></li>
+                </ul>
+                <div class="category-footer">
+                    <a href="financial-calculator.html" class="btn">View All Financial Calculators</a>
+                </div>
+            </div>
+
+            <!-- Health & Fitness Calculators -->
+            <div class="calculator-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h2>Health & Fitness Calculators</h2>
+                </div>
+                <ul class="calculator-grid">
+                    <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+                    <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
+                    <li><a href="body-fat-calculator.html">Body Fat Calculator</a></li>
+                    <li><a href="bmr-calculator.html">BMR Calculator</a></li>
+                    <li><a href="macro-calculator.html">Macro Calculator</a></li>
+                    <li><a href="ideal-weight-calculator.html">Ideal Weight Calculator</a></li>
+                </ul>
+                <div class="category-footer">
+                    <a href="health-calculator.html" class="btn">View All Health Calculators</a>
+                </div>
+            </div>
+
+            <!-- Math Calculators -->
+            <div class="calculator-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h2>Math Calculators</h2>
+                </div>
+                <ul class="calculator-grid">
+                    <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+                    <li><a href="fraction-calculator.html">Fraction Calculator</a></li>
+                    <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+                    <li><a href="ratio-calculator.html">Ratio Calculator</a></li>
+                    <li><a href="random-number-generator.html">Random Number Generator</a></li>
+                    <li><a href="unit-converter.html">Unit Converter</a></li>
+                </ul>
+                <div class="category-footer">
+                    <a href="math-calculator.html" class="btn">View All Math Calculators</a>
+                </div>
+            </div>
+
+            <!-- Other Calculators -->
+            <div class="calculator-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h2>Other Calculators</h2>
+                </div>
+                <ul class="calculator-grid">
+                    <li><a href="age-calculator.html">Age Calculator</a></li>
+                    <li><a href="date-calculator.html">Date Calculator</a></li>
+                    <li><a href="time-calculator.html">Time Calculator</a></li>
+                    <li><a href="pregnancy-calculator.html">Pregnancy Calculator</a></li>
+                    <li><a href="gpa-calculator.html">GPA Calculator</a></li>
+                    <li><a href="grade-calculator.html">Grade Calculator</a></li>
+                </ul>
+                <div class="category-footer">
+                    <a href="other-calculator.html" class="btn">View All Other Calculators</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="explore-more">
+        <div class="container">
+            <h2>Need More Calculators?</h2>
+            <p>Explore our full range of calculators designed to help you make better decisions in finance, health, education, and more.</p>
+            <a href="all-calculators.html" class="btn">Explore All Calculators</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

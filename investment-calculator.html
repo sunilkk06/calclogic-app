@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your investment returns with CalcLogic's free investment calculator. Plan your financial future with detailed projections.">
+    <meta name="keywords" content="investment calculator, ROI calculator, financial planning, investment returns, CalcLogic">
+    <title>Investment Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current"><a href="financial-calculator.html">Financial</a></li>
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="percentage-calculator.html">Math</a></li>
+                    <li><a href="other-calculator.html">Other</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="calculator-page-section">
+        <div class="container">
+            <div class="calculator-title-section">
+                <h2>Investment Calculator</h2>
+                <p>Plan your investments and visualize potential returns with different investment strategies.</p>
+            </div>
+
+            <div class="calculator-container card-style investment-layout">
+                <div class="calculator-inputs">
+                    <form id="investment-calculator-form" class="calculator-form">
+                        <div class="form-group">
+                            <label for="initial-investment">Initial Investment ($)</label>
+                            <input type="number" id="initial-investment" required min="0" step="0.01" placeholder="10000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="monthly-contribution">Monthly Contribution ($)</label>
+                            <input type="number" id="monthly-contribution" required min="0" step="0.01" placeholder="500">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="investment-timeframe">Investment Timeframe (Years)</label>
+                            <input type="number" id="investment-timeframe" required min="1" step="1" placeholder="10">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expected-return">Expected Annual Return (%)</label>
+                            <input type="number" id="expected-return" required min="0" max="100" step="0.1" placeholder="7">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="risk-level">Risk Level</label>
+                            <select id="risk-level" required>
+                                <option value="conservative">Conservative (3-5%)</option>
+                                <option value="moderate" selected>Moderate (6-8%)</option>
+                                <option value="aggressive">Aggressive (9-12%)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="investment-type">Investment Type</label>
+                            <select id="investment-type" required>
+                                <option value="stocks">Stocks</option>
+                                <option value="bonds">Bonds</option>
+                                <option value="mixed" selected>Mixed Portfolio</option>
+                                <option value="real-estate">Real Estate</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn">Calculate Investment</button>
+                    </form>
+                </div>
+
+                <div class="calculator-results investment-results-panel">
+                    <div class="results-summary">
+                        <div class="result-item highlight">
+                            <span class="result-label">Total Investment Value</span>
+                            <span class="result-value" id="total-value">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Total Contributions</span>
+                            <span class="result-value" id="total-contributed">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Total Return</span>
+                            <span class="result-value" id="total-return">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Return on Investment (ROI)</span>
+                            <span class="result-value" id="roi-percentage">0.00%</span>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="investment-chart"></canvas>
+                    </div>
+
+                    <div class="investment-breakdown">
+                        <h3>Investment Breakdown</h3>
+                        <div class="breakdown-bars">
+                            <div class="breakdown-bar">
+                                <div class="bar-label">Initial Investment</div>
+                                <div class="bar-container">
+                                    <div class="bar initial-portion" id="initial-portion"></div>
+                                </div>
+                                <div class="bar-value" id="initial-portion-value">$0.00</div>
+                            </div>
+                            <div class="breakdown-bar">
+                                <div class="bar-label">Contributions</div>
+                                <div class="bar-container">
+                                    <div class="bar contributions-portion" id="contributions-portion"></div>
+                                </div>
+                                <div class="bar-value" id="contributions-portion-value">$0.00</div>
+                            </div>
+                            <div class="breakdown-bar">
+                                <div class="bar-label">Investment Returns</div>
+                                <div class="bar-container">
+                                    <div class="bar returns-portion" id="returns-portion"></div>
+                                </div>
+                                <div class="bar-value" id="returns-portion-value">$0.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="calculator-info-section">
+        <div class="container">
+            <h3>Understanding Investment Returns</h3>
+            <p>Making informed investment decisions requires understanding how different factors affect your potential returns.</p>
+
+            <div class="info-cards-container investment-info-cards">
+                <div class="info-card">
+                    <h4>Risk vs. Return</h4>
+                    <p>Generally, higher potential returns come with higher risk. Consider your risk tolerance when choosing investments:</p>
+                    <ul>
+                        <li>Conservative: Lower risk, stable returns</li>
+                        <li>Moderate: Balanced risk and return</li>
+                        <li>Aggressive: Higher risk, potential for higher returns</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4>Investment Types</h4>
+                    <ul>
+                        <li>Stocks: Higher risk, growth potential</li>
+                        <li>Bonds: Lower risk, steady income</li>
+                        <li>Mixed Portfolio: Balanced approach</li>
+                        <li>Real Estate: Tangible assets, rental income</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4>Investment Strategy Tips</h4>
+                    <ul>
+                        <li>Diversify your portfolio</li>
+                        <li>Invest regularly</li>
+                        <li>Consider long-term growth</li>
+                        <li>Monitor and rebalance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="financial-calculator.js"></script>
+</body>
+</html> 

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your age in years, months, and days based on your date of birth with the CalcLogic Age Calculator.">
+    <meta name="keywords" content="age calculator, calculate age, date of birth calculator, how old am I, CalcLogic">
+    <title>Age Calculator - CalcLogic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><a href="index.html"><i class="fas fa-calculator logo-icon"></i><span class="brand-part1">Calc</span><span class="brand-part2">Logic</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="financial-calculator.html">Financial</a></li>
+                    <li><a href="health-calculator.html">Fitness</a></li>
+                    <li><a href="percentage-calculator.html">Math</a></li>
+                    <li class="current"><a href="#">Other</a></li> <!-- Adjust link based on final structure -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Age Calculator Section -->
+    <section class="calculator-page-section">
+        <div class="container">
+            <div class="calculator-title-section">
+                <h2>Age Calculator</h2>
+                <p>Find out your exact age in years, months, and days by entering your date of birth below.</p>
+            </div>
+
+            <div class="calculator-container card-style age-layout">
+                <div class="calculator-inputs">
+                    <form id="age-calculator-form" class="calculator-form">
+                        <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
+                        <button type="button" id="calculate-age-btn" class="btn">Calculate Age</button>
+                    </form>
+                </div>
+                <div class="calculator-results age-results-panel">
+                    <div class="result-item highlight">
+                        <span class="result-label">Your Age Is</span>
+                        <div id="age-result-display">
+                            <span class="result-value main-result years" id="age-years">--</span> Years
+                            <span class="result-value months" id="age-months">--</span> Months
+                            <span class="result-value days" id="age-days">--</span> Days
+                        </div>
+                    </div>
+                    <div class="result-item additional-info">
+                         <span class="result-label">Total Days Lived</span>
+                         <span class="result-value" id="total-days">----</span>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Age Calculator Informational Content Section -->
+    <section class="calculator-info-section">
+        <div class="container">
+            <h3>Understanding Age Calculation</h3>
+            <p>This calculator determines the time elapsed between your date of birth and the current date (or a specified date). The result is typically broken down into years, months, and days for easy understanding.</p>
+            <div class="info-cards-container age-info-cards">
+                 <div class="info-card">
+                    <h4>How It Works</h4>
+                    <p>The calculation involves subtracting the birth date from the current date. It accounts for variations in the number of days in months and leap years to provide an accurate duration. The breakdown into years, months, and remaining days gives a clear chronological age.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Common Uses</h4>
+                    <p>Age calculation is used in various contexts, such as determining eligibility for services or benefits, tracking milestones, filling out forms, or simply satisfying curiosity about one's precise age or the age difference between dates.</p>
+                </div>
+                 <div class="info-card">
+                    <h4>Leap Years</h4>
+                    <p>Leap years (occurring every 4 years, except for years divisible by 100 but not by 400) add an extra day (February 29th). Accurate age calculation considers these extra days when determining the total time elapsed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h4>CalcLogic</h4>
+                <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
+            </div>
+            <div class="footer-section links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="financial-calculator.html">Financial Calculators</a></li>
+                    <li><a href="health-calculator.html">Fitness & Health Calculators</a></li>
+                    <li><a href="percentage-calculator.html">Math Calculators</a></li>
+                    <li><a href="other-calculator.html">Other Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CalcLogic | All Rights Reserved
+        </div>
+    </footer>
+
+    <script src="age-calculator.js"></script>
+</body>
+</html> 
