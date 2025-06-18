@@ -5,8 +5,8 @@ const Footer = () => {
   return (
     <footer className="enhanced-footer">
       <div className="footer-wave">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path fill="#1e2a38" fillOpacity="1" d="M0,128L48,138.7C96,149,192,171,288,165.3C384,160,480,128,576,128C672,128,768,160,864,165.3C960,171,1056,149,1152,133.3C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+          <path fill="#1e2a38" fillOpacity="1" d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,53.3C672,53,768,75,864,80C960,85,1056,75,1152,69.3C1248,64,1344,64,1392,64L1440,64L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
         </svg>
       </div>
       
@@ -54,7 +54,7 @@ const Footer = () => {
           <p><i className="fas fa-envelope"></i> support@calclogic.com</p>
           <p><i className="fas fa-phone"></i> +1 (555) 123-4567</p>
           <div className="newsletter">
-            <input type="email" placeholder="Subscribe to our newsletter" />
+            <input type="email" placeholder="Subscribe to newsletter" />
             <button><i className="fas fa-paper-plane"></i></button>
           </div>
         </div>
