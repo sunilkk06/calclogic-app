@@ -260,7 +260,7 @@ const IdealWeightCalculator = () => {
             <div className="result-item">
               <span className="result-label">Underweight</span>
               <span className="result-value">{results.bmiRanges.underweight} kg</span>
-              <span className="result-label">< 18.5 BMI</span>
+              <span className="result-label">{'< 18.5 BMI'}</span>
             </div>
             <div className="result-item">
               <span className="result-label">Normal Weight</span>
