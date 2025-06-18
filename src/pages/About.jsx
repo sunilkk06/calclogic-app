@@ -41,6 +41,10 @@ const About = () => {
           </div>
         </div>
 
+        <div className="about-image-section" style={{ textAlign: 'center', margin: '2rem 0' }}>
+          <img src="/image.png" alt="Calculator graphic" style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }} />
+        </div>
+
         <div className="input-section">
           <h2>What Sets Us Apart</h2>
           <ul style={{ listStyle: 'none', padding: 0 }}>
