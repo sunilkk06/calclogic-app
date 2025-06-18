@@ -260,7 +260,7 @@ const IdealWeightCalculator = () => {
             <div className="result-item">
               <span className="result-label">Underweight</span>
               <span className="result-value">{results.bmiRanges.underweight} kg</span>
-              <span className="result-label">{'< 18.5 BMI'}</span>
+              <span className="result-label">&lt; 18.5 BMI</span>
             </div>
             <div className="result-item">
               <span className="result-label">Normal Weight</span>
@@ -280,9 +280,9 @@ const IdealWeightCalculator = () => {
         <div className="info-card">
           <h3>Body Frame Size</h3>
           <ul>
-            <li>Small Frame: Wrist circumference < 16.5 cm</li>
+            <li>Small Frame: Wrist circumference &lt; 16.5 cm</li>
             <li>Medium Frame: Wrist 16.5-18.5 cm</li>
-            <li>Large Frame: Wrist > 18.5 cm</li>
+            <li>Large Frame: Wrist &gt; 18.5 cm</li>
             <li>Frame size affects ideal weight range</li>
           </ul>
         </div>
