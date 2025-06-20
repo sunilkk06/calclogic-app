@@ -24,9 +24,6 @@ const Footer = () => {
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <i className="fab fa-instagram"></i>
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-              <i className="fab fa-twitter"></i>
-            </a>
           </div>
         </div>
         
@@ -51,8 +48,7 @@ const Footer = () => {
         
         <div className="footer-section contact">
           <h4>Contact Us</h4>
-          <p><i className="fas fa-envelope"></i> support@calclogic.com</p>
-          <p><i className="fas fa-phone"></i> +1 (555) 123-4567</p>
+          <p><i className="fas fa-envelope"></i> contact@calclogic.com</p>
           <div className="newsletter">
             <input type="email" placeholder="Subscribe to newsletter" />
             <button><i className="fas fa-paper-plane"></i></button>
