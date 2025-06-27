@@ -15,13 +15,13 @@ const Footer = () => {
           <h4>CalcLogic</h4>
           <p>Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs.</p>
           <div className="social-icons">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <a href="https://facebook.com/calclogic" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <i className="fab fa-facebook-f"></i>
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://linkedin.com/company/calclogic" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <i className="fab fa-linkedin-in"></i>
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href="https://instagram.com/calclogic" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <i className="fab fa-instagram"></i>
             </a>
           </div>
