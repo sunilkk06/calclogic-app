@@ -9,6 +9,8 @@ import HealthCalculators from './pages/HealthCalculators'
 import MathCalculators from './pages/MathCalculators'
 import OtherCalculators from './pages/OtherCalculators'
 import AllCalculators from './pages/AllCalculators'
+import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 
 // Individual Calculator Pages
 import BMICalculator from './pages/calculators/BMICalculator'
@@ -54,6 +56,8 @@ function App() {
         <Route path="/math" element={<MathCalculators />} />
         <Route path="/other" element={<OtherCalculators />} />
         <Route path="/all-calculators" element={<AllCalculators />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogPost />} />
         
         {/* Health Calculators */}
         <Route path="/bmi-calculator" element={<BMICalculator />} />
