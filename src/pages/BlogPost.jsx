@@ -7,6 +7,137 @@ const BlogPost = () => {
   // Sample blog posts data - in a real app, this would come from an API
   const blogPosts = [
     {
+      id: 7,
+      title: "How to Calculate Your Retirement Needs: A Step-by-Step Guide",
+      date: "May 22, 2024",
+      author: "Jennifer Wilson, CFP",
+      category: "Financial",
+      image: "https://images.pexels.com/photos/7821485/pexels-photo-7821485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      content: `
+        <p>Planning for retirement can feel overwhelming. How much money will you need? How much should you save each month? When can you retire comfortably? This step-by-step guide will help you calculate your retirement needs and create a solid plan.</p>
+        
+        <h2>Step 1: Estimate Your Retirement Expenses</h2>
+        <p>The first step in retirement planning is determining how much money you'll need annually during retirement. Many financial advisors suggest you'll need 70-80% of your pre-retirement income to maintain your standard of living.</p>
+        
+        <h3>Common Retirement Expenses</h3>
+        <ul>
+          <li><strong>Housing:</strong> Mortgage or rent, property taxes, insurance, maintenance</li>
+          <li><strong>Healthcare:</strong> Insurance premiums, out-of-pocket expenses, long-term care</li>
+          <li><strong>Food:</strong> Groceries and dining out</li>
+          <li><strong>Transportation:</strong> Car payments, insurance, maintenance, fuel</li>
+          <li><strong>Utilities:</strong> Electricity, water, gas, internet, phone</li>
+          <li><strong>Travel and leisure:</strong> Vacations, hobbies, entertainment</li>
+          <li><strong>Taxes:</strong> Income taxes, property taxes</li>
+        </ul>
+        
+        <h3>Expenses That May Decrease</h3>
+        <ul>
+          <li>Commuting costs</li>
+          <li>Work-related expenses (clothing, lunches)</li>
+          <li>Retirement savings contributions</li>
+          <li>Mortgage payments (if paid off)</li>
+          <li>Child-related expenses</li>
+        </ul>
+        
+        <h3>Expenses That May Increase</h3>
+        <ul>
+          <li>Healthcare costs</li>
+          <li>Travel and leisure activities</li>
+          <li>Gifts and charitable giving</li>
+        </ul>
+        
+        <h2>Step 2: Calculate Your Retirement Income</h2>
+        <p>Next, estimate your expected retirement income from various sources:</p>
+        
+        <h3>Social Security</h3>
+        <p>Visit the Social Security Administration's website to get a personalized estimate of your benefits. The average monthly benefit is around $1,800, but yours may be higher or lower depending on your earnings history.</p>
+        
+        <h3>Pensions</h3>
+        <p>If you have a pension plan, contact your plan administrator to get an estimate of your benefits.</p>
+        
+        <h3>Other Income Sources</h3>
+        <ul>
+          <li>Part-time work</li>
+          <li>Rental income</li>
+          <li>Annuities</li>
+          <li>Royalties</li>
+        </ul>
+        
+        <h2>Step 3: Identify the Gap</h2>
+        <p>Subtract your expected retirement income from your estimated expenses. This is the gap that your retirement savings will need to fill.</p>
+        
+        <h3>The 4% Rule</h3>
+        <p>A common guideline is the 4% rule, which suggests you can withdraw 4% of your retirement savings in the first year, then adjust that amount for inflation each subsequent year. This approach is designed to make your savings last for approximately 30 years.</p>
+        
+        <p>To calculate how much you need to save:</p>
+        <p><strong>Required Retirement Savings = Annual Income Gap ÷ 0.04</strong></p>
+        
+        <h4>Example:</h4>
+        <p>If your annual expenses will be $80,000 and you expect $30,000 from Social Security and other sources, your income gap is $50,000.</p>
+        <p>Required Retirement Savings = $50,000 ÷ 0.04 = $1,250,000</p>
+        
+        <h2>Step 4: Determine How Much to Save Monthly</h2>
+        <p>Once you know your target retirement savings, you can calculate how much you need to save each month to reach that goal.</p>
+        
+        <h3>Factors to Consider:</h3>
+        <ul>
+          <li>Current age</li>
+          <li>Desired retirement age</li>
+          <li>Current retirement savings</li>
+          <li>Expected rate of return on investments</li>
+          <li>Inflation rate</li>
+        </ul>
+        
+        <h3>Compound Interest Formula</h3>
+        <p>The formula for calculating future value with regular contributions is complex, but you can use our <a href="/retirement-calculator">Retirement Calculator</a> to simplify this process.</p>
+        
+        <h2>Step 5: Adjust for Inflation</h2>
+        <p>Inflation erodes purchasing power over time. Historically, inflation has averaged about 3% annually in the United States.</p>
+        
+        <p>To account for inflation, you can:</p>
+        <ul>
+          <li>Increase your savings target by 3% annually</li>
+          <li>Use an inflation-adjusted rate of return in your calculations (typically 3-4% lower than nominal returns)</li>
+          <li>Regularly revisit and update your retirement plan</li>
+        </ul>
+        
+        <h2>Step 6: Consider Different Scenarios</h2>
+        <p>Retirement planning involves many variables and uncertainties. It's wise to calculate multiple scenarios:</p>
+        
+        <h3>Best-Case Scenario</h3>
+        <ul>
+          <li>Higher investment returns</li>
+          <li>Lower inflation</li>
+          <li>Good health with lower healthcare costs</li>
+        </ul>
+        
+        <h3>Worst-Case Scenario</h3>
+        <ul>
+          <li>Lower investment returns</li>
+          <li>Higher inflation</li>
+          <li>Health issues requiring expensive care</li>
+          <li>Longer lifespan requiring more savings</li>
+        </ul>
+        
+        <h2>Step 7: Regularly Review and Adjust</h2>
+        <p>Retirement planning isn't a one-time exercise. Review your plan annually and make adjustments based on:</p>
+        <ul>
+          <li>Changes in income or expenses</li>
+          <li>Investment performance</li>
+          <li>Changes in retirement goals</li>
+          <li>Changes in tax laws or retirement account rules</li>
+        </ul>
+        
+        <h2>Tools to Help You Calculate</h2>
+        <p>While these steps provide a framework, retirement calculators can simplify the process and provide more accurate projections. Our <a href="/retirement-calculator">Retirement Calculator</a> takes into account all these factors and provides a comprehensive analysis of your retirement readiness.</p>
+        
+        <h2>Conclusion</h2>
+        <p>Calculating your retirement needs may seem daunting, but breaking it down into these steps makes it manageable. The earlier you start planning, the more options you'll have and the more confident you can be about your financial future.</p>
+        
+        <p>Remember that retirement planning is personal—there's no one-size-fits-all approach. Your retirement needs will depend on your desired lifestyle, health status, location, and many other factors unique to you.</p>
+      `
+    },
+    {
       id: 1,
       title: "Understanding Compound Interest: The Eighth Wonder of the World",
       date: "May 15, 2024",

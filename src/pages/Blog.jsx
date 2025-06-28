@@ -5,6 +5,14 @@ const Blog = () => {
   // Sample blog posts data
   const blogPosts = [
     {
+      id: 7, // New blog post with ID 7
+      title: "How to Calculate Your Retirement Needs: A Step-by-Step Guide",
+      excerpt: "Learn how to accurately estimate your retirement savings goals and create a plan to achieve them.",
+      date: "May 22, 2024",
+      category: "Financial",
+      image: "https://images.pexels.com/photos/7821485/pexels-photo-7821485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
       id: 1,
       title: "Understanding Compound Interest: The Eighth Wonder of the World",
       excerpt: "Learn how compound interest works and why it's considered one of the most powerful forces in finance.",
