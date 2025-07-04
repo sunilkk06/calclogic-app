@@ -8,6 +8,21 @@ const About = () => {
         <p className="calculator-description">Empowering Better Decisions Through Precise Calculations</p>
       </div>
 
+      <div className="hero-image-section" style={{ textAlign: 'center', margin: '2rem 0 3rem 0', padding: '0 1rem' }}>
+        <img 
+          src="/future-calculator.jpg" 
+          alt="Professional calculator with charts and office supplies" 
+          style={{ 
+            maxWidth: '100%', 
+            height: 'auto', 
+            borderRadius: '12px', 
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+            maxHeight: '400px',
+            objectFit: 'cover'
+          }} 
+        />
+      </div>
+
       <div className="calculator-form">
         <div className="input-section">
           <h2>Our Mission</h2>
@@ -41,9 +56,6 @@ const About = () => {
           </div>
         </div>
 
-        <div className="about-image-section" style={{ textAlign: 'center', margin: '2rem 0' }}>
-          <img src="/image.png" alt="Calculator graphic" style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }} />
-        </div>
 
         <div className="input-section">
           <h2>What Sets Us Apart</h2>

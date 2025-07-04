@@ -25,6 +25,157 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- Home Page Calculator (Hero Section) ---
+    const heroDisplay = document.getElementById('hero-calc-display');
+    const heroButtons = document.querySelector('.simple-calc-buttons');
+    const heroModeBtns = document.querySelectorAll('.calc-modes .mode-btn');
+    let heroCurrentInput = '';
+    let heroShouldResetDisplay = false;
+    let heroMemory = 0;
+    let heroMode = 'deg'; // 'deg' or 'rad'
+
+    if (heroModeBtns.length) {
+        heroModeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                heroModeBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                heroMode = btn.dataset.mode;
+            });
+        });
+    }
+
+    function heroToRadians(val) {
+        return heroMode === 'deg' ? val * Math.PI / 180 : val;
+    }
+    function heroToDegrees(val) {
+        return heroMode === 'rad' ? val * 180 / Math.PI : val;
+    }
+
+    function heroUpdateDisplay(val) {
+        heroDisplay.textContent = val;
+    }
+
+    function heroSafeEval(expr) {
+        // Replace symbols with JS functions/constants
+        expr = expr.replace(/π/g, 'Math.PI')
+                   .replace(/e(?![a-zA-Z])/g, 'Math.E')
+                   .replace(/÷/g, '/')
+                   .replace(/×/g, '*');
+        // Exponents
+        expr = expr.replace(/(\d+(?:\.\d+)?)\s*x²/g, 'Math.pow($1,2)')
+                   .replace(/(\d+(?:\.\d+)?)\s*x³/g, 'Math.pow($1,3)')
+                   .replace(/(\d+(?:\.\d+)?)\s*xʸ\s*(\d+(?:\.\d+)?)/g, 'Math.pow($1,$2)')
+                   .replace(/(\d+(?:\.\d+)?)\s*eˣ/g, 'Math.exp($1)')
+                   .replace(/(\d+(?:\.\d+)?)\s*10ˣ/g, 'Math.pow(10,$1)');
+        // Inverse trig
+        expr = expr.replace(/sin⁻¹\(([^)]+)\)/g, (m, p1) => `heroToDegrees(Math.asin(${p1}))`)
+                   .replace(/cos⁻¹\(([^)]+)\)/g, (m, p1) => `heroToDegrees(Math.acos(${p1}))`)
+                   .replace(/tan⁻¹\(([^)]+)\)/g, (m, p1) => `heroToDegrees(Math.atan(${p1}))`);
+        // Trig
+        expr = expr.replace(/sin\(([^)]+)\)/g, (m, p1) => `Math.sin(heroToRadians(${p1}))`)
+                   .replace(/cos\(([^)]+)\)/g, (m, p1) => `Math.cos(heroToRadians(${p1}))`)
+                   .replace(/tan\(([^)]+)\)/g, (m, p1) => `Math.tan(heroToRadians(${p1}))`);
+        // Power
+        expr = expr.replace(/([\d.]+)\s*\^\s*([\d.]+)/g, 'Math.pow($1,$2)');
+        // Remove unsupported characters
+        if (/[^0-9+\-*/(). MathPIEexpowsincoatanMR]+/.test(expr)) return 'Error';
+        try {
+            // eslint-disable-next-line no-eval
+            let result = eval(expr);
+            if (!isFinite(result)) return 'Error';
+            return parseFloat(result.toFixed(10));
+        } catch {
+            return 'Error';
+        }
+    }
+
+    if (heroButtons && heroDisplay) {
+        heroButtons.addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON') {
+                const btnText = e.target.textContent;
+                if (/^[0-9.]$/.test(btnText)) {
+                    if (heroDisplay.textContent === '0' || heroShouldResetDisplay) {
+                        heroUpdateDisplay(btnText);
+                        heroShouldResetDisplay = false;
+                    } else {
+                        heroUpdateDisplay(heroDisplay.textContent + btnText);
+                    }
+                } else if (btnText === 'C') {
+                    heroUpdateDisplay('0');
+                    heroCurrentInput = '';
+                } else if (btnText === '=') {
+                    let expr = heroDisplay.textContent;
+                    // Replace xʸ with ^ for easier parsing
+                    expr = expr.replace(/([\d.]+)\s*xʸ\s*([\d.]+)/g, '$1^$2');
+                    // Replace x², x³, eˣ, 10ˣ
+                    expr = expr.replace(/([\d.]+)x²/g, 'Math.pow($1,2)')
+                               .replace(/([\d.]+)x³/g, 'Math.pow($1,3)')
+                               .replace(/([\d.]+)eˣ/g, 'Math.exp($1)')
+                               .replace(/([\d.]+)10ˣ/g, 'Math.pow(10,$1)');
+                    // Replace π, e
+                    expr = expr.replace(/π/g, 'Math.PI').replace(/e/g, 'Math.E');
+                    // Replace operators
+                    expr = expr.replace(/÷/g, '/').replace(/×/g, '*');
+                    // Trig and inverse trig
+                    expr = expr.replace(/sin⁻¹\(([^)]+)\)/g, (m, p1) => heroToDegrees(Math.asin(Number(p1))))
+                               .replace(/cos⁻¹\(([^)]+)\)/g, (m, p1) => heroToDegrees(Math.acos(Number(p1))))
+                               .replace(/tan⁻¹\(([^)]+)\)/g, (m, p1) => heroToDegrees(Math.atan(Number(p1))));
+                    expr = expr.replace(/sin\(([^)]+)\)/g, (m, p1) => Math.sin(heroToRadians(Number(p1))))
+                               .replace(/cos\(([^)]+)\)/g, (m, p1) => Math.cos(heroToRadians(Number(p1))))
+                               .replace(/tan\(([^)]+)\)/g, (m, p1) => Math.tan(heroToRadians(Number(p1))));
+                    // Power
+                    expr = expr.replace(/([\d.]+)\s*\^\s*([\d.]+)/g, (m, b, e) => Math.pow(Number(b), Number(e)));
+                    // Evaluate
+                    let result;
+                    try {
+                        // eslint-disable-next-line no-eval
+                        result = eval(expr);
+                        if (!isFinite(result)) result = 'Error';
+                    } catch {
+                        result = 'Error';
+                    }
+                    heroUpdateDisplay(result);
+                    heroShouldResetDisplay = true;
+                } else if (btnText === '+') {
+                    heroUpdateDisplay(heroDisplay.textContent + '+');
+                } else if (btnText === '-') {
+                    heroUpdateDisplay(heroDisplay.textContent + '-');
+                } else if (btnText === '×') {
+                    heroUpdateDisplay(heroDisplay.textContent + '×');
+                } else if (btnText === '÷') {
+                    heroUpdateDisplay(heroDisplay.textContent + '÷');
+                } else if (btnText === 'π') {
+                    heroUpdateDisplay(heroDisplay.textContent + 'π');
+                } else if (btnText === 'e') {
+                    heroUpdateDisplay(heroDisplay.textContent + 'e');
+                } else if (btnText === 'x²') {
+                    heroUpdateDisplay(heroDisplay.textContent + 'x²');
+                } else if (btnText === 'x³') {
+                    heroUpdateDisplay(heroDisplay.textContent + 'x³');
+                } else if (btnText === 'xʸ') {
+                    heroUpdateDisplay(heroDisplay.textContent + 'xʸ');
+                } else if (btnText === 'eˣ') {
+                    heroUpdateDisplay(heroDisplay.textContent + 'eˣ');
+                } else if (btnText === '10ˣ') {
+                    heroUpdateDisplay(heroDisplay.textContent + '10ˣ');
+                } else if (btnText === 'sin⁻¹') {
+                    heroUpdateDisplay(heroDisplay.textContent + 'sin⁻¹(');
+                } else if (btnText === 'cos⁻¹') {
+                    heroUpdateDisplay(heroDisplay.textContent + 'cos⁻¹(');
+                } else if (btnText === 'tan⁻¹') {
+                    heroUpdateDisplay(heroDisplay.textContent + 'tan⁻¹(');
+                } else if (btnText === 'MR') {
+                    heroUpdateDisplay(heroMemory.toString());
+                    heroShouldResetDisplay = true;
+                } else if (btnText === 'M+') {
+                    heroMemory += Number(heroDisplay.textContent) || 0;
+                } else if (btnText === 'M-') {
+                    heroMemory -= Number(heroDisplay.textContent) || 0;
+                }
+            }
+        });
+    }
+
     // --- Basic/Scientific Calculator (Hero Section) ---
     const display = document.getElementById('calculator-display');
     const buttons = document.querySelector('.calculator-buttons');
@@ -339,8 +490,72 @@ document.addEventListener('DOMContentLoaded', () => {
     const calUnits = document.querySelectorAll('input[name="cal-units"]');
     const metricInputsCal = document.getElementById('metric-inputs-cal');
     const imperialInputsCal = document.getElementById('imperial-inputs-cal');
+    const calorieInputs = [
+        document.getElementById('weight-kg-cal'),
+        document.getElementById('height-cm-cal'),
+        document.getElementById('weight-lbs-cal'),
+        document.getElementById('height-ft-cal'),
+        document.getElementById('height-in-cal'),
+        document.getElementById('age-cal'),
+        document.getElementById('gender-cal'),
+        document.getElementById('activity-level')
+    ];
 
-     if (calUnits.length > 0) {
+    function calculateCalorieResults() {
+        let weight, heightCm;
+        const age = parseInt(document.getElementById('age-cal').value);
+        const gender = document.getElementById('gender-cal').value;
+        const activityLevel = parseFloat(document.getElementById('activity-level').value);
+        const selectedUnit = document.querySelector('input[name="cal-units"]:checked').value;
+        const resultDiv = document.getElementById('calorie-result');
+
+        // Input validation
+        if (isNaN(age) || age <= 0) {
+            resultDiv.style.display = 'none'; return;
+        }
+        if (isNaN(activityLevel)) {
+            resultDiv.style.display = 'none'; return;
+        }
+
+        // Get and validate weight/height based on units
+        if (selectedUnit === 'metric') {
+            weight = parseFloat(document.getElementById('weight-kg-cal').value);
+            heightCm = parseFloat(document.getElementById('height-cm-cal').value);
+            if (isNaN(weight) || isNaN(heightCm) || weight <= 0 || heightCm <= 0) {
+                resultDiv.style.display = 'none'; return;
+            }
+        } else { // Imperial
+            weight = parseFloat(document.getElementById('weight-lbs-cal').value);
+            const heightFt = parseFloat(document.getElementById('height-ft-cal').value) || 0;
+            const heightIn = parseFloat(document.getElementById('height-in-cal').value) || 0;
+            const totalInches = (heightFt * 12) + heightIn;
+            if (isNaN(weight) || isNaN(totalInches) || weight <= 0 || totalInches <= 0) {
+                resultDiv.style.display = 'none'; return;
+            }
+            // Convert imperial to metric for calculation
+            weight = weight * 0.453592; // lbs to kg
+            heightCm = totalInches * 2.54; // inches to cm
+        }
+
+        // Calculate BMR using Mifflin-St Jeor equation
+        let bmr;
+        if (gender === 'male') {
+            bmr = (10 * weight) + (6.25 * heightCm) - (5 * age) + 5;
+        } else { // female
+            bmr = (10 * weight) + (6.25 * heightCm) - (5 * age) - 161;
+        }
+
+        const tdee = bmr * activityLevel;
+
+        document.getElementById('bmr-value').textContent = Math.round(bmr);
+        document.getElementById('tdee-value').textContent = Math.round(tdee);
+        document.getElementById('loss-mild').textContent = Math.round(tdee - 250);
+        document.getElementById('gain-mild').textContent = Math.round(tdee + 250);
+
+        resultDiv.style.display = 'block';
+    }
+
+    if (calUnits.length > 0) {
         calUnits.forEach(radio => {
             radio.addEventListener('change', function() {
                 if (this.value === 'metric') {
@@ -350,7 +565,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     metricInputsCal.style.display = 'none';
                     imperialInputsCal.style.display = 'block';
                 }
-                // Clear inputs and results on unit change
                 document.getElementById('calorie-form').reset();
                 document.getElementById('calorie-result').style.display = 'none';
             });
@@ -360,62 +574,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (calorieForm) {
         calorieForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            let weight, heightCm;
-            const age = parseInt(document.getElementById('age-cal').value);
-            const gender = document.getElementById('gender-cal').value;
-            const activityLevel = parseFloat(document.getElementById('activity-level').value);
-            const selectedUnit = document.querySelector('input[name="cal-units"]:checked').value;
-            const resultDiv = document.getElementById('calorie-result');
-
-            // Input validation
-             if (isNaN(age) || age <= 0) {
-                alert('Please enter a valid positive age.');
-                resultDiv.style.display = 'none'; return;
+            calculateCalorieResults();
+        });
+        // Auto-calculate on any input change
+        calorieInputs.forEach(input => {
+            if (input) {
+                input.addEventListener('input', calculateCalorieResults);
+                input.addEventListener('change', calculateCalorieResults);
             }
-            if (isNaN(activityLevel)) {
-                alert('Please select an activity level.');
-                 resultDiv.style.display = 'none'; return;
-            }
-
-            // Get and validate weight/height based on units
-            if (selectedUnit === 'metric') {
-                weight = parseFloat(document.getElementById('weight-kg-cal').value);
-                heightCm = parseFloat(document.getElementById('height-cm-cal').value);
-                 if (isNaN(weight) || isNaN(heightCm) || weight <= 0 || heightCm <= 0) {
-                    alert('Please enter valid positive weight and height in metric units.');
-                    resultDiv.style.display = 'none'; return;
-                 }
-            } else { // Imperial
-                weight = parseFloat(document.getElementById('weight-lbs-cal').value);
-                const heightFt = parseFloat(document.getElementById('height-ft-cal').value) || 0;
-                const heightIn = parseFloat(document.getElementById('height-in-cal').value) || 0;
-                const totalInches = (heightFt * 12) + heightIn;
-                 if (isNaN(weight) || isNaN(totalInches) || weight <= 0 || totalInches <= 0) {
-                    alert('Please enter valid positive weight and height in imperial units.');
-                    resultDiv.style.display = 'none'; return;
-                 }
-                // Convert imperial to metric for calculation
-                weight = weight * 0.453592; // lbs to kg
-                heightCm = totalInches * 2.54; // inches to cm
-            }
-
-            // Calculate BMR using Mifflin-St Jeor equation
-            let bmr;
-            if (gender === 'male') {
-                bmr = (10 * weight) + (6.25 * heightCm) - (5 * age) + 5;
-            } else { // female
-                bmr = (10 * weight) + (6.25 * heightCm) - (5 * age) - 161;
-            }
-
-            const tdee = bmr * activityLevel;
-
-            document.getElementById('bmr-value').textContent = Math.round(bmr);
-            document.getElementById('tdee-value').textContent = Math.round(tdee);
-            // Simple estimate for mild weight loss/gain (approx 250 calorie deficit/surplus)
-            document.getElementById('loss-mild').textContent = Math.round(tdee - 250);
-            document.getElementById('gain-mild').textContent = Math.round(tdee + 250);
-
-            resultDiv.style.display = 'block';
         });
     }
 

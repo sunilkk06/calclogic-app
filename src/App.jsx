@@ -43,6 +43,7 @@ import TimeCalculator from './pages/calculators/TimeCalculator'
 import PregnancyCalculator from './pages/calculators/PregnancyCalculator'
 import GPACalculator from './pages/calculators/GPACalculator'
 import GradeCalculator from './pages/calculators/GradeCalculator'
+import FAQs from './pages/FAQs'
 
 function App() {
   return (
@@ -96,6 +97,7 @@ function App() {
         <Route path="/pregnancy-calculator" element={<PregnancyCalculator />} />
         <Route path="/gpa-calculator" element={<GPACalculator />} />
         <Route path="/grade-calculator" element={<GradeCalculator />} />
+        <Route path="/faqs" element={<FAQs />} />
       </Routes>
     </Layout>
   )
