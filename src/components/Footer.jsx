@@ -24,6 +24,20 @@ const Footer = () => {
             <a href="https://instagram.com/calclogic" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <i className="fab fa-instagram"></i>
             </a>
+            <a 
+              href={`https://wa.me/?text=${encodeURIComponent('Check out CalcLogic - Free Online Calculators for all your needs! ' + window.location.origin)}`}
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="Share on WhatsApp"
+            >
+              <i className="fab fa-whatsapp"></i>
+            </a>
+            <a 
+              href={`mailto:?subject=${encodeURIComponent('Check out CalcLogic')}&body=${encodeURIComponent('I found this amazing calculator website: ' + window.location.origin)}`}
+              aria-label="Share via Email"
+            >
+              <i className="fas fa-envelope"></i>
+            </a>
           </div>
         </div>
         

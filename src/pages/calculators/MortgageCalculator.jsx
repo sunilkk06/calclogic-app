@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ShareButtons from '../../components/ShareButtons'
 
 const MortgageCalculator = () => {
   const [formData, setFormData] = useState({
@@ -248,6 +249,12 @@ const MortgageCalculator = () => {
           <p>Homeowners insurance is typically required by lenders and is often included in your monthly payment. Private Mortgage Insurance (PMI) may be required if your down payment is less than 20%.</p>
         </div>
       </div>
+      
+      <ShareButtons 
+        title="Mortgage Calculator"
+        description="Calculate your monthly mortgage payments and understand the total cost of your home loan"
+        customMessage="Calculate your monthly mortgage payments with this easy-to-use calculator!"
+      />
     </div>
   )
 }

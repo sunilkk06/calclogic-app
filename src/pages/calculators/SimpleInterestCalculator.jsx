@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ShareButtons from '../../components/ShareButtons'
 
 const SimpleInterestCalculator = () => {
   const [formData, setFormData] = useState({
@@ -174,6 +175,12 @@ const SimpleInterestCalculator = () => {
           <p>The key difference is that compound interest calculates interest on the principal plus any accumulated interest from previous periods (interest on interest). Simple interest is always calculated only on the original principal.</p>
         </div>
       </div>
+      
+      <ShareButtons 
+        title="Simple Interest Calculator"
+        description="Calculate simple interest earned or paid on a principal amount over time"
+        customMessage="Calculate simple interest with this easy-to-use calculator!"
+      />
     </div>
   )
 }

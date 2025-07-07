@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import HeroCalculator from '../components/HeroCalculator'
+import ShareButtons from '../components/ShareButtons'
 
 const Home = () => {
   return (
@@ -110,6 +111,12 @@ const Home = () => {
           <p>Explore our full range of calculators designed to help you make better decisions in finance, health, education, and more.</p>
           <Link to="/all-calculators" className="calculator-btn">Explore All Calculators</Link>
         </div>
+        
+        <ShareButtons 
+          title="CalcLogic - Free Online Calculators"
+          description="Your go-to resource for free online calculators. Simple, accurate, and accessible for everyday needs."
+          customMessage="Check out CalcLogic - Amazing free calculators for all your needs! Financial, health, math and more."
+        />
       </section>
     </>
   )

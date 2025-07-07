@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ShareButtons from '../../components/ShareButtons'
 
 const BMICalculator = () => {
   const [units, setUnits] = useState('metric')
@@ -186,6 +187,12 @@ const BMICalculator = () => {
           <p>Higher BMI is associated with increased risk for certain diseases like heart disease, high blood pressure, type 2 diabetes, gallstones, breathing problems, and certain cancers.</p>
         </div>
       </div>
+      
+      <ShareButtons 
+        title="BMI Calculator"
+        description="Calculate your Body Mass Index (BMI) with this free, easy-to-use calculator"
+        customMessage="Check out this BMI Calculator - Calculate your Body Mass Index quickly and easily!"
+      />
     </div>
   )
 }
