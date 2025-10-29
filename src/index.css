@@ -1547,3 +1547,122 @@ th {
         font-size: 1.3rem;
     }
 }
+
+/* Policy Pages Styles */
+.policy-page {
+    min-height: calc(100vh - 200px);
+    padding: 3rem 1rem;
+    background-color: #f5f5f5;
+}
+
+.policy-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1.8;
+}
+
+.policy-container h1 {
+    font-size: 2.5rem;
+    color: #1e2a38;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.policy-container .last-updated {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.policy-container section {
+    margin-bottom: 2.5rem;
+}
+
+.policy-container h2 {
+    font-size: 1.5rem;
+    color: #1e2a38;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    font-weight: 600;
+}
+
+.policy-container p {
+    color: #555;
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.policy-container ul {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.policy-container li {
+    color: #555;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.policy-container strong {
+    color: #1e2a38;
+    font-weight: 600;
+}
+
+.policy-container a {
+    color: #4a90e2;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.policy-container a:hover {
+    color: #357abd;
+    text-decoration: underline;
+}
+
+/* Responsive Policy Pages */
+@media (max-width: 768px) {
+    .policy-container {
+        padding: 2rem;
+    }
+
+    .policy-container h1 {
+        font-size: 2rem;
+    }
+
+    .policy-container h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .policy-page {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .policy-container {
+        padding: 1.5rem;
+        border-radius: 4px;
+    }
+
+    .policy-container h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .policy-container h2 {
+        font-size: 1.1rem;
+    }
+
+    .policy-container p {
+        font-size: 0.95rem;
+    }
+
+    .policy-container ul {
+        margin-left: 1.5rem;
+    }
+}

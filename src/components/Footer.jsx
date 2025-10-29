@@ -75,9 +75,9 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} CalcLogic | All Rights Reserved
         </div>
         <div className="footer-links">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
-          <a href="/cookies">Cookie Policy</a>
+          <Link to="/privacy">Privacy Policy</Link>
+          <Link to="/terms">Terms of Service</Link>
+          <Link to="/cookies">Cookie Policy</Link>
         </div>
       </div>
     </footer>

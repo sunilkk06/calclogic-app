@@ -11,6 +11,9 @@ import OtherCalculators from './pages/OtherCalculators'
 import AllCalculators from './pages/AllCalculators'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
+import Cookies from './pages/Cookies'
 
 // Individual Calculator Pages
 import BMICalculator from './pages/calculators/BMICalculator'
@@ -98,6 +101,11 @@ function App() {
         <Route path="/gpa-calculator" element={<GPACalculator />} />
         <Route path="/grade-calculator" element={<GradeCalculator />} />
         <Route path="/faqs" element={<FAQs />} />
+        
+        {/* Policy Pages */}
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/cookies" element={<Cookies />} />
       </Routes>
     </Layout>
   )
