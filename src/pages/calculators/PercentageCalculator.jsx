@@ -289,7 +289,7 @@ const PercentageCalculator = () => {
           {percentChange.result && (
             <div className="result-item" style={{ marginTop: '1rem' }}>
               <span className="result-label">Result:</span>
-              <span className="result-value">{percentChange.result.value}% ({percentChange.result.type})</span>
+              <span className="result-value">{percentChange.result.value + '%'} ({percentChange.result.type})</span>
             </div>
           )}
         </div>
