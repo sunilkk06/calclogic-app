@@ -5,6 +5,14 @@ const Blog = () => {
   // Sample blog posts data
   const blogPosts = [
     {
+      id: 9, // New blog post - BMI Calculator Guide
+      title: "BMI Calculator: What Your Number Really Means — And When to Ignore It Completely",
+      excerpt: "Your BMI number is just a starting point. This comprehensive guide explains what BMI really measures, its surprising limitations, what a healthy BMI actually looks like, and which alternatives tell a more complete story about your health.",
+      date: "March 2026",
+      category: "Health & Fitness",
+      image: "https://images.pexels.com/photos/842571/pexels-photo-842571.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
       id: 8, // New blog post - Grade Calculator Guide
       title: "Grade Calculator: The Complete Student Guide to Calculating Grades, GPA & Final Exam Scores",
       excerpt: "Learn exactly how to calculate your grades, GPA, weighted averages, and the score you need on your final exam. Free grade calculator + complete student guide.",

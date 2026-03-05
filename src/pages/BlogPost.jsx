@@ -8,6 +8,421 @@ const BlogPost = () => {
   // Sample blog posts data - in a real app, this would come from an API
   const blogPosts = [
     {
+      id: 9,
+      title: "BMI Calculator: What Your Number Really Means — And When to Ignore It Completely",
+      date: "March 2026",
+      author: "CalcLogic Team",
+      category: "Health & Fitness",
+      image: "https://images.pexels.com/photos/842571/pexels-photo-842571.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      content: `
+        <div class="article-category">Health & Fitness · BMI Guide</div>
+
+        <h1>BMI Calculator: What Your Number Really Means — And When to Ignore It Completely</h1>
+
+        <p class="article-intro">You punched in your height and weight, got a number, and now you're not sure how to feel about it. Here's the honest, complete guide to BMI — what it actually measures, where it fails, and how to use it without letting a single number define your health.</p>
+
+        <div class="article-meta">
+          <span>📅 Updated March 2026</span>
+          <span>⏱ 12 min read</span>
+          <span>🏥 Health & Fitness</span>
+          <span>✅ Medically reviewed</span>
+        </div>
+
+        <div class="toc">
+          <div class="toc-title">What's in this guide</div>
+          <ol>
+            <li><a href="#what-is-bmi">What BMI Actually Is — And Where It Came From</a></li>
+            <li><a href="#how-to-calculate">How to Calculate BMI: The Formula, Step by Step</a></li>
+            <li><a href="#bmi-categories">The BMI Chart: All 6 Categories Explained</a></li>
+            <li><a href="#healthy-bmi">What Is a Healthy BMI? The Honest Answer</a></li>
+            <li><a href="#bmi-by-age-gender">BMI by Age and Gender: Why the Same Number Means Different Things</a></li>
+            <li><a href="#bmi-limitations">The Real Limitations of BMI (What Doctors Wish You Knew)</a></li>
+            <li><a href="#bmi-for-athletes">Why BMI Lies to Athletes and Muscular People</a></li>
+            <li><a href="#bmi-ethnicity">BMI and Ethnicity: Why Race Actually Matters</a></li>
+            <li><a href="#better-alternatives">Better Alternatives to BMI That Tell the Full Story</a></li>
+            <li><a href="#how-to-lower-bmi">How to Lower Your BMI in a Healthy, Sustainable Way</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+          </ol>
+        </div>
+
+        <p>There are few numbers in health that carry more weight — no pun intended — than your BMI. Doctors use it. Insurance companies use it. Schools use it. Millions of people calculate it on their phones every day. And yet, BMI might be the most misunderstood health metric in existence.</p>
+
+        <p>It was invented nearly 200 years ago by a Belgian mathematician who openly admitted it wasn't designed to assess individual health. Today it's used to make deeply personal medical decisions for billions of people. That's a remarkable journey for a piece of arithmetic, and it's worth understanding properly.</p>
+
+        <p>This guide won't just give you a number. It'll tell you what that number means, what it doesn't mean, and how to make sense of your health in a way that's actually useful.</p>
+
+        <div class="cta">
+          <h3>Calculate your BMI right now</h3>
+          <p>Free, instant, no signup — metric and imperial units supported</p>
+          <a class="cta-btn" href="/bmi-calculator">BMI Calculator →</a>
+        </div>
+
+        <hr class="section-divider">
+
+        <h2 id="what-is-bmi">1. What BMI Actually Is — And Where It Came From</h2>
+
+        <p>Body Mass Index is a number derived from two measurements: your weight and your height. Divide your weight in kilograms by your height in meters squared, and you get a single figure that slots you into one of several weight categories.</p>
+
+        <p>Simple. Almost deceptively so.</p>
+
+        <p>The formula was created in the 1830s by <strong>Adolphe Quetelet</strong>, a Belgian mathematician, statistician, and astronomer who was studying the characteristics of the average European man. He wasn't a physician. He wasn't trying to assess individual health. He was attempting to describe population patterns — the statistical shape of a population, essentially — and he needed a formula that could be calculated without any technology more advanced than paper and arithmetic.</p>
+
+        <div class="callout callout-amber">
+          <span class="callout-label">⚠️ Historical context worth knowing</span>
+          Quetelet developed his formula using data from Belgian and French men in the 1800s. The subjects were predominantly white, male, and sedentary. This narrow dataset still underpins a measurement used today on people of every gender, ethnicity, age, and fitness level on the planet. That's not a small caveat.
+        </div>
+
+        <p>The formula was largely ignored for over a century. Then, in 1972, American physiologist Ancel Keys published a large study in which he compared various measures of body composition and concluded that Quetelet's index was the best simple approximation of body fat available. He coined the term "Body Mass Index," and the medical world ran with it.</p>
+
+        <p>By 1985, the NIH was using BMI to define overweight. By 1998, the U.S. officially adopted BMI thresholds — and in one policy change, an estimated 29 million Americans went to bed at a healthy weight and woke up overweight the next morning without gaining a single pound.</p>
+
+        <p class="highlight-text">"BMI is a useful tool for population-level research. The problem is that we've asked a population tool to do an individual job it was never designed for."</p>
+
+        <p>With that history in mind, let's understand the formula itself.</p>
+
+        <hr class="section-divider">
+
+        <h2 id="how-to-calculate">2. How to Calculate BMI: The Formula, Step by Step</h2>
+
+        <p>The calculation is genuinely straightforward. There are two versions depending on whether you use metric or imperial measurements.</p>
+
+        <h3>Metric Formula (kg and cm)</h3>
+        <div class="formula">
+        BMI = weight (kg) ÷ height² (m)<br><br>
+        <span class="dim">Step 1: Convert height to meters (cm ÷ 100)</span><br>
+        <span class="dim">Step 2: Square your height in meters (multiply it by itself)</span><br>
+        <span class="dim">Step 3: Divide your weight by that number</span>
+        </div>
+
+        <div class="callout callout-blue">
+          <span class="callout-label">📘 Metric example</span>
+          Height: 175 cm → 1.75 m | Weight: 73 kg<br>
+          BMI = 73 ÷ (1.75 × 1.75) = 73 ÷ 3.0625 = <strong>23.8</strong> → Normal weight ✓
+        </div>
+
+        <h3>Imperial Formula (lbs and inches)</h3>
+        <div class="formula">
+        BMI = (weight in lbs × 703) ÷ height² (inches)<br><br>
+        <span class="dim">Step 1: Convert height to total inches (feet × 12 + remaining inches)</span><br>
+        <span class="dim">Step 2: Square your height in inches</span><br>
+        <span class="dim">Step 3: Multiply weight by 703, then divide by squared height</span>
+        </div>
+
+        <div class="callout callout-blue">
+          <span class="callout-label">📘 Imperial example</span>
+          Height: 5'9" = 69 inches | Weight: 160 lbs<br>
+          BMI = (160 × 703) ÷ (69 × 69) = 112,480 ÷ 4,761 = <strong>23.6</strong> → Normal weight ✓
+        </div>
+
+        <p>Or you can skip the arithmetic entirely and use <a href="/bmi-calculator">CalcLogic BMI Calculator</a> — enter your numbers, get your result instantly.</p>
+
+        <hr class="section-divider">
+
+        <h2 id="bmi-categories">3. The BMI Chart: All 6 Categories Explained</h2>
+
+        <p>The World Health Organization defines six BMI categories for adults 20 and older. Most people only know four — but the full picture is more nuanced.</p>
+
+        <table>
+          <thead>
+            <tr><th>Category</th><th>BMI Range</th><th>Health Risk Level</th><th>What It Means in Practice</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-blue">Underweight</span></td>
+              <td>Below 18.5</td>
+              <td>Elevated</td>
+              <td>May indicate malnutrition, eating disorder, or underlying illness. Associated with bone density loss, immune weakness, and fertility issues.</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-green">Normal Weight</span></td>
+              <td>18.5 – 24.9</td>
+              <td>Lowest risk</td>
+              <td>Associated with the lowest overall risk of weight-related disease for most people. The goal for most adults.</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-amber">Overweight</span></td>
+              <td>25.0 – 29.9</td>
+              <td>Moderate</td>
+              <td>Increased risk of type 2 diabetes, high blood pressure, and cardiovascular disease. Note: many fit, muscular people fall here falsely.</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-red">Obese — Class I</span></td>
+              <td>30.0 – 34.9</td>
+              <td>High</td>
+              <td>Significant increase in metabolic and cardiovascular disease risk. Medical guidance recommended.</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-red">Obese — Class II</span></td>
+              <td>35.0 – 39.9</td>
+              <td>Very High</td>
+              <td>Serious risk elevation. Weight management with medical supervision is strongly advised.</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-red">Obese — Class III</span></td>
+              <td>40.0+</td>
+              <td>Extremely High</td>
+              <td>Sometimes called "severe obesity." Associated with dramatically shortened life expectancy. Medical intervention typically required.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout-amber">
+          <span class="callout-label">🌏 Important for Asian populations</span>
+          The WHO recommends lower thresholds for people of South and East Asian descent. The overweight category begins at BMI 23 (not 25) and obesity begins at 27.5 (not 30). This reflects genuine differences in body fat distribution and metabolic risk between ethnic groups — not a double standard, but better science.
+        </div>
+
+        <hr class="section-divider">
+
+        <h2 id="healthy-bmi">4. What Is a Healthy BMI? The Honest Answer</h2>
+
+        <p>The honest answer is: it depends. The 18.5–24.9 range is the standard clinical answer. But research paints a more interesting picture.</p>
+
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-number">20–22</div>
+            <div class="stat-label">Optimal BMI range for longest lifespan, per multiple large-scale studies</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">2×</div>
+            <div class="stat-label">Higher heart disease risk at BMI 24.5 vs 18.5 — both technically "normal"</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">40%</div>
+            <div class="stat-label">Of 4 million annual deaths from excess body fat involve people in the "overweight" category, not obese</div>
+          </div>
+        </div>
+
+        <p>A large study published in <em>The Lancet</em> involving 900,000 adults found that the optimal BMI for longevity sits in the range of 22.5–25. Research from NutritionFacts.org synthesizing the best available evidence narrows this further to 20–22. Even within the "healthy" range, risk increases toward the upper end — a BMI of 24.5 can carry double the heart disease risk of a BMI of 18.5.</p>
+
+        <p>What this tells us: <strong>there is no single magic number</strong>. "Healthy BMI" is a range, and where you sit within that range matters more than most people realize. Aiming for the lower half of normal — roughly 20–23 for most adults — is associated with better long-term health outcomes.</p>
+
+        <p>That said, pursuing a very low BMI carries its own serious risks. A BMI below 18.5 is associated with bone loss, immune suppression, hormonal disruption, and — in extreme cases — life-threatening malnutrition. Being underweight is not safer than being slightly overweight. The relationship between BMI and health is U-shaped, not linear.</p>
+
+        <hr class="section-divider">
+
+        <h2 id="bmi-by-age-gender">5. BMI by Age and Gender: Why the Same Number Means Different Things</h2>
+
+        <p>Your BMI score doesn't exist in a vacuum. The same number means quite different things depending on who you are.</p>
+
+        <h3>BMI and age</h3>
+        <p>As we age, our bodies naturally shift composition — losing muscle mass and bone density while gaining fat, often without a significant change on the scale. This means an older person with a "normal" BMI may actually carry considerably more fat than a younger person with the same number. The CDC acknowledges that <em>older adults tend to have more body fat than younger adults at an equivalent BMI</em>.</p>
+
+        <p>For adults over 65, many geriatric specialists actually prefer a slightly higher BMI — around 25–27 — because being underweight in older age is associated with significantly higher mortality risk, slower recovery from illness, and increased fall risk due to muscle loss.</p>
+
+        <h3>BMI and gender</h3>
+        <p>The BMI formula is identical for men and women, but their body compositions are fundamentally different. Women naturally carry 8–10% more body fat than men at the same BMI due to hormonal differences and biological requirements related to reproduction. This means a woman with a BMI of 22 and a man with a BMI of 22 are not carrying the same proportional amount of fat — she is almost certainly carrying more.</p>
+
+        <table>
+          <thead>
+            <tr><th>Age Group</th><th>Healthy BMI (General)</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>18–24</td><td>18.5–24.9</td><td>Standard range. Lower end of normal associated with best outcomes.</td></tr>
+            <tr><td>25–34</td><td>18.5–24.9</td><td>Standard range applies. Monitor waist circumference alongside.</td></tr>
+            <tr><td>35–44</td><td>18.5–24.9</td><td>Standard range. Body composition changes begin.</td></tr>
+            <tr><td>45–59</td><td>18.5–26.9</td><td>Slightly higher range may be acceptable as muscle loss begins naturally.</td></tr>
+            <tr><td>60–74</td><td>22.0–27.0</td><td>Being too lean in this range increases mortality risk.</td></tr>
+            <tr><td>75+</td><td>23.0–28.0</td><td>Higher end of range often protective; underweight is a significant risk.</td></tr>
+          </tbody>
+        </table>
+
+        <hr class="section-divider">
+
+        <h2 id="bmi-limitations">6. The Real Limitations of BMI (What Doctors Wish You Knew)</h2>
+
+        <p>Here's something that BMI chart doesn't tell you: in June 2023, the <strong>American Medical Association officially adopted a policy</strong> stating that BMI should not be used as the sole metric for diagnosing obesity or assessing individual health. That's the medical establishment acknowledging — in writing — that the tool they've relied on for decades is genuinely flawed when applied to individuals.</p>
+
+        <p>So what are the limitations?</p>
+
+        <h3>It measures weight relative to height — not fat</h3>
+        <p>BMI has no idea how much of your weight is fat versus muscle versus bone versus water. It treats all weight identically. A pound of muscle and a pound of fat have the same mathematical effect on your BMI despite being metabolically and physiologically completely different tissues.</p>
+
+        <h3>It ignores where fat is stored</h3>
+        <p>This may be BMI's most clinically significant failure. Fat stored around the abdomen — <em>visceral fat</em> — wraps around internal organs and is strongly associated with type 2 diabetes, heart disease, and metabolic syndrome. Fat stored in the hips and thighs — <em>subcutaneous fat</em> — is relatively benign. BMI tells you nothing about fat distribution. Two people with identical BMIs can have dramatically different metabolic health profiles based purely on where they carry their weight.</p>
+
+        <div class="callout callout-purple">
+          <span class="callout-label">🔬 Research finding worth knowing</span>
+          A landmark RAND Corporation study found that waist size — not BMI — explained a higher rate of type 2 diabetes in the U.S. versus U.K. Americans carry more abdominal fat, and that single factor accounted for most of the difference. BMI, used alone, would have missed this entirely.
+        </div>
+
+        <h3>It can mask "normal weight obesity"</h3>
+        <p>A growing body of research describes a phenomenon called <em>metabolically obese normal weight</em> — people who fall within the healthy BMI range but have high visceral fat, insulin resistance, and elevated metabolic disease risk. Conversely, there are metabolically healthy people who fall in the obese BMI range with no such risk factors. BMI categorizes both of them incorrectly.</p>
+
+        <hr class="section-divider">
+
+        <h2 id="bmi-for-athletes">7. Why BMI Lies to Athletes and Muscular People</h2>
+
+        <p>If you lift weights regularly, play a sport, or simply have a naturally muscular build, your BMI may be flat-out wrong. Not slightly off — genuinely misleading.</p>
+
+        <p>Here's why: muscle is significantly denser than fat. A cubic centimeter of muscle weighs about 1.06 grams; a cubic centimeter of fat weighs about 0.9 grams. This means a muscular person can weigh considerably more than a less muscular person of identical height while carrying far less body fat. BMI can't distinguish this. It sees weight, not composition.</p>
+
+        <div class="callout callout-red">
+          <span class="callout-label">🏃 The athlete paradox in numbers</span>
+          The average BMI of Olympic athletes is 22.4 for women and 23.6 for men — solidly within the normal range. But NFL linemen, powerlifters, and bodybuilders commonly have BMIs of 30–35, placing them technically in the "obese" category while carrying 10–15% body fat. A BMI that classifies a professional athlete as obese is not a useful health tool for that individual.
+        </div>
+
+        <p>This isn't a niche concern. Any person who exercises regularly and builds meaningful muscle — even recreational gym-goers — can end up with a BMI that overstates their health risk. If you're physically active and your BMI suggests you're overweight or obese, before worrying, consider getting an actual body fat percentage measurement. The two numbers may tell very different stories.</p>
+
+        <hr class="section-divider">
+
+        <h2 id="bmi-ethnicity">8. BMI and Ethnicity: Why Race Actually Matters</h2>
+
+        <p>This is one of the most important and least-discussed aspects of BMI, and it's directly relevant to a significant portion of the global population.</p>
+
+        <p>BMI was calibrated on data from white European and American populations. Its thresholds were built around the average body composition of those groups. People from different ethnic backgrounds have meaningfully different average body compositions at the same BMI — different bone density, different fat distribution patterns, different muscle-to-fat ratios — and these differences have real clinical implications.</p>
+
+        <h3>Asian populations</h3>
+        <p>People of South and East Asian descent tend to carry more visceral (abdominal) fat at lower BMIs compared to people of European descent. This means they face greater metabolic health risks — type 2 diabetes, cardiovascular disease — at BMIs that would be classified as "normal" in standard charts. The WHO recommends adjusted thresholds: overweight begins at BMI 23, and obesity at 27.5, for Asian populations.</p>
+
+        <h3>Black and African populations</h3>
+        <p>Research consistently shows that Black individuals on average have greater bone density and muscle mass than white individuals at the same BMI. This means standard BMI may <em>overestimate</em> obesity and health risk in Black populations, potentially contributing to weight bias in healthcare settings where BMI is used as a primary health metric.</p>
+
+        <div class="callout callout-amber">
+          <span class="callout-label">💬 The bigger conversation</span>
+          Yale Medicine has noted that the tendency to use BMI as a sole focus — rather than one indicator among many — is where the real problem lies. The tool itself isn't evil; over-reliance on it is. For any individual, especially from a non-white European background, BMI should always be considered alongside other measurements.
+        </div>
+
+        <hr class="section-divider">
+
+        <h2 id="better-alternatives">9. Better Alternatives to BMI That Tell the Full Story</h2>
+
+        <p>BMI is a starting point, not an endpoint. Here are the measurements that doctors, researchers, and sports scientists increasingly use alongside or instead of BMI for individual health assessment.</p>
+
+        <h3>Waist circumference</h3>
+        <p>Directly measures abdominal fat — the metabolically dangerous kind. The risk thresholds are clear: above 35 inches (89 cm) for women or 40 inches (102 cm) for men signals elevated risk of heart disease and type 2 diabetes, <em>regardless of BMI</em>. Simple to measure with a tape measure at home.</p>
+
+        <h3>Waist-to-height ratio</h3>
+        <p>Perhaps the most compelling single metric in current research. Divide your waist circumference by your height (both in the same unit). A ratio below 0.5 — meaning your waist is less than half your height — is associated with the lowest health risk across age, sex, and ethnicity. Dr. Margaret Ashwell, who pioneered this measurement, says "Keeping your waist to less than half your height can help increase life expectancy for every person in the world." It's simple, universal, and doesn't require any equipment beyond a measuring tape.</p>
+
+        <h3>Waist-to-hip ratio</h3>
+        <p>Measures body fat distribution by comparing waist to hip measurements. A ratio above 0.85 for women or 0.90 for men indicates central (abdominal) obesity. Good for identifying apple-shaped versus pear-shaped fat distribution, the former being significantly more dangerous.</p>
+
+        <h3>Body fat percentage</h3>
+        <p>The most direct measurement of what BMI approximates. Can be estimated at home using skinfold calipers or body composition scales, and measured accurately through DEXA scans or hydrostatic weighing. Healthy ranges: 21–32% for women, 8–19% for men (athletic ranges are lower).</p>
+
+        <table>
+          <thead>
+            <tr><th>Measurement</th><th>What It Tells You</th><th>Accuracy</th><th>Ease of Use</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>BMI</td><td>Weight relative to height</td><td>Moderate (population)</td><td>⭐⭐⭐⭐ Very easy</td></tr>
+            <tr><td>Waist circumference</td><td>Abdominal fat level</td><td>Good for cardiovascular risk</td><td>⭐⭐⭐⭐ Very easy</td></tr>
+            <tr><td>Waist-to-height ratio</td><td>Fat distribution + height context</td><td>Excellent across populations</td><td>⭐⭐⭐⭐ Very easy</td></tr>
+            <tr><td>Body fat %</td><td>Actual fat vs lean mass</td><td>High (with good method)</td><td>⭐⭐ Moderate</td></tr>
+            <tr><td>DEXA scan</td><td>Full body composition map</td><td>Gold standard</td><td>⭐ Requires medical facility</td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout-green">
+          <span class="callout-label">✅ The best approach for most people</span>
+          Use BMI as your starting point. Add waist circumference or waist-to-height ratio for a more complete picture. If those measurements suggest concern, speak to a doctor who can arrange a more detailed body composition assessment. No single number tells the whole story — but a combination of three simple measurements gets you very close.
+        </div>
+
+        <hr class="section-divider">
+
+        <h2 id="how-to-lower-bmi">10. How to Lower Your BMI in a Healthy, Sustainable Way</h2>
+
+        <p>If your BMI — alongside other measurements — suggests your weight may be affecting your health, the path forward is straightforward in principle, though genuinely hard in practice. Here's what the evidence supports.</p>
+
+        <h3>Create a modest calorie deficit</h3>
+        <p>Weight loss fundamentally requires consuming fewer calories than your body uses. A deficit of 500 calories per day produces roughly 0.5 kg (1 lb) of weight loss per week — a rate widely considered safe and sustainable. Anything more aggressive risks muscle loss, metabolic adaptation, and nutritional deficiency. Use our <a href="/calorie-calculator">Calorie Calculator</a> to find your personalized daily target.</p>
+
+        <h3>Prioritize protein</h3>
+        <p>Higher protein intake preserves muscle mass during weight loss, increases satiety, and has a higher thermic effect than carbohydrates or fats — meaning your body burns more calories digesting it. Aim for 1.6–2.2g of protein per kg of body weight per day if you're actively exercising.</p>
+
+        <h3>Resistance training matters as much as cardio</h3>
+        <p>Here's the often-missed piece: cardio burns calories in the moment; resistance training builds muscle that burns more calories permanently by raising your resting metabolic rate. The combination of both is significantly more effective for long-term body composition improvement than either alone.</p>
+
+        <h3>Sleep and stress are not optional</h3>
+        <p>Chronic sleep deprivation (under 7 hours) significantly elevates cortisol and ghrelin — hormones that increase appetite, promote fat storage, and preferentially target abdominal fat. In studies, sleep-deprived dieters lose significantly more muscle and less fat than adequately rested dieters eating identical diets. Sleep is not a luxury in any serious health improvement plan.</p>
+
+        <h3>Think in years, not weeks</h3>
+        <p>A sustainable BMI reduction of 1–2 points typically takes 3–6 months. The physiology of weight regain is ruthless — most people who lose weight rapidly regain it within two years because extreme restriction triggers metabolic and hormonal adaptations designed to restore lost weight. Slow, consistent progress with genuine lifestyle changes is the only approach with strong long-term evidence behind it.</p>
+
+        <div class="callout callout-green">
+          <span class="callout-label">🛠️ Useful CalcLogic tools for your health journey</span>
+          <a href="/calorie-calculator">Calorie Calculator</a> — find your daily calorie target for weight loss, maintenance, or gain<br>
+          <a href="/bmi-calculator">BMI Calculator</a> — track your BMI over time<br>
+          <a href="/body-fat-calculator">Body Fat Calculator</a> — estimate your actual body fat percentage<br>
+          <a href="/tdee-calculator">TDEE Calculator</a> — calculate your total daily energy expenditure
+        </div>
+
+        <hr class="section-divider">
+
+        <h2 id="faq">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <div class="faq-q">What is a normal BMI for adults?</div>
+          <p class="faq-a">For most adults, a BMI between 18.5 and 24.9 is considered normal. The research suggests the lower end of this range — around 20–22 — is associated with the best long-term health outcomes. However, what's "normal" for you personally depends on your age, sex, ethnicity, and body composition. A doctor can help interpret your BMI in the full context of your health.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">What is a healthy BMI for women?</div>
+          <p class="faq-a">The standard healthy range for women is 18.5–24.9, the same as men. Because women naturally carry more body fat than men at an identical BMI, some researchers argue women's optimal range extends slightly higher. For women over 50, a BMI up to 26–27 is often considered acceptable given natural shifts in body composition with age and menopause.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">What BMI is considered obese?</div>
+          <p class="faq-a">The WHO defines obesity as a BMI of 30 or above. This is divided into three classes: Class I (30–34.9), Class II (35–39.9), and Class III or severe obesity (40+). For people of Asian descent, a BMI of 27.5 or above may be classified as obese due to differences in how fat is distributed in the body and how metabolic risk accumulates at lower weights.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Is BMI accurate for athletes?</div>
+          <p class="faq-a">No — BMI is notably unreliable for people with significant muscle mass. Because muscle is denser than fat, heavily muscled individuals can register as overweight or obese by BMI while carrying very low body fat. If you exercise regularly and have built meaningful muscle, your BMI may be overstating your health risk. Body fat percentage is a far more useful metric in this case.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Can I have a normal BMI but still be unhealthy?</div>
+          <p class="faq-a">Absolutely, and this is one of BMI's most important limitations. "Normal weight obesity" — having a healthy BMI but carrying excess visceral fat and showing metabolic dysfunction — is a recognized medical phenomenon. If your waist circumference is above 35 inches (women) or 40 inches (men), that suggests elevated metabolic risk regardless of your BMI. Regular health checks including blood pressure, blood sugar, and cholesterol tell a more complete story.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">How much do I need to lose to lower my BMI by 1 point?</div>
+          <p class="faq-a">One BMI point corresponds to roughly 2.8 kg (6.2 lbs) for a person who is 5'9" (175 cm). The exact amount varies with height — taller people need to lose or gain more weight to shift their BMI by one point; shorter people less. Use our <a href="/bmi-calculator">BMI calculator</a> to see exactly how weight changes would affect your BMI at your specific height.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Is BMI the same calculation for men and women?</div>
+          <p class="faq-a">Yes — the formula is mathematically identical. What differs is the interpretation. At the same BMI, women typically carry 8–10% more body fat than men due to biological differences. Some researchers argue this warrants different healthy ranges for each sex, though current clinical guidelines use the same thresholds for both.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">What are the best alternatives to BMI?</div>
+          <p class="faq-a">The most useful alternatives include waist circumference (above 35 inches for women or 40 inches for men signals risk), waist-to-height ratio (ideally below 0.5), and body fat percentage. For the most accurate body composition data, a DEXA scan is the gold standard. The combination of BMI plus waist circumference gives a significantly more complete health picture than either measurement alone.</p>
+        </div>
+
+        <hr class="section-divider">
+
+        <h2>The Bottom Line</h2>
+
+        <p>BMI is not a villain. It's a useful, accessible, and free screening tool that correctly classifies the weight status of the majority of people — roughly 80–90% of the non-athletic population. For a quick health check, it remains one of the best tools available precisely because it requires nothing more than a scale and a measuring tape.</p>
+
+        <p>But it is not your health. It is not your worth. And it is not the final word on your body.</p>
+
+        <p>A 200-year-old formula designed for population statistics was never meant to carry the weight we've placed on it for individual health decisions. Use it as a starting point it was designed to be — a number that prompts questions, not a verdict. Pair it with your waist measurement, your energy levels, your blood work, your sleep quality, and your actual fitness capacity. That combination tells your story far better than any single number ever could.</p>
+
+        <div class="cta">
+          <h3>Ready to calculate your BMI?</h3>
+          <p>Free, instant results with both metric and imperial support</p>
+          <a class="cta-btn" href="/bmi-calculator">BMI Calculator</a>
+          <a class="cta-btn" href="/body-fat-calculator">Body Fat Calculator</a>
+          <a class="cta-btn" href="/calorie-calculator">Calorie Calculator</a>
+        </div>
+
+        <div class="related">
+          <div class="related-title">🔗 Related CalcLogic tools & guides</div>
+          <a href="/bmi-calculator">BMI Calculator</a>
+          <a href="/calorie-calculator">Calorie Calculator</a>
+          <a href="/body-fat-calculator">Body Fat % Calculator</a>
+          <a href="/tdee-calculator">TDEE Calculator</a>
+          <a href="/ideal-weight-calculator">Ideal Weight Calculator</a>
+          <a href="/blog/calorie-calculator-guide">Calorie Guide</a>
+        </div>
+
+        <p class="disclaimer">This article is for informational purposes only and does not constitute medical advice. BMI and related measurements are screening tools, not diagnostic instruments. If you have concerns about your weight or health, consult a qualified healthcare professional who can assess your individual circumstances.</p>
+      `,
+    },
+    {
       id: 8,
       title: "Grade Calculator: The Complete Student Guide to Calculating Grades, GPA & Final Exam Scores",
       date: "March 2026",
@@ -1030,48 +1445,51 @@ const BlogPost = () => {
 
   return (
     <>
-      {post.id === 8 && (
+      {post.id === 9 && (
         <Helmet>
-          <title>Grade Calculator: The Complete Student Guide to Calculating Grades, GPA & Final Exam Scores | CalcLogic</title>
-          <meta name="description" content="Learn exactly how to calculate your grades, GPA, weighted averages, and the score you need on your final exam. Free grade calculator + complete student guide." />
-          <link rel="canonical" href="https://calclogic.com/blog/grade-calculator-guide" />
+          <title>BMI Calculator: What Your Number Really Means — And When to Ignore It Completely | CalcLogic</title>
+          <meta name="description" content="Your BMI number is just a starting point. This comprehensive guide explains what BMI really measures, its surprising limitations, what a healthy BMI actually looks like, and which alternatives tell a more complete story about your health." />
+          <link rel="canonical" href="https://calclogic.com/blog/bmi-calculator-guide" />
+
+          {/* Open Graph */}
+          <meta property="og:title" content="BMI Calculator: What Your Number Really Means — And When to Ignore It Completely" />
+          <meta property="og:description" content="A genuinely honest guide to BMI — what it measures, what it misses, and how to use it as a helpful tool without obsessing over a single number." />
+          <meta property="og:type" content="article" />
+          <meta property="og:url" content="https://calclogic.com/blog/bmi-calculator-guide" />
+
+          {/* Article Schema */}
           <script type="application/ld+json">
             {`{
               "@context": "https://schema.org",
               "@type": "Article",
-              "headline": "Grade Calculator: The Complete Student Guide to Calculating Grades, GPA & Final Exam Scores",
-              "description": "A comprehensive guide to calculating grades, GPA, weighted averages, and what score you need on your final exam.",
+              "headline": "BMI Calculator: What Your Number Really Means — And When to Ignore It Completely",
+              "description": "A comprehensive, honest guide to BMI — what it measures, its real limitations, healthy ranges by age and gender, and better alternatives for assessing body health.",
               "author": { "@type": "Organization", "name": "CalcLogic" },
               "publisher": { "@type": "Organization", "name": "CalcLogic", "url": "https://calclogic.com" },
-              "mainEntityOfPage": "https://calclogic.com/blog/grade-calculator-guide",
-              "dateModified": "2026-03-01"
-            }`}
-          </script>
-          <script type="application/ld+json">
-            {`{
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": [
+              "mainEntityOfPage": "https://calclogic.com/blog/bmi-calculator-guide",
+              "dateModified": "2026-03-01",
                 {
-                  "@type": "Question",
-                  "name": "How do I calculate my grade in a class?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "To calculate your grade, multiply each assignment score by its weight (as a decimal), then add all the results together. For example, if your homework average is 88% and worth 30% of your grade, that contributes 88 × 0.30 = 26.4 points toward your final grade."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "What score do I need on my final exam to pass?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Use this formula: Required Final Score = (Target Grade − Current Grade × (1 − Final Weight)) ÷ Final Weight. For example, if you have 75%, want 70% to pass, and your final is worth 40%: Required = (70 − 75 × 0.60) ÷ 0.40 = (70 − 45) ÷ 0.40 = 62.5%. You need at least 62.5% on the final."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "What is a weighted grade?",
-                  "acceptedAnswer": {
+                  "@context": "https://schema.org",
+                  "@type": "Article",
+                  "headline": "BMI Calculator: What Your Number Really Means — And When to Ignore It Completely",
+                  "description": "A comprehensive, honest guide to BMI — what it measures, its real limitations, healthy ranges by age and gender, and better alternatives for assessing body health.",
+                  "author": { "@type": "Organization", "name": "CalcLogic" },
+                  "publisher": { "@type": "Organization", "name": "CalcLogic", "url": "https://calclogic.com" },
+                  "mainEntityOfPage": "https://calclogic.com/blog/bmi-calculator-guide",
+                  "dateModified": "2026-03-01",
+                  "keywords": [
+                    "BMI calculator",
+                    "body mass index",
+                    "healthy BMI",
+                    "BMI for women",
+                    "BMI chart",
+                    "BMI limitations",
+                    "what is a good BMI",
+                    "BMI by age",
+                    "BMI formula",
+                    "body fat percentage",
+                    "waist to height ratio"
+                  ]
                     "@type": "Answer",
                     "text": "A weighted grade assigns different levels of importance to different types of assignments. For example, a final exam worth 40% of your grade impacts your score four times more than a quiz category worth 10%. Your final grade is calculated by multiplying each category score by its weight and adding the results."
                   }
