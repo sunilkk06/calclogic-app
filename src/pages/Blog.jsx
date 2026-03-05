@@ -5,6 +5,14 @@ const Blog = () => {
   // Sample blog posts data
   const blogPosts = [
     {
+      id: 8, // New blog post - Grade Calculator Guide
+      title: "Grade Calculator: The Complete Student Guide to Calculating Grades, GPA & Final Exam Scores",
+      excerpt: "Learn exactly how to calculate your grades, GPA, weighted averages, and the score you need on your final exam. Free grade calculator + complete student guide.",
+      date: "March 2026",
+      category: "Math",
+      image: "https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
       id: 7, // New blog post with ID 7
       title: "How to Calculate Your Retirement Needs: A Step-by-Step Guide",
       excerpt: "Learn how to accurately estimate your retirement savings goals and create a plan to achieve them.",

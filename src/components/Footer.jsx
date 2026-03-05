@@ -1,7 +1,65 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const Footer = () => {
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState('idle') // idle, loading, success, error
+  const [message, setMessage] = useState('')
+
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    
+    if (!email.trim()) {
+      setStatus('error')
+      setMessage('Please enter an email address')
+      return
+    }
+
+    if (!validateEmail(email)) {
+      setStatus('error')
+      setMessage('Please enter a valid email address')
+      return
+    }
+
+    setStatus('loading')
+    setMessage('')
+
+    try {
+      const response = await axios.post('/.netlify/functions/newsletter', {
+        email: email.toLowerCase().trim()
+      })
+
+      if (response.data.success) {
+        setStatus('success')
+        setMessage('Successfully subscribed! Check your email for confirmation.')
+        setEmail('')
+      } else {
+        setStatus('error')
+        setMessage(response.data.error || 'Subscription failed')
+      }
+    } catch (error) {
+      setStatus('error')
+      if (error.response?.data?.error) {
+        setMessage(error.response.data.error)
+      } else {
+        setMessage('Failed to subscribe. Please try again later.')
+      }
+    }
+  }
+
+  const handleInputChange = (e) => {
+    setEmail(e.target.value)
+    if (status === 'error') {
+      setStatus('idle')
+      setMessage('')
+    }
+  }
+
   return (
     <footer className="enhanced-footer">
       <div className="footer-wave">
@@ -64,8 +122,32 @@ const Footer = () => {
           <h4>Contact Us</h4>
           <p><i className="fas fa-envelope"></i> contact@calclogic.com</p>
           <div className="newsletter">
-            <input type="email" placeholder="Subscribe to newsletter" />
-            <button><i className="fas fa-paper-plane"></i></button>
+            <form onSubmit={handleSubmit} className="newsletter-form">
+              <input 
+                type="email" 
+                placeholder="Subscribe to newsletter" 
+                value={email}
+                onChange={handleInputChange}
+                disabled={status === 'loading'}
+                className={status === 'error' ? 'error' : ''}
+              />
+              <button 
+                type="submit" 
+                disabled={status === 'loading' || status === 'success'}
+                className={status === 'loading' ? 'loading' : ''}
+              >
+                {status === 'loading' ? (
+                  <i className="fas fa-spinner fa-spin"></i>
+                ) : (
+                  <i className="fas fa-paper-plane"></i>
+                )}
+              </button>
+            </form>
+            {message && (
+              <div className={`newsletter-message ${status}`}>
+                {message}
+              </div>
+            )}
           </div>
         </div>
       </div>

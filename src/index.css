@@ -546,6 +546,17 @@ th {
     color: #a0aec0;
 }
 
+.newsletter input.error {
+    border-color: #e53e3e;
+    box-shadow: 0 0 0 2px rgba(229, 62, 62, 0.2);
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0;
+    margin-bottom: 0.5rem;
+}
+
 .newsletter button {
     padding: 0.75rem 1rem;
     background: #4a90e2;
@@ -554,10 +565,40 @@ th {
     border-radius: 0 4px 4px 0;
     cursor: pointer;
     transition: background-color 0.3s;
+    min-width: 50px;
 }
 
-.newsletter button:hover {
+.newsletter button:hover:not(:disabled) {
     background: #357abd;
+}
+
+.newsletter button:disabled {
+    background: #718096;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.newsletter button.loading {
+    background: #4a90e2;
+}
+
+.newsletter-message {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+}
+
+.newsletter-message.success {
+    background: rgba(72, 187, 120, 0.1);
+    color: #48bb78;
+    border: 1px solid rgba(72, 187, 120, 0.3);
+}
+
+.newsletter-message.error {
+    background: rgba(229, 62, 62, 0.1);
+    color: #e53e3e;
+    border: 1px solid rgba(229, 62, 62, 0.3);
 }
 
 .footer-bottom {

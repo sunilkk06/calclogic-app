@@ -1,11 +1,363 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
 const BlogPost = () => {
   const { id } = useParams()
   
   // Sample blog posts data - in a real app, this would come from an API
   const blogPosts = [
+    {
+      id: 8,
+      title: "Grade Calculator: The Complete Student Guide to Calculating Grades, GPA & Final Exam Scores",
+      date: "March 2026",
+      author: "CalcLogic Team",
+      category: "Math",
+      image: "https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      content: `
+        <div class="meta">
+          <span>📅 Published: March 2026</span>
+          <span>⏱ 10 min read</span>
+          <span>🎓 For Students</span>
+        </div>
+
+        <h1>Grade Calculator: The Complete Student Guide to Calculating Grades, GPA & Final Exam Scores</h1>
+
+        <div class="intro-box">
+          <strong>📌 What you'll learn in this guide:</strong>
+          How to calculate your current grade in any class · How weighted grades work · The exact formula to find out what you need on your final exam · How to calculate GPA (high school and college) · How to raise your GPA strategically · Common grade calculation mistakes students make
+        </div>
+
+        <div class="toc">
+          <h4>Table of Contents</h4>
+          <ol>
+            <li><a href="#how-grades-work">How Grading Works: The Basics</a></li>
+            <li><a href="#calculate-weighted-grade">How to Calculate Your Weighted Grade</a></li>
+            <li><a href="#final-exam-calculator">What Score Do You Need on Your Final Exam?</a></li>
+            <li><a href="#grade-scale">The Letter Grade Scale Explained</a></li>
+            <li><a href="#gpa-explained">How GPA Is Calculated</a></li>
+            <li><a href="#weighted-unweighted">Weighted vs. Unweighted GPA</a></li>
+            <li><a href="#raise-gpa">How to Raise Your GPA</a></li>
+            <li><a href="#mistakes">5 Grade Calculation Mistakes Students Make</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+          </ol>
+        </div>
+
+        <p>Whether you're trying to figure out if you can still get an A, calculating what you need on your final exam, or planning your study strategy for next semester, understanding how grades are calculated is one of the most practical skills a student can have. This guide covers everything — from basic weighted averages to GPA formulas — with real worked examples you can follow step by step.</p>
+
+        <div class="cta-box">
+          <h3>Skip the math — use CalcLogic's free calculators</h3>
+          <p>Get instant results for your current grade, final exam score needed, and GPA</p>
+          <a class="cta-btn" href="/grade-calculator">Grade Calculator</a>
+          <a class="cta-btn" href="/gpa-calculator">GPA Calculator</a>
+        </div>
+
+        <hr class="section-divider">
+
+        <h2 id="how-grades-work">1. How Grading Works: The Basics</h2>
+
+        <p>Most courses use one of two grading systems: <strong>weighted categories</strong> or <strong>total points</strong>. Knowing which your professor uses is the first step to calculating your grade accurately.</p>
+
+        <h3>Weighted Category Grading</h3>
+        <p>This is the most common system in high school and college. Different types of assignments — homework, quizzes, midterms, the final exam — are grouped into categories, and each category is worth a set percentage of your final grade. Your performance within each category is averaged, and then those averages are combined using the weights.</p>
+
+        <div class="example-box">
+          <strong>📘 Example: Typical Weighted Course Breakdown</strong>
+          Homework: 20% of grade<br>
+          Quizzes: 15% of grade<br>
+          Midterm Exam: 25% of grade<br>
+          Final Exam: 40% of grade<br>
+          <strong>Total: 100%</strong>
+        </div>
+
+        <h3>Total Points Grading</h3>
+        <p>Some professors assign point values to each assignment and simply divide your total earned points by the total possible points. A student who earns 420 out of 500 points has an 84% — a B. This system is more transparent and simpler to track, but it's less common in university settings.</p>
+
+        <hr class="section-divider">
+
+        <h2 id="calculate-weighted-grade">2. How to Calculate Your Weighted Grade</h2>
+
+        <p>Calculating a weighted grade comes down to one key operation: multiply each category score by its weight, then add everything up. Here's the formula:</p>
+
+        <div class="formula">
+        Final Grade = (Score₁ × Weight₁) + (Score₂ × Weight₂) + ...<br>
+        <span class="comment"># Weights must be expressed as decimals (e.g., 40% = 0.40)</span><br>
+        <span class="comment"># All weights must add up to 1.0 (100%)</span>
+        </div>
+
+        <div class="example-box">
+          <strong>📘 Worked Example — Calculating Your Current Grade</strong>
+          Homework average: 92% — Weight: 20% (0.20)<br>
+          Quiz average: 85% — Weight: 15% (0.15)<br>
+          Midterm: 78% — Weight: 25% (0.25)<br>
+          (Final exam not yet taken — weight: 40%)<br><br>
+          Current grade (excluding final) = (92×0.20) + (85×0.15) + (78×0.25)<br>
+          = 18.4 + 12.75 + 19.5<br>
+          = <strong>50.65 out of a possible 60 points = 84.4%</strong><br><br>
+          Note: Since the final (40%) hasn't been taken, divide by 0.60 to get your current standing:<br>
+          50.65 ÷ 0.60 = <strong>84.4% — a solid B</strong>
+        </div>
+
+        <div class="tip-box">
+          <strong>💡 Pro Tip: Check Your Syllabus First</strong>
+          Your course syllabus will always list the exact category weights. If it doesn't, email your professor and ask — you have every right to know how your grade is calculated.
+        </div>
+
+        <hr class="section-divider">
+
+        <h2 id="final-exam-calculator">3. What Score Do You Need on Your Final Exam?</h2>
+
+        <p>This is the most searched grade question students ask, especially in the final weeks of a semester. The answer requires one formula:</p>
+
+        <div class="formula">
+        Required Final Score = (Target Grade − Current Grade × (1 − Final Weight)) ÷ Final Weight<br><br>
+        <span class="comment"># Where:</span><br>
+        <span class="comment"># Target Grade = the overall course grade you want (e.g., 90 for an A-)</span><br>
+        <span class="comment"># Current Grade = your grade before the final exam</span><br>
+        <span class="comment"># Final Weight = the weight of the final exam as a decimal (e.g., 0.40 for 40%)</span>
+        </div>
+
+        <div class="example-box">
+          <strong>📘 Example 1 — Can I still get an A?</strong>
+          Current grade: 84% | Target grade: 90% (A-) | Final exam weight: 40%<br><br>
+          Required = (90 − 84 × (1 − 0.40)) ÷ 0.40<br>
+          = (90 − 84 × 0.60) ÷ 0.40<br>
+          = (90 − 50.4) ÷ 0.40<br>
+          = 39.6 ÷ 0.40<br>
+          = <strong>99% needed on the final</strong><br><br>
+          Tough but not impossible — and now you know exactly what you're aiming for.
+        </div>
+
+        <div class="example-box">
+          <strong>📘 Example 2 — What do I need to pass?</strong>
+          Current grade: 62% | Target grade: 70% (pass) | Final exam weight: 35%<br><br>
+          Required = (70 − 62 × (1 − 0.35)) ÷ 0.35<br>
+          = (70 − 62 × 0.65) ÷ 0.35<br>
+          = (70 − 40.3) ÷ 0.35<br>
+          = 29.7 ÷ 0.35<br>
+          = <strong>84.9% needed on the final</strong><br><br>
+          Very achievable with focused studying.
+        </div>
+
+        <div class="warning-box">
+          <strong>⚠️ When the Required Score Exceeds 100%</strong>
+          If the calculator returns a required score above 100%, it means a passing or target grade is mathematically impossible given your current standing and the exam weight. In this case, speak to your professor immediately about extra credit opportunities, grade curves, or whether an Incomplete is an option.
+        </div>
+
+        <div class="cta-box">
+          <h3>Find your exact score in seconds</h3>
+          <p>Enter your current grade, final weight, and target — get the answer instantly</p>
+          <a class="cta-btn" href="/grade-calculator">Use the Grade Calculator →</a>
+        </div>
+
+        <hr class="section-divider">
+
+        <h2 id="grade-scale">4. The Letter Grade Scale Explained</h2>
+
+        <p>The U.S. letter grade system is the most widely used academic grading standard. Here's how letter grades map to percentages and GPA points:</p>
+
+        <table>
+          <thead>
+            <tr><th>Letter Grade</th><th>Percentage Range</th><th>GPA Points (4.0 scale)</th><th>Academic Standing</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="grade-badge a-grade">A+</span></td><td>97–100%</td><td>4.0</td><td>Exceptional</td></tr>
+            <tr><td><span class="grade-badge a-grade">A</span></td><td>93–96%</td><td>4.0</td><td>Excellent</td></tr>
+            <tr><td><span class="grade-badge a-grade">A−</span></td><td>90–92%</td><td>3.7</td><td>Excellent</td></tr>
+            <tr><td><span class="grade-badge b-grade">B+</span></td><td>87–89%</td><td>3.3</td><td>Above Average</td></tr>
+            <tr><td><span class="grade-badge b-grade">B</span></td><td>83–86%</td><td>3.0</td><td>Good</td></tr>
+            <tr><td><span class="grade-badge b-grade">B−</span></td><td>80–82%</td><td>2.7</td><td>Good</td></tr>
+            <tr><td><span class="grade-badge c-grade">C+</span></td><td>77–79%</td><td>2.3</td><td>Average</td></tr>
+            <tr><td><span class="grade-badge c-grade">C</span></td><td>73–76%</td><td>2.0</td><td>Satisfactory</td></tr>
+            <tr><td><span class="grade-badge c-grade">C−</span></td><td>70–72%</td><td>1.7</td><td>Satisfactory</td></tr>
+            <tr><td><span class="grade-badge d-grade">D+</span></td><td>67–69%</td><td>1.3</td><td>Below Average</td></tr>
+            <tr><td><span class="grade-badge d-grade">D</span></td><td>60–66%</td><td>1.0</td><td>Poor (may not transfer)</td></tr>
+            <tr><td><span class="grade-badge f-grade">F</span></td><td>Below 60%</td><td>0.0</td><td>Failing</td></tr>
+          </tbody>
+        </table>
+
+        <p>Note that grading scales can vary between institutions. Some schools don't use plus/minus grades, and others place the A− cutoff at 91% or 89%. Always check your school's official academic catalog for its exact scale.</p>
+
+        <hr class="section-divider">
+
+        <h2 id="gpa-explained">5. How GPA Is Calculated</h2>
+
+        <p>GPA (Grade Point Average) measures your overall academic performance by averaging the grade points you've earned across all your courses, weighted by credit hours. A higher-credit course impacts your GPA more than a lower-credit one.</p>
+
+        <div class="formula">
+        GPA = Σ (Grade Points × Credit Hours) ÷ Total Credit Hours<br><br>
+        <span class="comment"># Step 1: Convert each letter grade to grade points (see table above)</span><br>
+        <span class="comment"># Step 2: Multiply grade points by credit hours for each course</span><br>
+        <span class="comment"># Step 3: Add all results (called "quality points")</span><br>
+        <span class="comment"># Step 4: Divide by total credit hours attempted</span>
+        </div>
+
+        <div class="example-box">
+          <strong>📘 Worked Example — College Semester GPA</strong>
+          English (3 credits): A (4.0) → 3 × 4.0 = 12.0 quality points<br>
+          Biology (4 credits): B+ (3.3) → 4 × 3.3 = 13.2 quality points<br>
+          History (3 credits): A− (3.7) → 3 × 3.7 = 11.1 quality points<br>
+          Math (3 credits): C+ (2.3) → 3 × 2.3 = 6.9 quality points<br>
+          Elective (2 credits): B (3.0) → 2 × 3.0 = 6.0 quality points<br><br>
+          Total quality points: 12.0 + 13.2 + 11.1 + 6.9 + 6.0 = <strong>49.2</strong><br>
+          Total credit hours: 3 + 4 + 3 + 3 + 2 = <strong>15</strong><br>
+          Semester GPA = 49.2 ÷ 15 = <strong>3.28</strong>
+        </div>
+
+        <div class="key-takeaway">
+          <strong>🔑 Key Insight: Credit Hours Are Everything</strong>
+          A C+ in a 4-credit required course does far more damage to your GPA than a C+ in a 1-credit elective. When planning which courses to prioritize, always consider the credit weight alongside the difficulty.
+        </div>
+
+        <hr class="section-divider">
+
+        <h2 id="weighted-unweighted">6. Weighted vs. Unweighted GPA</h2>
+
+        <p>High school students encounter two types of GPA, and understanding the difference matters significantly for college applications.</p>
+
+        <h3>Unweighted GPA (4.0 scale)</h3>
+        <p>Every class is measured on the same 4.0 scale regardless of difficulty. An A in regular English and an A in AP English both earn 4.0 points. This scale tops out at 4.0.</p>
+
+        <h3>Weighted GPA (can exceed 4.0)</h3>
+        <p>Advanced courses receive extra grade points to reflect their difficulty. Most schools add +0.5 for Honors courses and +1.0 for AP or IB courses before calculating GPA. This means an A in an AP class is worth 5.0 instead of 4.0, and a B is worth 4.0.</p>
+
+        <table>
+          <thead>
+            <tr><th>Course Type</th><th>Grade</th><th>Unweighted Points</th><th>Weighted Points</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Regular</td><td>A</td><td>4.0</td><td>4.0</td></tr>
+            <tr><td>Honors</td><td>A</td><td>4.0</td><td>4.5</td></tr>
+            <tr><td>AP / IB</td><td>A</td><td>4.0</td><td>5.0</td></tr>
+            <tr><td>AP / IB</td><td>B</td><td>3.0</td><td>4.0</td></tr>
+            <tr><td>AP / IB</td><td>C</td><td>2.0</td><td>3.0</td></tr>
+          </tbody>
+        </table>
+
+        <div class="tip-box">
+          <strong>💡 Important for College Applicants</strong>
+          Many colleges recalculate your GPA using their own scale when reviewing applications, often stripping out weighting to create a fair comparison between students from different schools. Focus on earning strong grades in challenging courses rather than chasing a high weighted number alone.
+        </div>
+
+        <hr class="section-divider">
+
+        <h2 id="raise-gpa">7. How to Raise Your GPA: A Strategic Approach</h2>
+
+        <p>Raising your GPA requires more than just "studying harder." It requires strategy — knowing which actions have the biggest mathematical impact on your average.</p>
+
+        <h3>Target high-credit courses first</h3>
+        <p>Improving a grade from C to B in a 4-credit course has twice the GPA impact of the same improvement in a 2-credit course. When you have limited time, focus it where the credit hours are heaviest.</p>
+
+        <h3>Never miss an assignment — the zero problem</h3>
+        <p>A single zero has a disproportionately devastating effect on your grade. A student with five quiz scores of 90, 90, 90, 90, and 0 has an average of 72 — not 90. Always submit something, even if it's incomplete.</p>
+
+        <h3>Use grade replacement or retakes if available</h3>
+        <p>Many colleges allow students to retake a course and replace the original grade in GPA calculations. Check your school's academic catalog for grade forgiveness policies — a single retake from D to B can meaningfully lift a cumulative GPA.</p>
+
+        <h3>Model your future GPA before course registration</h3>
+        <p>Use a GPA calculator to model different scenarios before you register for classes. How does your GPA change if you earn a B in a 4-credit course vs. an A in a 2-credit one? Planning with data prevents regret.</p>
+
+        <h3>Earn strong grades early</h3>
+        <p>It takes significantly more work to raise a 2.5 GPA to a 3.0 in your senior year than it would have taken to maintain a 3.0 from the start. The math is unforgiving: as your total credit hours accumulate, each new semester contributes a smaller percentage to your cumulative GPA. Start strong.</p>
+
+        <div class="example-box">
+          <strong>📘 How Many A's Does It Take to Raise Your GPA?</strong>
+          Current GPA: 2.8 over 60 credit hours completed<br>
+          Goal: 3.0 cumulative GPA<br><br>
+          You need (3.0 × total credits − current quality points) more quality points.<br>
+          Current quality points = 2.8 × 60 = 168<br>
+          Target quality points for 3.0 over 90 credits = 3.0 × 90 = 270<br>
+          Quality points needed in next 30 credits = 270 − 168 = 102<br>
+          Required GPA over next 30 credits = 102 ÷ 30 = <strong>3.4 (B+ average)</strong><br><br>
+          To go from 2.8 to 3.0 overall, you need to earn a B+ average for an entire year of full-time study.
+        </div>
+
+        <hr class="section-divider">
+
+        <h2 id="mistakes">8. Five Grade Calculation Mistakes Students Make</h2>
+
+        <h3>1. Ignoring category weights until it's too late</h3>
+        <p>Students sometimes hyperfocus on homework grades — which may only represent 15% of their course grade — while neglecting exam preparation, which might be worth 60%. Always know the weight of every category before the semester gets underway.</p>
+
+        <h3>2. Calculating current grade incorrectly mid-semester</h3>
+        <p>If your final exam hasn't been taken yet, your grade management system (like Canvas or Blackboard) may display your current grade as if the remaining categories don't exist. This can make your grade look higher or lower than it actually is. Make sure you understand how your platform calculates running totals.</p>
+
+        <h3>3. Assuming all A's are equal</h3>
+        <p>An A− (3.7) versus an A (4.0) across four years of college and 120 credit hours results in a cumulative GPA difference of approximately 0.3 points. That difference can be the line between graduating with honors and not.</p>
+
+        <h3>4. Forgetting that withdrawals have consequences</h3>
+        <p>A standard W (Withdrawal) doesn't affect GPA but does affect credit completion rates — which matters for financial aid eligibility. Most federal aid programs require students to complete at least 67% of attempted credits. Withdraw too often and you can lose aid eligibility even with a decent GPA.</p>
+
+        <h3>5. Not asking professors about grade curves</h3>
+        <p>Many professors curve exams or final grades, especially in difficult courses. If you're on the borderline between two grades, it's worth a polite conversation with your professor about whether curves or extra credit opportunities are available. You won't always get a yes — but you'll never get one if you don't ask.</p>
+
+        <hr class="section-divider">
+
+        <div class="related-links">
+          <h4>🔗 Free CalcLogic Tools for Students</h4>
+          <a href="/grade-calculator">Grade Calculator</a>
+          <a href="/gpa-calculator">GPA Calculator</a>
+          <a href="/percentage-calculator">Percentage Calculator</a>
+          <a href="/scientific-calculator">Scientific Calculator</a>
+          <a href="/fraction-calculator">Fraction Calculator</a>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="faq-section">
+        <h2 id="faq">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <h3>How do I calculate my grade in a class?</h3>
+          <p>Multiply each assignment or category score by its weight (as a decimal), then add all the results together. For example, if your quiz average is 85% and quizzes are worth 20% of your grade, that contributes 85 × 0.20 = 17 points to your final grade. Repeat for every category and sum the totals. Use CalcLogic's <a href="/grade-calculator">grade calculator</a> to do this automatically.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What score do I need on my final exam to pass?</h3>
+          <p>Use this formula: Required Final Score = (Target Grade − Current Grade × (1 − Final Weight)) ÷ Final Weight. For example, if you have 68%, need 70% to pass, and the final is worth 30%: Required = (70 − 68 × 0.70) ÷ 0.30 = (70 − 47.6) ÷ 0.30 = 74.7%. You need at least a 75% on the final to pass.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What is a weighted grade and how is it calculated?</h3>
+          <p>A weighted grade assigns different levels of importance to different assignment types. Your final grade is the sum of each category's average multiplied by its weight. A final exam worth 40% impacts your grade four times more than a homework category worth 10%. The weights must add up to 100%.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What is a good GPA?</h3>
+          <p>In high school, the national average GPA is around 3.0. A GPA of 3.5 or above is competitive for college admissions, and 3.7+ is considered excellent. In college, a 3.0 typically represents good academic standing, 3.5+ is competitive for graduate school, and 3.7+ is strong for merit scholarships and honors recognition.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Does a W (withdrawal) affect your GPA?</h3>
+          <p>A standard W does not affect your GPA — it records that you dropped the course but assigns no grade points. However, a WF (Withdrawal Failing) is treated like an F and does lower your GPA. Withdrawals also affect your credit completion rate, which can impact financial aid eligibility. Always check your institution's specific policy.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What is the difference between weighted and unweighted GPA?</h3>
+          <p>Unweighted GPA uses the standard 4.0 scale for all classes regardless of difficulty. Weighted GPA adds extra points for honors (+0.5) and AP/IB (+1.0) courses, allowing GPAs above 4.0. Colleges often recalculate GPA on their own scale when comparing applicants, so both numbers matter.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How many credits does it take to significantly raise your GPA?</h3>
+          <p>The more credits you've already completed, the harder it is to move your cumulative GPA. A student with 30 completed credits can move their GPA significantly in one strong semester. A student with 90 credits needs sustained excellence over multiple semesters for the same movement. Use a GPA calculator to model your specific situation.</p>
+        </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <h2>The Bottom Line</h2>
+        <p>Grade calculations aren't just math homework — they're the clearest way to take control of your academic outcomes. When you understand exactly how your grade is built, you can make smarter decisions: which assignments deserve the most effort, when to visit office hours, how to strategically allocate your study time before finals, and whether the grade you're aiming for is actually achievable.</p>
+
+        <p>Use the formulas in this guide to run your own calculations, or let CalcLogic do the math for you in seconds. Either way, going into finals with a clear number in mind is infinitely better than guessing — and your grades will reflect it.</p>
+
+        <div class="cta-box">
+          <h3>Ready to calculate your grades?</h3>
+          <p>Free, instant, no signup required</p>
+          <a class="cta-btn" href="/grade-calculator">Grade Calculator</a>
+          <a class="cta-btn" href="/gpa-calculator">GPA Calculator</a>
+        </div>
+      `
+    },
     {
       id: 7,
       title: "How to Calculate Your Retirement Needs: A Step-by-Step Guide",
@@ -677,8 +1029,92 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="calculator-container">
-      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+    <>
+      {post.id === 8 && (
+        <Helmet>
+          <title>Grade Calculator: The Complete Student Guide to Calculating Grades, GPA & Final Exam Scores | CalcLogic</title>
+          <meta name="description" content="Learn exactly how to calculate your grades, GPA, weighted averages, and the score you need on your final exam. Free grade calculator + complete student guide." />
+          <link rel="canonical" href="https://calclogic.com/blog/grade-calculator-guide" />
+          <script type="application/ld+json">
+            {`{
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": "Grade Calculator: The Complete Student Guide to Calculating Grades, GPA & Final Exam Scores",
+              "description": "A comprehensive guide to calculating grades, GPA, weighted averages, and what score you need on your final exam.",
+              "author": { "@type": "Organization", "name": "CalcLogic" },
+              "publisher": { "@type": "Organization", "name": "CalcLogic", "url": "https://calclogic.com" },
+              "mainEntityOfPage": "https://calclogic.com/blog/grade-calculator-guide",
+              "dateModified": "2026-03-01"
+            }`}
+          </script>
+          <script type="application/ld+json">
+            {`{
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "How do I calculate my grade in a class?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "To calculate your grade, multiply each assignment score by its weight (as a decimal), then add all the results together. For example, if your homework average is 88% and worth 30% of your grade, that contributes 88 × 0.30 = 26.4 points toward your final grade."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What score do I need on my final exam to pass?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Use this formula: Required Final Score = (Target Grade − Current Grade × (1 − Final Weight)) ÷ Final Weight. For example, if you have 75%, want 70% to pass, and your final is worth 40%: Required = (70 − 75 × 0.60) ÷ 0.40 = (70 − 45) ÷ 0.40 = 62.5%. You need at least 62.5% on the final."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What is a weighted grade?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A weighted grade assigns different levels of importance to different types of assignments. For example, a final exam worth 40% of your grade impacts your score four times more than a quiz category worth 10%. Your final grade is calculated by multiplying each category score by its weight and adding the results."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What is a good GPA in high school?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A GPA of 3.0 is considered average across U.S. high schools. A GPA of 3.5 or above is generally considered strong and competitive for college admissions. A 3.7+ is excellent and qualifies for many merit scholarships and honors programs."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How do I raise my GPA?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "To raise your GPA, focus your effort on high-credit courses where a grade improvement has the most impact, retake courses where possible, never miss assignments (a zero has a disproportionately large negative effect), and seek help early rather than waiting until finals. Use a GPA calculator to model how future grades will affect your cumulative average."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Does a withdrawal (W) affect GPA?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A standard withdrawal (W) does not affect your GPA — it simply shows on your transcript that you dropped the course. However, a Withdrawal Failing (WF) grade is typically treated as an F and will lower your GPA. Always check your school's specific policy before withdrawing."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What is the difference between weighted and unweighted GPA?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "An unweighted GPA uses the standard 4.0 scale for all classes regardless of difficulty. A weighted GPA adds extra points for advanced courses like AP (+1.0) and Honors (+0.5), allowing GPAs above 4.0. Colleges often recalculate GPA using their own scales to standardize comparisons between applicants."
+                  }
+                }
+              ]
+            }`}
+          </script>
+        </Helmet>
+      )}
+      
+      <div className="calculator-container">
         <div style={{ marginBottom: '2rem' }}>
           <Link to="/blog" style={{ 
             display: 'inline-flex',
@@ -837,7 +1273,7 @@ const BlogPost = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
