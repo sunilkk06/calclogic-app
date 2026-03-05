@@ -291,7 +291,7 @@ const PercentageCalculator = () => {
               <span className="result-label">Result:</span>
               <span className="result-value">{percentChange.result.value}% ({percentChange.result.type})</span>
             </div>
-          )
+          )}
         </div>
       </div>
 
@@ -594,6 +594,7 @@ const PercentageCalculator = () => {
         All calculations are performed instantly in your browser. CalcLogic's percentage calculator handles decimals, negative percentages, and large numbers accurately. Results are rounded to two decimal places by default.
       </p>
     </div>
+    </>
   )
 }
 
