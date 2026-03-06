@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 
 const BodyFatCalculator = () => {
   const [formData, setFormData] = useState({
@@ -97,12 +98,30 @@ const BodyFatCalculator = () => {
   }
 
   return (
-    <div className="calculator-container">
-      <div className="calculator-header">
-        <h1>Body Fat Calculator</h1>
-        <p className="calculator-description">
-          Estimate your body fat percentage using the U.S. Navy method based on body measurements.
-        </p>
+    <>
+      <Helmet>
+        <title>Body Fat Calculator — Estimate Your Body Fat % Free | CalcLogic</title>
+        <meta name="description" content="Calculate your body fat percentage instantly using the U.S. Navy method. Free body fat calculator for men and women — no gym equipment needed." />
+        <link rel="canonical" href="https://calclogic.com/body-fat-calculator" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Body Fat Calculator — Estimate Your Body Fat % Free | CalcLogic" />
+        <meta property="og:description" content="Free body fat percentage calculator. Instant results for men and women using proven measurement methods." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://calclogic.com/body-fat-calculator" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Body Fat Calculator — Free &amp; Instant | CalcLogic" />
+        <meta name="twitter:description" content="Estimate your body fat percentage instantly. Free, no equipment needed." />
+      </Helmet>
+      
+      <div className="calculator-container">
+        <div className="calculator-header">
+          <h1>Body Fat Calculator</h1>
+          <p className="calculator-description">
+            Estimate your body fat percentage using the U.S. Navy method based on body measurements.
+          </p>
       </div>
 
       <form onSubmit={calculateBodyFat} className="calculator-form">
@@ -385,6 +404,7 @@ const BodyFatCalculator = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js'
 import { Line } from 'react-chartjs-2'
 
@@ -108,13 +109,30 @@ const CompoundInterestCalculator = () => {
   }
 
   return (
-    <div className="calculator-container">
-      <div className="calculator-header">
-        <h1>Compound Interest Calculator</h1>
-        <p className="calculator-description">
-          Calculate how your investments can grow with compound interest over time.
-        </p>
-      </div>
+    <>
+      <Helmet>
+        <title>Compound Interest Calculator — Watch Your Money Grow | CalcLogic</title>
+        <meta name="description" content="Free compound interest calculator. See how your savings or investment grow over time with daily, monthly, or annual compounding. Instant results, no signup." />
+        <link rel="canonical" href="https://calclogic.com/compound-interest-calculator" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Compound Interest Calculator — Watch Your Money Grow | CalcLogic" />
+        <meta property="og:description" content="Free compound interest calculator with daily, monthly and annual compounding options. See your money grow instantly." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://calclogic.com/compound-interest-calculator" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Compound Interest Calculator — Free | CalcLogic" />
+        <meta name="twitter:description" content="See how compound interest grows your money. Free calculator, instant results." />
+      </Helmet>
+      
+      <div className="calculator-container">
+        <div className="calculator-header">
+          <h1>Compound Interest Calculator</h1>
+          <p className="calculator-description">
+            Calculate how your investments can grow with compound interest over time.
+          </p>
 
       <form onSubmit={calculateCompoundInterest} className="calculator-form">
         <div className="input-section">

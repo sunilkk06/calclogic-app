@@ -41,16 +41,20 @@ const BMICalculator = () => {
   return (
     <>
       <Helmet>
-        <title>BMI Calculator — Free Body Mass Index Calculator | CalcLogic</title>
-        <meta name="description" content="Calculate your BMI instantly with our free Body Mass Index calculator. Enter your height and weight to get your BMI score, category, and personalized health insights." />
-        <meta name="keywords" content="BMI calculator, body mass index calculator, BMI chart, healthy BMI, BMI for women, BMI for men, BMI categories, what is a good BMI" />
+        <title>BMI Calculator — Instant Results with Health Insights | CalcLogic</title>
+        <meta name="description" content="Free BMI calculator with instant results. Find your Body Mass Index, see your weight category, and get personalised health insights. Metric &amp; imperial supported." />
         <link rel="canonical" href="https://calclogic.com/bmi-calculator" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="BMI Calculator — Free Body Mass Index Calculator | CalcLogic" />
-        <meta property="og:description" content="Free online BMI calculator. Find out if your weight is healthy based on your height and weight with instant results." />
+        <meta property="og:title" content="BMI Calculator — Instant Results with Health Insights | CalcLogic" />
+        <meta property="og:description" content="Free BMI calculator. Enter your height and weight to instantly find your BMI score, weight category, and health insights." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://calclogic.com/bmi-calculator" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="BMI Calculator — Free &amp; Instant | CalcLogic" />
+        <meta name="twitter:description" content="Calculate your BMI in seconds. Free, no signup, metric and imperial supported." />
         
         {/* FAQ Schema */}
         <script type="application/ld+json">

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 
 const AutoLoanCalculator = () => {
   const [formData, setFormData] = useState({
@@ -87,13 +88,30 @@ const AutoLoanCalculator = () => {
   }
 
   return (
-    <div className="calculator-container">
-      <div className="calculator-header">
-        <h1>Auto Loan Calculator</h1>
-        <p className="calculator-description">
-          Estimate your monthly car payment and see how factors like loan term, down payment, and interest rate affect your costs.
-        </p>
-      </div>
+    <>
+      <Helmet>
+        <title>Auto Loan Calculator — Estimate Your Car Payment | CalcLogic</title>
+        <meta name="description" content="Free auto loan calculator. Estimate your monthly car payment by loan amount, interest rate &amp; term. See total interest paid and full payment breakdown instantly." />
+        <link rel="canonical" href="https://calclogic.com/auto-loan-calculator" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Auto Loan Calculator — Estimate Your Car Payment | CalcLogic" />
+        <meta property="og:description" content="Free car payment calculator. Find your monthly auto loan payment, total interest, and full amortization breakdown in seconds." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://calclogic.com/auto-loan-calculator" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Auto Loan Calculator — Free Car Payment Estimator | CalcLogic" />
+        <meta name="twitter:description" content="Estimate your monthly car payment instantly. Free auto loan calculator." />
+      </Helmet>
+      
+      <div className="calculator-container">
+        <div className="calculator-header">
+          <h1>Auto Loan Calculator</h1>
+          <p className="calculator-description">
+            Estimate your monthly car payment and see how factors like loan term, down payment, and interest rate affect your costs.
+          </p>
 
       <form onSubmit={calculateAutoLoan} className="calculator-form">
         <div className="input-section">
@@ -241,6 +259,8 @@ const AutoLoanCalculator = () => {
         </div>
       </div>
     </div>
+  </div>
+</>
   )
 }
 

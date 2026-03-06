@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 
@@ -110,16 +111,33 @@ const IdealWeightCalculator = () => {
   }
 
   return (
-    <div className="calculator-container">
-      <div className="calculator-header">
-        <h1>Ideal Weight Calculator</h1>
-        <p className="calculator-description">
-          Calculate your ideal weight based on height, gender, and body frame using multiple formulas.
-        </p>
-      </div>
+    <>
+      <Helmet>
+        <title>Ideal Weight Calculator — Find Your Healthy Weight | CalcLogic</title>
+        <meta name="description" content="Find your ideal body weight based on height, age &amp; gender. Free ideal weight calculator using 4 proven formulas including Devine, Hamwi &amp; Robinson." />
+        <link rel="canonical" href="https://calclogic.com/ideal-weight-calculator" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Ideal Weight Calculator — Find Your Healthy Weight | CalcLogic" />
+        <meta property="og:description" content="Free ideal weight calculator. Find your healthy weight range by height, age and gender using multiple proven formulas." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://calclogic.com/ideal-weight-calculator" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Ideal Weight Calculator — Free | CalcLogic" />
+        <meta name="twitter:description" content="Find your ideal healthy weight instantly by height and age." />
+      </Helmet>
+      
+      <div className="calculator-container">
+        <div className="calculator-header">
+          <h1>Ideal Weight Calculator</h1>
+          <p className="calculator-description">
+            Calculate your ideal weight based on height, gender, and body frame using multiple formulas.
+          </p>
+        </div>
 
-      <form onSubmit={calculateIdealWeight} className="calculator-form">
-        <div className="input-section">
+        <form onSubmit={calculateIdealWeight} className="calculator-form">
           <div className="input-group">
             <label htmlFor="gender">Gender</label>
             <div className="input-field">
@@ -184,128 +202,125 @@ const IdealWeightCalculator = () => {
               />
             </div>
           </div>
-        </div>
 
-        <button type="submit" className="calculate-btn">Calculate Ideal Weight</button>
-      </form>
+          <button type="submit" className="calculate-btn">Calculate Ideal Weight</button>
+        </form>
 
-      {results && (
-        <div className="results-section">
-          <h2>Your Ideal Weight Results</h2>
-          <div className="results-grid">
-            <div className="result-item">
-              <span className="result-label">Recommended Weight Range</span>
-              <span className="result-value">{results.weightRange} kg</span>
+        {results && (
+          <div className="results-section">
+            <h2>Your Ideal Weight Results</h2>
+            <div className="results-grid">
+              <div className="result-item">
+                <span className="result-label">Recommended Weight Range</span>
+                <span className="result-value">{results.weightRange} kg</span>
+              </div>
             </div>
-          </div>
-          
-          <h3 style={{ marginTop: '2rem', marginBottom: '1rem' }}>Weight Calculations by Formula</h3>
-          <div className="results-grid">
-            <div className="result-item">
-              <span className="result-label">Devine Formula</span>
-              <span className="result-value">{results.devineWeight} kg</span>
+            <h3 style={{ marginTop: '2rem', marginBottom: '1rem' }}>Weight Calculations by Formula</h3>
+            <div className="results-grid">
+              <div className="result-item">
+                <span className="result-label">Devine Formula</span>
+                <span className="result-value">{results.devineWeight} kg</span>
+              </div>
+              <div className="result-item">
+                <span className="result-label">Hamwi Formula</span>
+                <span className="result-value">{results.hamwiWeight} kg</span>
+              </div>
+              <div className="result-item">
+                <span className="result-label">Miller Formula</span>
+                <span className="result-value">{results.millerWeight} kg</span>
+              </div>
+              <div className="result-item">
+                <span className="result-label">Robinson Formula</span>
+                <span className="result-value">{results.robinsonWeight} kg</span>
+              </div>
             </div>
-            <div className="result-item">
-              <span className="result-label">Hamwi Formula</span>
-              <span className="result-value">{results.hamwiWeight} kg</span>
-            </div>
-            <div className="result-item">
-              <span className="result-label">Miller Formula</span>
-              <span className="result-value">{results.millerWeight} kg</span>
-            </div>
-            <div className="result-item">
-              <span className="result-label">Robinson Formula</span>
-              <span className="result-value">{results.robinsonWeight} kg</span>
-            </div>
-          </div>
-          
-          <div className="chart-container" style={{ height: '300px', marginTop: '2rem' }}>
-            <Bar
-              data={{
-                labels: ['Devine', 'Hamwi', 'Miller', 'Robinson'],
-                datasets: [
-                  {
-                    label: 'Weight (kg)',
-                    data: results.chartData,
-                    backgroundColor: [
-                      'rgba(74, 144, 226, 0.6)',
-                      'rgba(80, 200, 120, 0.6)',
-                      'rgba(255, 165, 0, 0.6)',
-                      'rgba(255, 99, 132, 0.6)'
-                    ],
-                    borderColor: [
-                      'rgba(74, 144, 226, 1)',
-                      'rgba(80, 200, 120, 1)',
-                      'rgba(255, 165, 0, 1)',
-                      'rgba(255, 99, 132, 1)'
-                    ],
-                    borderWidth: 1
+            <div className="chart-container" style={{ height: '300px', marginTop: '2rem' }}>
+              <Bar
+                data={{
+                  labels: ['Devine', 'Hamwi', 'Miller', 'Robinson'],
+                  datasets: [
+                    {
+                      label: 'Weight (kg)',
+                      data: results.chartData,
+                      backgroundColor: [
+                        'rgba(74, 144, 226, 0.6)',
+                        'rgba(80, 200, 120, 0.6)',
+                        'rgba(255, 165, 0, 0.6)',
+                        'rgba(255, 99, 132, 0.6)'
+                      ],
+                      borderColor: [
+                        'rgba(74, 144, 226, 1)',
+                        'rgba(80, 200, 120, 1)',
+                        'rgba(255, 165, 0, 1)',
+                        'rgba(255, 99, 132, 1)'
+                      ],
+                      borderWidth: 1
+                    }
+                  ]
+                }}
+                options={{
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  scales: {
+                    y: {
+                      beginAtZero: false
+                    }
                   }
-                ]
-              }}
-              options={{
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                  y: {
-                    beginAtZero: false
-                  }
-                }
-              }}
-            />
-          </div>
-          
-          <h3 style={{ marginTop: '2rem', marginBottom: '1rem' }}>BMI Weight Ranges</h3>
-          <div className="results-grid">
-            <div className="result-item">
-              <span className="result-label">Underweight</span>
-              <span className="result-value">{results.bmiRanges.underweight} kg</span>
-              <span className="result-label">&lt; 18.5 BMI</span>
+                }}
+              />
             </div>
-            <div className="result-item">
-              <span className="result-label">Normal Weight</span>
-              <span className="result-value">{results.bmiRanges.normal} kg</span>
-              <span className="result-label">18.5 - 24.9 BMI</span>
-            </div>
-            <div className="result-item">
-              <span className="result-label">Overweight</span>
-              <span className="result-value">{results.bmiRanges.overweight} kg</span>
-              <span className="result-label">25 - 29.9 BMI</span>
+            <h3 style={{ marginTop: '2rem', marginBottom: '1rem' }}>BMI Weight Ranges</h3>
+            <div className="results-grid">
+              <div className="result-item">
+                <span className="result-label">Underweight</span>
+                <span className="result-value">{results.bmiRanges.underweight} kg</span>
+                <span className="result-label">&lt; 18.5 BMI</span>
+              </div>
+              <div className="result-item">
+                <span className="result-label">Normal Weight</span>
+                <span className="result-value">{results.bmiRanges.normal} kg</span>
+                <span className="result-label">18.5 - 24.9 BMI</span>
+              </div>
+              <div className="result-item">
+                <span className="result-label">Overweight</span>
+                <span className="result-value">{results.bmiRanges.overweight} kg</span>
+                <span className="result-label">25 - 29.9 BMI</span>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
 
-      <div className="info-cards">
-        <div className="info-card">
-          <h3>Body Frame Size</h3>
-          <ul>
-            <li>Small Frame: Wrist circumference &lt; 16.5 cm</li>
-            <li>Medium Frame: Wrist 16.5-18.5 cm</li>
-            <li>Large Frame: Wrist &gt; 18.5 cm</li>
-            <li>Frame size affects ideal weight range</li>
-          </ul>
-        </div>
-        <div className="info-card">
-          <h3>Weight Formulas</h3>
-          <ul>
-            <li>Devine: Standard medical calculations</li>
-            <li>Hamwi: Classic method from 1964</li>
-            <li>Miller: Updated modern formula</li>
-            <li>Robinson: Research-based approach</li>
-          </ul>
-        </div>
-        <div className="info-card">
-          <h3>Healthy Weight Tips</h3>
-          <ul>
-            <li>Consider muscle mass vs. fat mass</li>
-            <li>Account for age and activity level</li>
-            <li>Focus on overall health, not just weight</li>
-            <li>Consult healthcare providers for guidance</li>
-          </ul>
+        <div className="info-cards">
+          <div className="info-card">
+            <h3>Body Frame Size</h3>
+            <ul>
+              <li>Small Frame: Wrist circumference &lt; 16.5 cm</li>
+              <li>Medium Frame: Wrist 16.5-18.5 cm</li>
+              <li>Large Frame: Wrist &gt; 18.5 cm</li>
+              <li>Frame size affects ideal weight range</li>
+            </ul>
+          </div>
+          <div className="info-card">
+            <h3>Weight Formulas</h3>
+            <ul>
+              <li>Devine: Standard medical calculations</li>
+              <li>Hamwi: Classic method from 1964</li>
+              <li>Miller: Updated modern formula</li>
+              <li>Robinson: Research-based approach</li>
+            </ul>
+          </div>
+          <div className="info-card">
+            <h3>Healthy Weight Tips</h3>
+            <ul>
+              <li>Consider muscle mass vs. fat mass</li>
+              <li>Account for age and activity level</li>
+              <li>Focus on overall health, not just weight</li>
+              <li>Consult healthcare providers for guidance</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

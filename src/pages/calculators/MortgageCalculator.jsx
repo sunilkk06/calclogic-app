@@ -78,16 +78,20 @@ const MortgageCalculator = () => {
   return (
     <>
       <Helmet>
-        <title>Mortgage Calculator — Monthly Payment & Amortization | CalcLogic</title>
-        <meta name="description" content="Free mortgage calculator: estimate your monthly payment including principal, interest, taxes, and insurance. View full amortization schedule instantly." />
-        <meta name="keywords" content="mortgage calculator, mortgage payment calculator, home loan calculator, monthly mortgage payment, amortization calculator, mortgage with taxes and insurance, how much house can I afford" />
+        <title>Mortgage Calculator — Monthly Payment + Amortization | CalcLogic</title>
+        <meta name="description" content="Calculate your monthly mortgage payment including principal, interest, taxes &amp; insurance. Free mortgage calculator with full amortization schedule. Instant results." />
         <link rel="canonical" href="https://calclogic.com/mortgage-calculator" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Mortgage Calculator — Monthly Payment & Amortization | CalcLogic" />
-        <meta property="og:description" content="Calculate your monthly mortgage payment including principal, interest, property tax, and homeowners insurance. Free and instant." />
+        <meta property="og:title" content="Mortgage Calculator — Monthly Payment + Amortization | CalcLogic" />
+        <meta property="og:description" content="Free mortgage calculator. Estimate your monthly payment with taxes and insurance, and view your full amortization schedule instantly." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://calclogic.com/mortgage-calculator" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Mortgage Calculator — Free &amp; Instant | CalcLogic" />
+        <meta name="twitter:description" content="Calculate monthly mortgage payments with taxes & insurance. Includes full amortization schedule." />
         
         {/* FAQ Schema */}
         <script type="application/ld+json">

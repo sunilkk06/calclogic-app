@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 
 const CalorieCalculator = () => {
   const [formData, setFormData] = useState({
@@ -75,12 +76,30 @@ const CalorieCalculator = () => {
   }
 
   return (
-    <div className="calculator-container">
-      <div className="calculator-header">
-        <h1>Calorie Calculator (BMR & TDEE)</h1>
-        <p className="calculator-description">
-          Estimate your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE).
-        </p>
+    <>
+      <Helmet>
+        <title>Calorie Calculator — How Many Calories Do You Need? | CalcLogic</title>
+        <meta name="description" content="Find your daily calorie needs instantly. Free calorie calculator for weight loss, maintenance, or gain. Personalised to your age, height, weight &amp; activity level." />
+        <link rel="canonical" href="https://calclogic.com/calorie-calculator" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Calorie Calculator — How Many Calories Do You Need? | CalcLogic" />
+        <meta property="og:description" content="Free calorie calculator. Get your personalised daily calorie target for weight loss, maintenance, or muscle gain in seconds." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://calclogic.com/calorie-calculator" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Calorie Calculator — Free &amp; Personalised | CalcLogic" />
+        <meta name="twitter:description" content="Find your exact daily calorie target for weight loss or maintenance. Free, instant, personalised." />
+      </Helmet>
+      
+      <div className="calculator-container">
+        <div className="calculator-header">
+          <h1>Calorie Calculator (BMR & TDEE)</h1>
+          <p className="calculator-description">
+            Estimate your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE).
+          </p>
       </div>
 
       <form onSubmit={calculateCalories} className="calculator-form">
@@ -318,7 +337,7 @@ const CalorieCalculator = () => {
         </div>
       </div>
     </div>
-  )
-}
+  </>);
+};
 
-export default CalorieCalculator
+export default CalorieCalculator;
