@@ -52,9 +52,11 @@ const Header = () => {
       <header className="main-header">
         <nav className="nav-container">
           <div className="logo">
-            <Link to="/">
-              <i className="fas fa-calculator"></i>
-              <span>Calc</span><span>Logic</span>
+            <Link to="/" className="navbar-logo">
+              <div className="logo-box">CL</div>
+              <span className="logo-name">
+                <span className="logo-calc">Calc</span><span className="logo-logic">Logic</span>
+              </span>
             </Link>
           </div>
           
