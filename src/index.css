@@ -1736,6 +1736,231 @@ th {
     color: white;
 }
 
+/* Home Page SEO Content Styles */
+.hero-sub {
+    font-size: 1rem;
+    color: #374151;
+    line-height: 1.7;
+    max-width: 680px;
+    margin-bottom: 1.5rem;
+}
+
+.trust-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.trust-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #f1f5f9;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.trust-pill .check {
+    color: #16a34a;
+    font-size: 0.85rem;
+}
+
+.cat-desc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.cat-desc-card {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 1.2rem 1.3rem;
+    text-align: center;
+}
+
+.cat-desc-card .cat-icon {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.cat-desc-card h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.4rem;
+}
+
+.cat-desc-card p {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.55;
+}
+
+.popular-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.popular-item {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.popular-item:hover {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+}
+
+.popular-item-left h4 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.1rem;
+}
+
+.popular-item-left p {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.popular-item-arrow {
+    color: #2563eb;
+    font-size: 1rem;
+}
+
+.vol-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 0.2rem;
+}
+
+.faq-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.faq-chip {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #0f172a;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+
+.faq-chip:hover {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+    color: #2563eb;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.why-item {
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+}
+
+.why-icon {
+    width: 36px;
+    height: 36px;
+    background: #eff6ff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.why-item h4 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.2rem;
+}
+
+.why-item p {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.footer-cta {
+    background: linear-gradient(135deg, #1e3a5f, #2563eb);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    color: white;
+    margin-bottom: 3rem;
+}
+
+.footer-cta h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.footer-cta p {
+    color: #bfdbfe;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+}
+
+.cta-btn {
+    display: inline-block;
+    background: white;
+    color: #1d4ed8;
+    font-weight: 700;
+    padding: 0.65rem 1.5rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    margin: 0.3rem;
+    text-decoration: none;
+    border: 2px solid transparent;
+}
+
+.cta-btn:hover {
+    background: #f8fafc;
+}
+
 .share-button-group {
     display: flex;
     gap: 1rem;
