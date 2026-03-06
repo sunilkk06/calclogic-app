@@ -38,6 +38,12 @@ const OtherCalculators = () => {
       title: 'Grade Calculator',
       description: 'Calculate final course grades based on assignments and weights.',
       path: '/grade-calculator'
+    },
+    {
+      icon: 'fas fa-receipt',
+      title: 'Tip Calculator',
+      description: 'Calculate tips and split bills between multiple people. Perfect for restaurants and shared expenses.',
+      path: '/tip-calculator'
     }
   ]
 

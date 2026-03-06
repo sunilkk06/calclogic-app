@@ -46,6 +46,7 @@ import TimeCalculator from './pages/calculators/TimeCalculator'
 import PregnancyCalculator from './pages/calculators/PregnancyCalculator'
 import GPACalculator from './pages/calculators/GPACalculator'
 import GradeCalculator from './pages/calculators/GradeCalculator'
+import TipCalculator from './pages/calculators/TipCalculator'
 import FAQs from './pages/FAQs'
 
 function App() {
@@ -100,6 +101,7 @@ function App() {
         <Route path="/pregnancy-calculator" element={<PregnancyCalculator />} />
         <Route path="/gpa-calculator" element={<GPACalculator />} />
         <Route path="/grade-calculator" element={<GradeCalculator />} />
+        <Route path="/tip-calculator" element={<TipCalculator />} />
         <Route path="/faqs" element={<FAQs />} />
         
         {/* Policy Pages */}
