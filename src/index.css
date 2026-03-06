@@ -28,32 +28,12 @@ body {
     align-items: center;
 }
 
-.logo {
-    font-size: 1.75rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-}
-
-.logo a {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.logo i {
-    color: #4a90e2;
-    font-size: 1.25rem;
-}
-
-.logo span:first-of-type {
-    color: #9747FF;
-}
-
-.logo span:last-of-type {
-    color: #4a90e2;
-}
+/* Modern Logo Styles - moved to navbar-logo section */
+.navbar-logo { display:flex; align-items:center; gap:0.6rem; text-decoration:none; }
+.logo-box { width:38px; height:38px; background:#2563eb; border-radius:9px; display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-size:1rem; font-weight:800; color:#ffffff; letter-spacing:-0.05em; flex-shrink:0; }
+.logo-name { font-family:'Syne',sans-serif; font-size:1.45rem; font-weight:800; letter-spacing:-0.03em; }
+.logo-calc { color:#ffffff !important; }
+.logo-logic { color:#60a5fa !important; }
 
 .nav-links {
     display: flex;
@@ -1060,14 +1040,6 @@ th {
         padding: 0 1rem;
     }
     
-    .logo {
-        font-size: 1.5rem;
-    }
-    
-    .logo i {
-        font-size: 1.1rem;
-    }
-    
     .hero {
         padding: 3rem 0;
     }
@@ -1405,12 +1377,6 @@ th {
         border-radius: 4px;
     }
 }
-
-.navbar-logo { display:flex; align-items:center; gap:0.6rem; text-decoration:none; }
-.logo-box { width:38px; height:38px; background:#2563eb; border-radius:9px; display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-size:1rem; font-weight:800; color:#ffffff; letter-spacing:-0.05em; flex-shrink:0; }
-.logo-name { font-family:'Syne',sans-serif; font-size:1.45rem; font-weight:800; letter-spacing:-0.03em; }
-.logo-calc { color:#ffffff; }
-.logo-logic { color:#60a5fa; }
 
 /* Touch-friendly improvements */
 @media (hover: none) and (pointer: coarse) {
@@ -1904,10 +1870,6 @@ th {
     
     .category-header {
         gap: 0.75rem;
-    }
-    
-    .logo {
-        font-size: 1.3rem;
     }
 }
 
