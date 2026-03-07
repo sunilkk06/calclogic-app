@@ -42,7 +42,8 @@ const PaceCalculator = () => {
   }
 
   // Calculate pace based on distance and time
-  const calculatePace = () => {
+  const calculatePace = (e) => {
+    if (e) e.preventDefault()
     if (!distance || (!hours && !minutes && !seconds)) return
 
     const totalSeconds = timeToSeconds(hours, minutes, seconds)
@@ -57,10 +58,11 @@ const PaceCalculator = () => {
   }
 
   // Calculate time based on distance and pace
-  const calculateTime = () => {
+  const calculateTime = (e) => {
+    if (e) e.preventDefault()
     if (!distance || (!paceMinutes && !paceSeconds)) return
 
-    const totalPaceSeconds = timeToSeconds(paceMinutes, paceSeconds)
+    const totalPaceSeconds = timeToSeconds(0, paceMinutes, paceSeconds)
     if (!totalPaceSeconds) return
 
     const distanceInMiles = distanceUnit === 'miles' ? parseFloat(distance) : parseFloat(distance) * 0.621371
@@ -77,11 +79,12 @@ const PaceCalculator = () => {
   }
 
   // Calculate distance based on time and pace
-  const calculateDistance = () => {
+  const calculateDistance = (e) => {
+    if (e) e.preventDefault()
     if ((!hours && !minutes && !seconds) || (!paceMinutes && !paceSeconds)) return
 
     const totalSeconds = timeToSeconds(hours, minutes, seconds)
-    const totalPaceSeconds = timeToSeconds(paceMinutes, paceSeconds)
+    const totalPaceSeconds = timeToSeconds(0, paceMinutes, paceSeconds)
     
     if (!totalSeconds || !totalPaceSeconds) return
 
@@ -95,33 +98,40 @@ const PaceCalculator = () => {
   // Get results based on active mode
   const getResults = () => {
     if (activeMode === 'pace') {
-      const paceSeconds = timeToSeconds(paceMinutes, paceSeconds)
-      const distanceInMiles = distanceUnit === 'miles' ? parseFloat(distance) : parseFloat(distance) * 0.621371
-      const speedMph = distanceInMiles > 0 ? (3600 / paceSeconds) : 0
-      const speedKph = distanceUnit === 'kilometers' && parseFloat(distance) > 0 ? (3600 / (paceSeconds * 0.621371)) : speedMph * 1.60934
+      const pSecs = timeToSeconds(0, paceMinutes, paceSeconds)
+      const dInMiles = distanceUnit === 'miles' ? parseFloat(distance) : parseFloat(distance) * 0.621371
+      const sMph = dInMiles > 0 ? (3600 / pSecs) : 0
+      const sKph = sMph * 1.60934
       
       return {
-        pace: formatPace(paceSeconds),
-        speed: speedMph > 0 ? `${speedMph.toFixed(2)} mph` : '0 mph',
-        speedKph: speedKph > 0 ? `${speedKph.toFixed(2)} kph` : '0 kph',
-        time: 'N/A'
+        pace: formatPace(pSecs),
+        speed: sMph > 0 ? `${sMph.toFixed(2)} mph` : '0 mph',
+        speedKph: sKph > 0 ? `${sKph.toFixed(2)} kph` : '0 kph',
+        time: formatTime(timeToSeconds(hours, minutes, seconds))
       }
     } else if (activeMode === 'time') {
-      const totalSeconds = timeToSeconds(hours, minutes, seconds)
+      const tSecs = timeToSeconds(hours, minutes, seconds)
+      const pSecs = timeToSeconds(0, paceMinutes, paceSeconds)
+      const dInMiles = distanceUnit === 'miles' ? parseFloat(distance) : parseFloat(distance) * 0.621371
+      const sMph = 3600 / pSecs
+      const sKph = sMph * 1.60934
       return {
-        pace: 'N/A',
-        speed: 'N/A',
-        speedKph: 'N/A',
-        time: formatTime(totalSeconds)
+        pace: formatPace(pSecs),
+        speed: `${sMph.toFixed(2)} mph`,
+        speedKph: `${sKph.toFixed(2)} kph`,
+        time: formatTime(tSecs)
       }
     } else if (activeMode === 'distance') {
-      const finalDistance = distanceUnit === 'miles' ? parseFloat(distance) : parseFloat(distance)
+      const tSecs = timeToSeconds(hours, minutes, seconds)
+      const pSecs = timeToSeconds(0, paceMinutes, paceSeconds)
+      const sMph = 3600 / pSecs
+      const sKph = sMph * 1.60934
       return {
-        pace: 'N/A',
-        speed: 'N/A',
-        speedKph: 'N/A',
-        time: 'N/A',
-        distance: `${finalDistance.toFixed(2)} ${distanceUnit}`
+        pace: formatPace(pSecs),
+        speed: `${sMph.toFixed(2)} mph`,
+        speedKph: `${sKph.toFixed(2)} kph`,
+        time: formatTime(tSecs),
+        distance: `${parseFloat(distance).toFixed(2)} ${distanceUnit}`
       }
     }
     return {}
@@ -131,17 +141,18 @@ const PaceCalculator = () => {
 
   // Generate split table
   const generateSplitTable = () => {
-    if (activeMode !== 'time' || !distance) return []
+    if (!activeMode || !distance) return []
     
-    const totalSeconds = timeToSeconds(hours, minutes, seconds)
-    const distanceInMiles = distanceUnit === 'miles' ? parseFloat(distance) : parseFloat(distance) * 0.621371
-    const paceSeconds = totalSeconds / distanceInMiles
+    const tSecs = timeToSeconds(hours, minutes, seconds)
+    const dInMiles = distanceUnit === 'miles' ? parseFloat(distance) : parseFloat(distance) * 0.621371
+    if (!dInMiles) return []
+    const pSecs = tSecs / dInMiles
     
     const splits = []
-    const numSplits = Math.ceil(distanceInMiles)
+    const numSplits = Math.min(Math.ceil(dInMiles), 50)
     
-    for (let i = 1; i <= numSplits && i <= 26; i++) {
-      const splitTime = paceSeconds * i
+    for (let i = 1; i <= numSplits; i++) {
+      const splitTime = pSecs * i
       splits.push({
         mile: i,
         time: formatTime(splitTime)
@@ -240,8 +251,7 @@ const PaceCalculator = () => {
           </p>
         </div>
 
-        <form className="calculator-form">
-          {/* Unit Toggle */}
+        <form className="calculator-form" onSubmit={(e) => e.preventDefault()}>
           <div className="input-section">
             <h2>Unit System</h2>
             <div className="input-group">
@@ -266,7 +276,6 @@ const PaceCalculator = () => {
             </div>
           </div>
 
-          {/* Input Fields */}
           <div className="input-section">
             <h2>Enter Your Information</h2>
             <div className="input-row">
@@ -285,16 +294,13 @@ const PaceCalculator = () => {
               </div>
               
               <div className="input-group">
-                <label htmlFor="time">Time</label>
+                <label>Time</label>
                 <div className="time-inputs">
                   <input
                     type="number"
-                    id="hours"
                     value={hours}
                     onChange={(e) => setHours(e.target.value)}
                     placeholder="HH"
-                    min="0"
-                    max="99"
                   />
                   <span>:</span>
                   <input
@@ -302,8 +308,6 @@ const PaceCalculator = () => {
                     value={minutes}
                     onChange={(e) => setMinutes(e.target.value)}
                     placeholder="MM"
-                    min="0"
-                    max="59"
                   />
                   <span>:</span>
                   <input
@@ -311,23 +315,18 @@ const PaceCalculator = () => {
                     value={seconds}
                     onChange={(e) => setSeconds(e.target.value)}
                     placeholder="SS"
-                    min="0"
-                    max="59"
                   />
                 </div>
               </div>
               
               <div className="input-group">
-                <label htmlFor="pace">Pace</label>
+                <label>Pace</label>
                 <div className="pace-inputs">
                   <input
                     type="number"
-                    id="paceMinutes"
                     value={paceMinutes}
                     onChange={(e) => setPaceMinutes(e.target.value)}
                     placeholder="MM"
-                    min="0"
-                    max="59"
                   />
                   <span>:</span>
                   <input
@@ -335,156 +334,106 @@ const PaceCalculator = () => {
                     value={paceSeconds}
                     onChange={(e) => setPaceSeconds(e.target.value)}
                     placeholder="SS"
-                    min="0"
-                    max="59"
                   />
                   <span className="input-unit">per {paceUnit}</span>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Race Presets */}
-            <div className="input-section">
-              <h2>Quick Race Distances</h2>
-              <div className="race-presets">
-                {Object.entries(racePresets).map(([race, data]) => (
-                  <button
-                    key={race}
-                    type="button"
-                    className="preset-btn"
-                    onClick={() => {
-                      setDistance(data.distance.toString())
-                      setDistanceUnit(data.unit)
-                    }}
-                  >
-                    {race}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Calculate Buttons */}
-            <div className="input-section">
-              <div className="button-group">
-                <button 
+          <div className="input-section">
+            <h2>Quick Race Distances</h2>
+            <div className="race-presets">
+              {Object.entries(racePresets).map(([race, data]) => (
+                <button
+                  key={race}
                   type="button"
-                  className="calculate-btn"
-                  onClick={calculatePace}
+                  className="preset-btn"
+                  onClick={() => {
+                    setDistance(data.distance.toString())
+                    setDistanceUnit(data.unit)
+                  }}
                 >
-                  Calculate Pace
+                  {race}
                 </button>
-                <button 
-                  type="button"
-                  className="calculate-btn"
-                  onClick={calculateTime}
-                >
-                  Calculate Time
-                </button>
-                <button 
-                  type="button"
-                  className="calculate-btn"
-                  onClick={calculateDistance}
-                >
-                  Calculate Distance
-                </button>
-              </div>
+              ))}
             </div>
-          </form>
+          </div>
 
-          {/* Results */}
-          {(activeMode === 'pace' || activeMode === 'time' || activeMode === 'distance') && (
-            <div className="results-section">
-              <h2>Results</h2>
-              
-              <div className="results-grid">
-                <div className="result-card">
-                  <h3>Your Pace</h3>
-                  <div className="result-value">{results.pace}</div>
-                  <div className="result-unit">per {paceUnit}</div>
-                </div>
-                
-                <div className="result-card">
-                  <h3>Your Speed</h3>
-                  <div className="result-value">{results.speed}</div>
-                  <div className="result-value">{results.speedKph}</div>
-                </div>
-                
-                <div className="result-card">
-                  <h3>Finish Time</h3>
-                  <div className="result-value">{results.time}</div>
-                </div>
-                
-                {results.distance && (
-                  <div className="result-card">
-                    <h3>Total Distance</h3>
-                    <div className="result-value">{results.distance}</div>
-                  </div>
-                )}
-              </div>
+          <div className="input-section">
+            <div className="button-group">
+              <button type="button" className="calculate-btn" onClick={calculatePace}>Calculate Pace</button>
+              <button type="button" className="calculate-btn" onClick={calculateTime}>Calculate Time</button>
+              <button type="button" className="calculate-btn" onClick={calculateDistance}>Calculate Distance</button>
             </div>
-          )}
-
-          {/* Split Table */}
-          {splitTable.length > 0 && (
-            <div className="results-section">
-              <h2>Mile/Kilometer Splits</h2>
-              <div className="split-table">
-                <div className="split-header">
-                  <span>Mile/Km</span>
-                  <span>Time</span>
-                </div>
-                {splitTable.map((split, index) => (
-                  <div key={index} className={`split-row ${index % 2 === 0 ? 'even' : 'odd'}`}>
-                    <span>{split.mile}</span>
-                    <span>{split.time}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+          </div>
         </form>
 
-        {/* What is a Running Pace */}
-        <div className="calculator-form">
+        {activeMode && (
+          <div className="results-section">
+            <h2>Results</h2>
+            <div className="results-grid">
+              <div className="result-card">
+                <h3>Your Pace</h3>
+                <div className="result-value">{results.pace}</div>
+                <div className="result-unit">per {paceUnit}</div>
+              </div>
+              <div className="result-card">
+                <h3>Your Speed</h3>
+                <div className="result-value">{results.speed}</div>
+                <div className="result-value">{results.speedKph}</div>
+              </div>
+              <div className="result-card">
+                <h3>Finish Time</h3>
+                <div className="result-value">{results.time}</div>
+              </div>
+              {results.distance && (
+                <div className="result-card">
+                  <h3>Total Distance</h3>
+                  <div className="result-value">{results.distance}</div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {splitTable.length > 0 && (
+          <div className="results-section">
+            <h2>Mile/Kilometer Splits</h2>
+            <div className="split-table">
+              <div className="split-header">
+                <span>Mile/Km</span>
+                <span>Time</span>
+              </div>
+              {splitTable.map((split, index) => (
+                <div key={index} className={`split-row ${index % 2 === 0 ? 'even' : 'odd'}`}>
+                  <span>{split.mile}</span>
+                  <span>{split.time}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div className="info-sections">
           <div className="info-section">
             <h2>What is a Running Pace?</h2>
-            <p>
-              Your running pace is the amount of time it takes you to cover one mile or one kilometer. 
-              It's expressed as minutes per mile (min/mi) or minutes per kilometer (min/km) and is the 
-              most common way runners track and compare their speed.
-            </p>
-            <p>
-              For example, a pace of 9:00/mile means you run one mile every nine minutes. At that pace, 
-              you'd finish a 5K in about 27:58 and a marathon in roughly 3:55:58.
-            </p>
+            <p>Your running pace is the amount of time it takes you to cover one mile or one kilometer. It's expressed as minutes per mile (min/mi) or minutes per kilometer (min/km) and is the most common way runners track and compare their speed.</p>
+            <p>For example, a pace of 9:00/mile means you run one mile every nine minutes. At that pace, you'd finish a 5K in about 27:58 and a marathon in roughly 3:55:58.</p>
           </div>
-        </div>
 
-        {/* How to Calculate Running Pace */}
-        <div className="calculator-form">
           <div className="info-section">
             <h2>How to Calculate Running Pace</h2>
-            <p>
-              The formula for pace is straightforward:
-            </p>
-            <div className="formula-box">
-              <code>Pace = Total Time ÷ Distance</code>
-            </div>
-            <p>
-              If you run 5 kilometers in 30 minutes, your pace is 6:00 per kilometer (or about 9:39 per mile).
-            </p>
-            <p>
-              You can also work backwards:
-            </p>
+            <p>The formula for pace is straightforward:</p>
+            <div className="formula-box"><code>Pace = Total Time ÷ Distance</code></div>
+            <p>If you run 5 kilometers in 30 minutes, your pace is 6:00 per kilometer (or about 9:39 per mile).</p>
+            <p>You can also work backwards:</p>
             <ul className="formula-list">
               <li>To find finish time: <code>Finish Time = Pace × Distance</code></li>
               <li>To find distance covered: <code>Distance = Total Time ÷ Pace</code></li>
             </ul>
           </div>
-        </div>
 
-        {/* Race Pace Reference Table */}
-        <div className="calculator-form">
           <div className="info-section">
             <h2>Common Race Pace Reference Table</h2>
             <div className="table-container">
@@ -499,122 +448,61 @@ const PaceCalculator = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>20 min 5K</td>
-                    <td>6:26/mi</td>
-                    <td>6:26/mi</td>
-                    <td>—</td>
-                    <td>—</td>
-                  </tr>
-                  <tr>
-                    <td>45 min 10K</td>
-                    <td>—</td>
-                    <td>7:15/mi</td>
-                    <td>—</td>
-                    <td>—</td>
-                  </tr>
-                  <tr>
-                    <td>Sub 2hr Half</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>9:09/mi</td>
-                    <td>—</td>
-                  </tr>
-                  <tr>
-                    <td>Sub 4hr Marathon</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>9:09/mi</td>
-                  </tr>
+                  <tr><td>20 min 5K</td><td>6:26/mi</td><td>6:26/mi</td><td>—</td><td>—</td></tr>
+                  <tr><td>45 min 10K</td><td>—</td><td>7:15/mi</td><td>—</td><td>—</td></tr>
+                  <tr><td>Sub 2hr Half</td><td>—</td><td>—</td><td>9:09/mi</td><td>—</td></tr>
+                  <tr><td>Sub 4hr Marathon</td><td>—</td><td>—</td><td>—</td><td>9:09/mi</td></tr>
                 </tbody>
               </table>
             </div>
           </div>
-        </div>
 
-        {/* Pace vs Speed */}
-        <div className="calculator-form">
           <div className="info-section">
             <h2>Pace vs. Speed — What's the Difference?</h2>
-            <p>
-              Pace and speed measure the same thing from opposite directions:
-            </p>
+            <p>Pace and speed measure the same thing from opposite directions:</p>
             <ul className="formula-list">
               <li><strong>Pace</strong> tells you how long it takes to cover a fixed distance (time per mile/km).</li>
               <li><strong>Speed</strong> tells you how far you travel in a fixed time (miles or km per hour).</li>
             </ul>
-            <p>
-              Most runners prefer pace because it maps directly to race planning — knowing your 
-              min/mile tells you instantly when you'll cross each mile marker.
-            </p>
+            <p>Most runners prefer pace because it maps directly to race planning — knowing your min/mile tells you instantly when you'll cross each mile marker.</p>
           </div>
-        </div>
 
-        {/* Tips to Improve Running Pace */}
-        <div className="calculator-form">
           <div className="info-section">
             <h2>5 Tips to Improve Your Running Pace</h2>
             <ol className="tips-list">
-              <li>
-                <strong>Run easy 80% of the time.</strong> Most runners improve by slowing down their easy runs 
-                so they can push harder in speed workouts.
-              </li>
-              <li>
-                <strong>Add one interval session per week.</strong> Short, fast repeats (400m–1 mile) build speed 
-                without excessive fatigue.
-              </li>
-              <li>
-                <strong>Track your pace consistently.</strong> Use this calculator before every race to set 
-                realistic targets based on your recent training.
-              </li>
-              <li>
-                <strong>Account for elevation.</strong> Uphill segments slow your pace — a good rule is to add 
-                ~30 seconds/mile for every 100 feet of gain.
-              </li>
-              <li>
-                <strong>Build endurance gradually.</strong> Increase your long run distance by no more than 10% per week 
-                to avoid injury and build sustainable speed.
-              </li>
+              <li><strong>Run easy 80% of the time.</strong> Most runners improve by slowing down their easy runs so they can push harder in speed workouts.</li>
+              <li><strong>Add one interval session per week.</strong> Short, fast repeats (400m–1 mile) build speed without excessive fatigue.</li>
+              <li><strong>Track your pace consistently.</strong> Use this calculator before every race to set realistic targets based on your recent training.</li>
+              <li><strong>Account for elevation.</strong> Uphill segments slow your pace — a good rule is to add ~30 seconds/mile for every 100 feet of gain.</li>
+              <li><strong>Build endurance gradually.</strong> Increase your long run distance by no more than 10% per week to avoid injury and build sustainable speed.</li>
             </ol>
           </div>
-        </div>
 
-        {/* Related Calculators */}
-        <div className="calculator-form">
           <div className="info-section">
             <h2>Related Calculators</h2>
             <div className="calculator-grid">
               <div className="calculator-card">
-                <div className="calculator-icon">
-                  <i className="fas fa-weight"></i>
-                </div>
+                <div className="calculator-icon"><i className="fas fa-weight"></i></div>
                 <h3>BMI Calculator</h3>
-                <p>Calculate your Body Mass Index and see your weight category. Perfect for tracking overall fitness progress.</p>
+                <p>Calculate your Body Mass Index and see your weight category.</p>
                 <a href="/bmi-calculator" className="calculator-btn">Try BMI Calculator</a>
               </div>
               <div className="calculator-card">
-                <div className="calculator-icon">
-                  <i className="fas fa-fire"></i>
-                </div>
+                <div className="calculator-icon"><i className="fas fa-fire"></i></div>
                 <h3>Calorie Calculator</h3>
-                <p>Calculate daily calorie needs and track your nutrition. Essential for understanding energy balance.</p>
+                <p>Calculate daily calorie needs and track your nutrition.</p>
                 <a href="/calorie-calculator" className="calculator-btn">Try Calorie Calculator</a>
               </div>
               <div className="calculator-card">
-                <div className="calculator-icon">
-                  <i className="fas fa-heartbeat"></i>
-                </div>
+                <div className="calculator-icon"><i className="fas fa-heartbeat"></i></div>
                 <h3>VO2 Max Calculator</h3>
-                <p>Calculate your maximum oxygen uptake and cardiovascular fitness level. Coming soon to Sports category.</p>
+                <p>Calculate your maximum oxygen uptake. Coming soon!</p>
                 <div className="calculator-btn disabled">Coming Soon</div>
               </div>
               <div className="calculator-card">
-                <div className="calculator-icon">
-                  <i className="fas fa-futbol"></i>
-                </div>
+                <div className="calculator-icon"><i className="fas fa-futbol"></i></div>
                 <h3>Fantasy Football Calculator</h3>
-                <p>Calculate fantasy points and draft values for your football league. Coming soon to Sports category.</p>
+                <p>Calculate fantasy points and draft values. Coming soon!</p>
                 <div className="calculator-btn disabled">Coming Soon</div>
               </div>
             </div>
