@@ -52,6 +52,7 @@ import PaceCalculator from './pages/calculators/PaceCalculator'
 import FantasyFootballCalculator from './pages/calculators/FantasyFootballCalculator'
 import BattingAverageCalculator from './pages/calculators/BattingAverageCalculator'
 import GolfHandicapCalculator from './pages/calculators/GolfHandicapCalculator'
+import VO2MaxCalculator from './pages/calculators/VO2MaxCalculator'
 import FAQs from './pages/FAQs'
 
 function App() {
@@ -97,6 +98,7 @@ function App() {
         <Route path="/sports/fantasy-football-calculator" element={<FantasyFootballCalculator />} />
         <Route path="/sports/batting-average-calculator" element={<BattingAverageCalculator />} />
         <Route path="/sports/golf-handicap-calculator" element={<GolfHandicapCalculator />} />
+        <Route path="/sports/vo2-max-calculator" element={<VO2MaxCalculator />} />
         <Route path="/percentage-calculator" element={<PercentageCalculator />} />
         <Route path="/fraction-calculator" element={<FractionCalculator />} />
         <Route path="/ratio-calculator" element={<RatioCalculator />} />
