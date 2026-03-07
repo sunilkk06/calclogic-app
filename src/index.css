@@ -2118,6 +2118,141 @@ th {
     font-weight: 600;
 }
 
+/* Additional Pace Calculator Content Styles */
+.info-section {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2rem 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.01em;
+}
+
+.info-section p {
+    color: #374151;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.formula-box {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0;
+    font-family: 'Courier New', monospace;
+}
+
+.formula-box code {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.formula-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.formula-list li {
+    color: #374151;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    line-height: 1.6;
+}
+
+.formula-list li code {
+    background: #f1f5f9;
+    color: #2563eb;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.tips-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: tip-counter;
+}
+
+.tips-list li {
+    color: #374151;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    line-height: 1.7;
+    position: relative;
+}
+
+.tips-list li::before {
+    content: counter(tip-counter);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: #2563eb;
+    font-family: 'Syne', sans-serif;
+}
+
+.tips-list li strong {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.pace-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.pace-table th,
+.pace-table td {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.pace-table th {
+    background: #f8fafc;
+    font-weight: 700;
+    color: #0f172a;
+    font-family: 'Syne', sans-serif;
+}
+
+.pace-table tr:last-child td {
+    border-bottom: none;
+}
+
+.pace-table tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
 .share-btn {
     display: flex;
     align-items: center;

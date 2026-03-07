@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ShareButtons from '../../components/ShareButtons'
 import { Helmet } from 'react-helmet-async'
 
 const PaceCalculator = () => {
@@ -52,6 +53,7 @@ const PaceCalculator = () => {
     
     setPaceMinutes(Math.floor(paceSecondsPerMile / 60))
     setPaceSeconds(Math.round(paceSecondsPerMile % 60))
+    setActiveMode('pace')
   }
 
   // Calculate time based on distance and pace
@@ -71,6 +73,7 @@ const PaceCalculator = () => {
     setHours(totalHours)
     setMinutes(totalMinutes)
     setSeconds(remainingSeconds)
+    setActiveMode('time')
   }
 
   // Calculate distance based on time and pace
@@ -86,24 +89,7 @@ const PaceCalculator = () => {
     const finalDistance = distanceUnit === 'miles' ? distanceInMiles : distanceInMiles / 0.621371
     
     setDistance(finalDistance.toFixed(2))
-  }
-
-  // Auto-detect which calculation to perform
-  const detectMode = () => {
-    const hasDistance = distance && parseFloat(distance) > 0
-    const hasTime = (hours || minutes || seconds) && timeToSeconds(hours, minutes, seconds) > 0
-    const hasPace = (paceMinutes || paceSeconds) && timeToSeconds(paceMinutes, paceSeconds) > 0
-
-    if (hasDistance && hasTime && !hasPace) {
-      setActiveMode('pace')
-      calculatePace()
-    } else if (hasDistance && hasPace && !hasTime) {
-      setActiveMode('time')
-      calculateTime()
-    } else if (hasTime && hasPace && !hasDistance) {
-      setActiveMode('distance')
-      calculateDistance()
-    }
+    setActiveMode('distance')
   }
 
   // Get results based on active mode
@@ -181,6 +167,11 @@ const PaceCalculator = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://calclogic.com/sports/pace-calculator" />
 
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Pace Calculator — Running, Cycling & Walking" />
+        <meta name="twitter:description" content="Free pace calculator for runners, cyclists, and walkers. Instantly convert between pace, speed, and finish time." />
+
         {/* SoftwareApplication Schema */}
         <script type="application/ld+json">
           {`
@@ -195,6 +186,50 @@ const PaceCalculator = () => {
           }
           `}
         </script>
+
+        {/* FAQ Schema */}
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is a good running pace for beginners?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A good beginner running pace is typically between 10:00–12:00 minutes per mile (6:12–7:27 per km). The most important thing is to run at a conversational pace where you can speak in short sentences."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I convert pace to speed?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Divide 60 by your pace in minutes. For example, a 8:00/mile pace equals 60 ÷ 8 = 7.5 mph. Our calculator does this conversion automatically."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What pace do I need to run a sub-4 hour marathon?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "To finish a marathon in under 4 hours, you need to maintain a pace of approximately 9:09 per mile (5:41 per kilometer) for all 26.2 miles."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is pace the same for running and cycling?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The concept is the same but the numbers differ significantly. Cyclists typically move 3–5× faster than runners, so cycling pace is usually measured in mph or kph rather than min/mile."
+                }
+              }
+            ]
+          }
+          `}
+        </script>
       </Helmet>
 
       <div className="calculator-container">
@@ -205,45 +240,56 @@ const PaceCalculator = () => {
           </p>
         </div>
 
-        <div className="calculator-form">
+        <form className="calculator-form">
           {/* Unit Toggle */}
           <div className="input-section">
-            <div className="unit-toggle">
-              <button 
-                className={`toggle-btn ${distanceUnit === 'miles' ? 'active' : ''}`}
-                onClick={() => setDistanceUnit('miles')}
-              >
-                Miles
-              </button>
-              <button 
-                className={`toggle-btn ${distanceUnit === 'kilometers' ? 'active' : ''}`}
-                onClick={() => setDistanceUnit('kilometers')}
-              >
-                Kilometers
-              </button>
+            <h2>Unit System</h2>
+            <div className="input-group">
+              <label>
+                <input
+                  type="radio"
+                  value="miles"
+                  checked={distanceUnit === 'miles'}
+                  onChange={(e) => setDistanceUnit(e.target.value)}
+                />
+                Imperial (miles)
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="kilometers"
+                  checked={distanceUnit === 'kilometers'}
+                  onChange={(e) => setDistanceUnit(e.target.value)}
+                />
+                Metric (kilometers)
+              </label>
             </div>
           </div>
 
           {/* Input Fields */}
           <div className="input-section">
+            <h2>Enter Your Information</h2>
             <div className="input-row">
               <div className="input-group">
-                <label>Distance</label>
-                <input
-                  type="number"
-                  value={distance}
-                  onChange={(e) => setDistance(e.target.value)}
-                  placeholder="Enter distance"
-                  step="0.01"
-                />
-                <span className="input-unit">{distanceUnit}</span>
+                <label htmlFor="distance">Distance</label>
+                <div className="input-field">
+                  <input
+                    type="number"
+                    id="distance"
+                    value={distance}
+                    onChange={(e) => setDistance(e.target.value)}
+                    placeholder="Enter distance"
+                    step="0.01"
+                  />
+                </div>
               </div>
               
               <div className="input-group">
-                <label>Time</label>
+                <label htmlFor="time">Time</label>
                 <div className="time-inputs">
                   <input
                     type="number"
+                    id="hours"
                     value={hours}
                     onChange={(e) => setHours(e.target.value)}
                     placeholder="HH"
@@ -272,10 +318,11 @@ const PaceCalculator = () => {
               </div>
               
               <div className="input-group">
-                <label>Pace</label>
+                <label htmlFor="pace">Pace</label>
                 <div className="pace-inputs">
                   <input
                     type="number"
+                    id="paceMinutes"
                     value={paceMinutes}
                     onChange={(e) => setPaceMinutes(e.target.value)}
                     placeholder="MM"
@@ -298,11 +345,12 @@ const PaceCalculator = () => {
 
             {/* Race Presets */}
             <div className="input-section">
-              <label>Quick Race Distances</label>
+              <h2>Quick Race Distances</h2>
               <div className="race-presets">
                 {Object.entries(racePresets).map(([race, data]) => (
                   <button
                     key={race}
+                    type="button"
                     className="preset-btn"
                     onClick={() => {
                       setDistance(data.distance.toString())
@@ -315,14 +363,33 @@ const PaceCalculator = () => {
               </div>
             </div>
 
-            {/* Calculate Button */}
-            <button 
-              className="calculate-btn"
-              onClick={detectMode}
-            >
-              Calculate
-            </button>
-          </div>
+            {/* Calculate Buttons */}
+            <div className="input-section">
+              <div className="button-group">
+                <button 
+                  type="button"
+                  className="calculate-btn"
+                  onClick={calculatePace}
+                >
+                  Calculate Pace
+                </button>
+                <button 
+                  type="button"
+                  className="calculate-btn"
+                  onClick={calculateTime}
+                >
+                  Calculate Time
+                </button>
+                <button 
+                  type="button"
+                  className="calculate-btn"
+                  onClick={calculateDistance}
+                >
+                  Calculate Distance
+                </button>
+              </div>
+            </div>
+          </form>
 
           {/* Results */}
           {(activeMode === 'pace' || activeMode === 'time' || activeMode === 'distance') && (
@@ -375,7 +442,190 @@ const PaceCalculator = () => {
               </div>
             </div>
           )}
+        </form>
+
+        {/* What is a Running Pace */}
+        <div className="calculator-form">
+          <div className="info-section">
+            <h2>What is a Running Pace?</h2>
+            <p>
+              Your running pace is the amount of time it takes you to cover one mile or one kilometer. 
+              It's expressed as minutes per mile (min/mi) or minutes per kilometer (min/km) and is the 
+              most common way runners track and compare their speed.
+            </p>
+            <p>
+              For example, a pace of 9:00/mile means you run one mile every nine minutes. At that pace, 
+              you'd finish a 5K in about 27:58 and a marathon in roughly 3:55:58.
+            </p>
+          </div>
         </div>
+
+        {/* How to Calculate Running Pace */}
+        <div className="calculator-form">
+          <div className="info-section">
+            <h2>How to Calculate Running Pace</h2>
+            <p>
+              The formula for pace is straightforward:
+            </p>
+            <div className="formula-box">
+              <code>Pace = Total Time ÷ Distance</code>
+            </div>
+            <p>
+              If you run 5 kilometers in 30 minutes, your pace is 6:00 per kilometer (or about 9:39 per mile).
+            </p>
+            <p>
+              You can also work backwards:
+            </p>
+            <ul className="formula-list">
+              <li>To find finish time: <code>Finish Time = Pace × Distance</code></li>
+              <li>To find distance covered: <code>Distance = Total Time ÷ Pace</code></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Race Pace Reference Table */}
+        <div className="calculator-form">
+          <div className="info-section">
+            <h2>Common Race Pace Reference Table</h2>
+            <div className="table-container">
+              <table className="pace-table">
+                <thead>
+                  <tr>
+                    <th>Finish Goal</th>
+                    <th>5K Pace</th>
+                    <th>10K Pace</th>
+                    <th>Half Marathon Pace</th>
+                    <th>Marathon Pace</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>20 min 5K</td>
+                    <td>6:26/mi</td>
+                    <td>6:26/mi</td>
+                    <td>—</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td>45 min 10K</td>
+                    <td>—</td>
+                    <td>7:15/mi</td>
+                    <td>—</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td>Sub 2hr Half</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>9:09/mi</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td>Sub 4hr Marathon</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>9:09/mi</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {/* Pace vs Speed */}
+        <div className="calculator-form">
+          <div className="info-section">
+            <h2>Pace vs. Speed — What's the Difference?</h2>
+            <p>
+              Pace and speed measure the same thing from opposite directions:
+            </p>
+            <ul className="formula-list">
+              <li><strong>Pace</strong> tells you how long it takes to cover a fixed distance (time per mile/km).</li>
+              <li><strong>Speed</strong> tells you how far you travel in a fixed time (miles or km per hour).</li>
+            </ul>
+            <p>
+              Most runners prefer pace because it maps directly to race planning — knowing your 
+              min/mile tells you instantly when you'll cross each mile marker.
+            </p>
+          </div>
+        </div>
+
+        {/* Tips to Improve Running Pace */}
+        <div className="calculator-form">
+          <div className="info-section">
+            <h2>5 Tips to Improve Your Running Pace</h2>
+            <ol className="tips-list">
+              <li>
+                <strong>Run easy 80% of the time.</strong> Most runners improve by slowing down their easy runs 
+                so they can push harder in speed workouts.
+              </li>
+              <li>
+                <strong>Add one interval session per week.</strong> Short, fast repeats (400m–1 mile) build speed 
+                without excessive fatigue.
+              </li>
+              <li>
+                <strong>Track your pace consistently.</strong> Use this calculator before every race to set 
+                realistic targets based on your recent training.
+              </li>
+              <li>
+                <strong>Account for elevation.</strong> Uphill segments slow your pace — a good rule is to add 
+                ~30 seconds/mile for every 100 feet of gain.
+              </li>
+              <li>
+                <strong>Build endurance gradually.</strong> Increase your long run distance by no more than 10% per week 
+                to avoid injury and build sustainable speed.
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="calculator-form">
+          <div className="info-section">
+            <h2>Related Calculators</h2>
+            <div className="calculator-grid">
+              <div className="calculator-card">
+                <div className="calculator-icon">
+                  <i className="fas fa-weight"></i>
+                </div>
+                <h3>BMI Calculator</h3>
+                <p>Calculate your Body Mass Index and see your weight category. Perfect for tracking overall fitness progress.</p>
+                <a href="/bmi-calculator" className="calculator-btn">Try BMI Calculator</a>
+              </div>
+              <div className="calculator-card">
+                <div className="calculator-icon">
+                  <i className="fas fa-fire"></i>
+                </div>
+                <h3>Calorie Calculator</h3>
+                <p>Calculate daily calorie needs and track your nutrition. Essential for understanding energy balance.</p>
+                <a href="/calorie-calculator" className="calculator-btn">Try Calorie Calculator</a>
+              </div>
+              <div className="calculator-card">
+                <div className="calculator-icon">
+                  <i className="fas fa-heartbeat"></i>
+                </div>
+                <h3>VO2 Max Calculator</h3>
+                <p>Calculate your maximum oxygen uptake and cardiovascular fitness level. Coming soon to Sports category.</p>
+                <div className="calculator-btn disabled">Coming Soon</div>
+              </div>
+              <div className="calculator-card">
+                <div className="calculator-icon">
+                  <i className="fas fa-futbol"></i>
+                </div>
+                <h3>Fantasy Football Calculator</h3>
+                <p>Calculate fantasy points and draft values for your football league. Coming soon to Sports category.</p>
+                <div className="calculator-btn disabled">Coming Soon</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ShareButtons 
+          title="Pace Calculator - Free Running & Sports Calculator"
+          description="Calculate running pace, speed, and finish time instantly. Perfect for runners, cyclists, and walkers."
+          customMessage="Check out this amazing pace calculator for runners and athletes!"
+        />
       </div>
     </>
   )
