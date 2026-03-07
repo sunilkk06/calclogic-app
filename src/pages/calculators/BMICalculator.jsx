@@ -64,50 +64,50 @@ const BMICalculator = () => {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is a normal BMI?",
+      "name": "What is a normal BMI for adults?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A normal BMI is between 18.5 and 24.9. A BMI below 18.5 is considered underweight, 25-29.9 is overweight, and 30 or above is classified as obese."
+        "text": "A normal, healthy BMI for adults is between 18.5 and 24.9. This range is associated with the lowest risk of weight-related health conditions for most people. Ideal BMI can vary slightly based on age, sex, and ethnicity."
       }
     },
     {
       "@type": "Question",
-      "name": "How is BMI calculated?",
+      "name": "Is BMI different for men and women?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "BMI is calculated by dividing your weight in kilograms by the square of your height in meters: BMI = weight (kg) divided by height squared (m). In imperial units: BMI = (weight in lbs x 703) divided by height squared (inches)."
+        "text": "The BMI formula is the same for both men and women, but its interpretation can differ. Women naturally have a higher body fat percentage than men at the same BMI. Some health professionals argue that the healthy BMI range for women should be interpreted with this in mind, though standard clinical thresholds remain the same."
       }
     },
     {
       "@type": "Question",
-      "name": "Is BMI accurate for women?",
+      "name": "What is a healthy BMI for women over 50?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "BMI uses the same formula for men and women, but it can be less accurate for women because it does not account for differences in body fat distribution. Women naturally carry more body fat than men at the same BMI. It is best used as a screening tool alongside other measurements."
+        "text": "For women over 50, the standard BMI ranges still apply (18.5 to 24.9 for normal weight). However, post-menopausal women often experience changes in body composition, with fat redistribution to the abdomen. A slightly higher BMI up to 26-27 in older women may not carry the same risks as in younger adults."
       }
     },
     {
       "@type": "Question",
-      "name": "What is a healthy BMI for adults?",
+      "name": "How accurate is the BMI calculator?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For most adults, a healthy BMI is between 18.5 and 24.9. However, healthy ranges can vary by age, sex, and ethnicity. Asian populations may face health risks at BMIs lower than 25."
+        "text": "The BMI formula is mathematically precise and will give the same result every time for the same inputs. However, BMI accuracy as a health indicator has limitations, particularly for athletes, older adults, and certain ethnic groups. Use it as a starting point, not a definitive health verdict."
       }
     },
     {
       "@type": "Question",
-      "name": "Can you be healthy with a high BMI?",
+      "name": "What is a good BMI to lose weight?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Athletes and people with high muscle mass may have a high BMI but low body fat and excellent health. BMI is a population-level screening tool and does not diagnose individual health. A doctor can assess your health using additional metrics like waist circumference, blood pressure, and cholesterol."
+        "text": "If your BMI is 25 or above, losing weight to bring it below 25 may improve health outcomes. A safe rate of weight loss is 0.5 to 1 kg (1 to 2 lbs) per week, achieved through a calorie deficit."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the BMI formula in imperial units?",
+      "name": "Can I have a normal BMI but still be unhealthy?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In imperial units, the BMI formula is: BMI = (weight in pounds x 703) divided by (height in inches squared). For example, a person who is 5 feet 9 inches (69 inches) and weighs 160 lbs has a BMI of (160 x 703) divided by (69 x 69) = 23.6."
+        "text": "Yes. A phenomenon called metabolically obese normal weight affects people who fall within the normal BMI range but have excess visceral fat, insulin resistance, or other metabolic risk factors. Regular health check-ups including blood pressure, blood sugar, and cholesterol tests are important regardless of BMI."
       }
     }
   ]
