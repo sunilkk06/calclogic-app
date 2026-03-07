@@ -388,7 +388,6 @@ const PaceCalculator = () => {
                   Calculate Distance
                 </button>
               </div>
-            </div>
           </form>
 
           {/* Results */}
