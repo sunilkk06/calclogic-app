@@ -1968,6 +1968,156 @@ th {
     flex-wrap: wrap;
 }
 
+/* Pace Calculator Styles */
+.unit-toggle {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.toggle-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid #e5e7eb;
+    background: #f8fafc;
+    color: #374151;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.toggle-btn.active {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
+
+.toggle-btn:hover {
+    border-color: #2563eb;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.time-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.time-inputs input {
+    width: 60px;
+    text-align: center;
+}
+
+.time-inputs span {
+    font-weight: 700;
+    color: #6b7280;
+}
+
+.pace-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.race-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.preset-btn {
+    padding: 0.4rem 0.8rem;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #2563eb;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.85rem;
+}
+
+.preset-btn:hover {
+    background: #2563eb;
+    color: white;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.result-card {
+    background: #1e3a5f;
+    border: 1px solid #374151;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    color: white;
+}
+
+.result-card h3 {
+    color: #bfdbfe;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.result-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.3rem;
+}
+
+.result-unit {
+    font-size: 0.85rem;
+    color: #bfdbfe;
+}
+
+.split-table {
+    background: #1e3a5f;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 1.5rem;
+}
+
+.split-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #374151;
+    color: white;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+.split-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.split-row.even {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.split-row.odd {
+    background: transparent;
+}
+
+.split-row span {
+    color: white;
+    font-weight: 600;
+}
+
 .share-btn {
     display: flex;
     align-items: center;

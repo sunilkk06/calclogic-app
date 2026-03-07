@@ -85,6 +85,11 @@ const Header = () => {
               </Link>
             </li>
             <li>
+              <Link to="/sports" className={isActive('/sports') ? 'active' : ''} onClick={closeMobileMenu}>
+                Sports
+              </Link>
+            </li>
+            <li>
               <Link to="/math" className={isActive('/math') ? 'active' : ''} onClick={closeMobileMenu}>
                 Math
               </Link>

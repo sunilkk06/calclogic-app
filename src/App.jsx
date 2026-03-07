@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import FinancialCalculators from './pages/FinancialCalculators'
 import HealthCalculators from './pages/HealthCalculators'
+import SportsCalculators from './pages/Sports'
 import MathCalculators from './pages/MathCalculators'
 import OtherCalculators from './pages/OtherCalculators'
 import AllCalculators from './pages/AllCalculators'
@@ -47,6 +48,7 @@ import PregnancyCalculator from './pages/calculators/PregnancyCalculator'
 import GPACalculator from './pages/calculators/GPACalculator'
 import GradeCalculator from './pages/calculators/GradeCalculator'
 import TipCalculator from './pages/calculators/TipCalculator'
+import PaceCalculator from './pages/calculators/PaceCalculator'
 import FAQs from './pages/FAQs'
 
 function App() {
@@ -58,6 +60,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/financial" element={<FinancialCalculators />} />
         <Route path="/health" element={<HealthCalculators />} />
+        <Route path="/sports" element={<SportsCalculators />} />
         <Route path="/math" element={<MathCalculators />} />
         <Route path="/other" element={<OtherCalculators />} />
         <Route path="/all-calculators" element={<AllCalculators />} />
@@ -86,7 +89,8 @@ function App() {
         <Route path="/budget-calculator" element={<BudgetCalculator />} />
         <Route path="/401k-calculator" element={<Calculator401k />} />
         
-        {/* Math Calculators */}
+        {/* Sports Calculators */}
+        <Route path="/sports/pace-calculator" element={<PaceCalculator />} />
         <Route path="/percentage-calculator" element={<PercentageCalculator />} />
         <Route path="/fraction-calculator" element={<FractionCalculator />} />
         <Route path="/ratio-calculator" element={<RatioCalculator />} />
