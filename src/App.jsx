@@ -50,6 +50,7 @@ import GradeCalculator from './pages/calculators/GradeCalculator'
 import TipCalculator from './pages/calculators/TipCalculator'
 import PaceCalculator from './pages/calculators/PaceCalculator'
 import FantasyFootballCalculator from './pages/calculators/FantasyFootballCalculator'
+import BattingAverageCalculator from './pages/calculators/BattingAverageCalculator'
 import FAQs from './pages/FAQs'
 
 function App() {
@@ -93,6 +94,7 @@ function App() {
         {/* Sports Calculators */}
         <Route path="/sports/pace-calculator" element={<PaceCalculator />} />
         <Route path="/sports/fantasy-football-calculator" element={<FantasyFootballCalculator />} />
+        <Route path="/sports/batting-average-calculator" element={<BattingAverageCalculator />} />
         <Route path="/percentage-calculator" element={<PercentageCalculator />} />
         <Route path="/fraction-calculator" element={<FractionCalculator />} />
         <Route path="/ratio-calculator" element={<RatioCalculator />} />
