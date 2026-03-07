@@ -59,59 +59,59 @@ const BMICalculator = () => {
         {/* FAQ Schema */}
         <script type="application/ld+json">
           {`{
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What is a normal BMI?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A normal BMI is between 18.5 and 24.9. A BMI below 18.5 is considered underweight, 25–29.9 is overweight, and 30 or above is classified as obese."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How is BMI calculated?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "BMI is calculated by dividing your weight in kilograms by the square of your height in meters: BMI = weight (kg) ÷ height² (m). In imperial units: BMI = (weight in lbs × 703) ÷ height² (inches)."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is BMI accurate for women?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "BMI uses the same formula for men and women, but it can be less accurate for women because it does not account for differences in body fat distribution. Women naturally carry more body fat than men at the same BMI. It is best used as a screening tool alongside other measurements."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What is a healthy BMI for adults?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "For most adults, a healthy BMI is between 18.5 and 24.9. However, healthy ranges can vary by age, sex, and ethnicity. Asian populations, for example, may face health risks at BMIs lower than 25."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can you be healthy with a high BMI?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes. Athletes and people with high muscle mass may have a high BMI but low body fat and excellent health. BMI is a population-level screening tool and does not diagnose individual health. A doctor can assess your health using additional metrics like waist circumference, blood pressure, and cholesterol."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What is the BMI formula in imperial (lbs and inches)?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "In imperial units, the BMI formula is: BMI = (weight in pounds × 703) ÷ (height in inches)². For example, a person who is 5'9\" (69 inches) and weighs 160 lbs has a BMI of (160 × 703) ÷ (69²) = 23.6."
-                }
-              }
-            ]
-          }`}
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a normal BMI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A normal BMI is between 18.5 and 24.9. A BMI below 18.5 is considered underweight, 25-29.9 is overweight, and 30 or above is classified as obese."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is BMI calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BMI is calculated by dividing your weight in kilograms by the square of your height in meters: BMI = weight (kg) divided by height squared (m). In imperial units: BMI = (weight in lbs x 703) divided by height squared (inches)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is BMI accurate for women?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BMI uses the same formula for men and women, but it can be less accurate for women because it does not account for differences in body fat distribution. Women naturally carry more body fat than men at the same BMI. It is best used as a screening tool alongside other measurements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a healthy BMI for adults?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most adults, a healthy BMI is between 18.5 and 24.9. However, healthy ranges can vary by age, sex, and ethnicity. Asian populations may face health risks at BMIs lower than 25."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you be healthy with a high BMI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Athletes and people with high muscle mass may have a high BMI but low body fat and excellent health. BMI is a population-level screening tool and does not diagnose individual health. A doctor can assess your health using additional metrics like waist circumference, blood pressure, and cholesterol."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the BMI formula in imperial units?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In imperial units, the BMI formula is: BMI = (weight in pounds x 703) divided by (height in inches squared). For example, a person who is 5 feet 9 inches (69 inches) and weighs 160 lbs has a BMI of (160 x 703) divided by (69 x 69) = 23.6."
+      }
+    }
+  ]
+}`}
         </script>
         
         {/* HowTo Schema */}
