@@ -10,7 +10,7 @@ const PaceCalculator = () => {
   const [paceMinutes, setPaceMinutes] = useState('')
   const [paceSeconds, setPaceSeconds] = useState('')
   const [paceUnit, setPaceUnit] = useState('mile')
-  const [activeMode, setActiveMode] = useState('pace') // pace, time, distance
+  const [activeMode, setActiveMode] = useState(null) // pace, time, distance
 
   // Race distance presets
   const racePresets = {
@@ -325,7 +325,7 @@ const PaceCalculator = () => {
           </div>
 
           {/* Results */}
-          {activeMode && (
+          {(activeMode === 'pace' || activeMode === 'time' || activeMode === 'distance') && (
             <div className="results-section">
               <h2>Results</h2>
               
