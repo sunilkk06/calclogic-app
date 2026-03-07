@@ -162,7 +162,7 @@ const PaceCalculator = () => {
       })
     }
     
-    return slices
+    return splits
   }
 
   const splitTable = generateSplitTable()
