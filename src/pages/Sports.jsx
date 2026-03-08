@@ -34,6 +34,12 @@ const Sports = () => {
       title: 'VO2 Max Calculator',
       description: 'Calculate VO2 max, aerobic capacity, and cardiovascular fitness levels.',
       path: '/sports/vo2-max-calculator'
+    },
+    {
+      icon: 'fas fa-dumbbell',
+      title: 'One Rep Max Calculator',
+      description: 'Estimate your one rep max for bench press, squat, deadlift and any lift. Includes training zones and strength standards.',
+      path: '/sports/one-rep-max-calculator'
     }
   ]
 
