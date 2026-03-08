@@ -54,6 +54,7 @@ import BattingAverageCalculator from './pages/calculators/BattingAverageCalculat
 import GolfHandicapCalculator from './pages/calculators/GolfHandicapCalculator'
 import VO2MaxCalculator from './pages/calculators/VO2MaxCalculator'
 import OneRepMaxCalculator from './pages/calculators/OneRepMaxCalculator'
+import TrueShootingCalculator from './pages/calculators/TrueShootingCalculator'
 import FAQs from './pages/FAQs'
 
 function App() {
@@ -101,6 +102,7 @@ function App() {
         <Route path="/sports/golf-handicap-calculator" element={<GolfHandicapCalculator />} />
         <Route path="/sports/vo2-max-calculator" element={<VO2MaxCalculator />} />
         <Route path="/sports/one-rep-max-calculator" element={<OneRepMaxCalculator />} />
+        <Route path="/sports/true-shooting-calculator" element={<TrueShootingCalculator />} />
         <Route path="/percentage-calculator" element={<PercentageCalculator />} />
         <Route path="/fraction-calculator" element={<FractionCalculator />} />
         <Route path="/ratio-calculator" element={<RatioCalculator />} />

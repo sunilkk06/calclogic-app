@@ -40,6 +40,12 @@ const Sports = () => {
       title: 'One Rep Max Calculator',
       description: 'Estimate your one rep max for bench press, squat, deadlift and any lift. Includes training zones and strength standards.',
       path: '/sports/one-rep-max-calculator'
+    },
+    {
+      icon: 'fas fa-basketball-ball',
+      title: 'True Shooting % Calculator',
+      description: 'Calculate True Shooting % (TS%) and Effective Field Goal % (eFG%) for any basketball player. Includes NBA efficiency ratings and historical comparisons.',
+      path: '/sports/true-shooting-calculator'
     }
   ]
 
