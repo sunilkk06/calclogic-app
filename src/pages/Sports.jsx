@@ -46,6 +46,12 @@ const Sports = () => {
       title: 'True Shooting % Calculator',
       description: 'Calculate True Shooting % (TS%) and Effective Field Goal % (eFG%) for any basketball player. Includes NBA efficiency ratings and historical comparisons.',
       path: '/sports/true-shooting-calculator'
+    },
+    {
+      icon: 'fas fa-cricket-ball',
+      title: 'Net Run Rate Calculator',
+      description: 'Calculate cricket Net Run Rate (NRR) for IPL, T20 and ODI matches. Includes tournament NRR, required NRR for qualification, and what-if scenarios.',
+      path: '/sports/net-run-rate-calculator'
     }
   ]
 
