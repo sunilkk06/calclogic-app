@@ -64,6 +64,13 @@ const Sports = () => {
       title: 'Wilks Score Calculator',
       description: 'Calculate your Wilks Score, Wilks2, and DOTS score for powerlifting. Compare squat, bench, and deadlift totals across different bodyweights and weight classes.',
       path: '/sports/wilks-calculator'
+    },
+    {
+      icon: 'fas fa-table-tennis-paddle-ball',
+      title: 'Pickleball DUPR Rating Calculator',
+      badge: '🔥 Trending',
+      description: 'Estimate your pickleball DUPR rating from match results or skill self-assessment. Includes complete rating scale from beginner (2.0) to professional (8.0).',
+      path: '/sports/pickleball-rating-calculator'
     }
   ]
 

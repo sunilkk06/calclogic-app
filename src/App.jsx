@@ -58,6 +58,7 @@ import TrueShootingCalculator from './pages/calculators/TrueShootingCalculator'
 import NetRunRateCalculator from './pages/calculators/NetRunRateCalculator'
 import ExpectedGoalsCalculator from './pages/calculators/ExpectedGoalsCalculator'
 import WilksCalculator from './pages/calculators/WilksCalculator'
+import PickleballDUPRCalculator from './pages/calculators/PickleballDUPRCalculator'
 import FAQs from './pages/FAQs'
 
 function App() {
@@ -109,6 +110,7 @@ function App() {
         <Route path="/sports/net-run-rate-calculator" element={<NetRunRateCalculator />} />
         <Route path="/sports/expected-goals-calculator" element={<ExpectedGoalsCalculator />} />
         <Route path="/sports/wilks-calculator" element={<WilksCalculator />} />
+        <Route path="/sports/pickleball-rating-calculator" element={<PickleballDUPRCalculator />} />
         <Route path="/percentage-calculator" element={<PercentageCalculator />} />
         <Route path="/fraction-calculator" element={<FractionCalculator />} />
         <Route path="/ratio-calculator" element={<RatioCalculator />} />
