@@ -77,6 +77,12 @@ const Sports = () => {
       title: 'Elo Rating Calculator',
       description: 'Calculate Elo rating changes for chess, League of Legends, Valorant, CS2, Dota 2 and any competitive game. Includes win probability, K-factor guide and multi-match tracker.',
       path: '/sports/elo-rating-calculator'
+    },
+    {
+      icon: 'fas fa-heartbeat',
+      title: 'Heart Rate Zones Calculator',
+      description: 'Calculate your 5 heart rate training zones using the Karvonen method. Find your fat burn zone, cardio zone, and peak performance zone from your age and resting heart rate.',
+      path: '/sports/heart-rate-zones-calculator'
     }
   ]
 
