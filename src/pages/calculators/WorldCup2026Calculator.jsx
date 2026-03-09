@@ -290,8 +290,14 @@ const WorldCup2026Calculator = () => {
                       }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <span style={{ fontSize: '1.25rem' }}>{team.flag}</span>
-                        <span style={{ fontWeight: idx < 2 ? '600' : '400', fontSize: '0.9rem' }}>{team.name}</span>
+                        <span style={{ 
+                          fontWeight: idx < 2 ? '600' : '400', 
+                          fontSize: '0.9rem',
+                          color: team.name.includes('Play-Off') ? '#9ca3af' : 'inherit',
+                          fontStyle: team.name.includes('Play-Off') ? 'italic' : 'normal'
+                        }}>
+                          {team.name}
+                        </span>
                       </div>
                       <div style={{ display: 'flex', gap: '0.75rem', fontSize: '0.8rem', color: '#6b7280' }}>
                         <span>P: {team.played}</span>
@@ -500,8 +506,12 @@ const WorldCup2026Calculator = () => {
                   {groupStandings[groupName].map((team, idx) => (
                     <tr key={team.code} style={{ borderBottom: '1px solid #f3f4f6' }}>
                       <td style={{ padding: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                        <span style={{ fontSize: '1.1rem' }}>{team.flag}</span>
-                        <span>{team.name}</span>
+                        <span style={{ 
+                          color: team.name.includes('Play-Off') ? '#9ca3af' : 'inherit',
+                          fontStyle: team.name.includes('Play-Off') ? 'italic' : 'normal'
+                        }}>
+                          {team.name}
+                        </span>
                       </td>
                       <td style={{ padding: '0.3rem', textAlign: 'center' }}>
                         <input
