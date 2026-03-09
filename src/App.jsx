@@ -61,6 +61,7 @@ import WilksCalculator from './pages/calculators/WilksCalculator'
 import PickleballDUPRCalculator from './pages/calculators/PickleballDUPRCalculator'
 import EloRatingCalculator from './pages/calculators/EloRatingCalculator'
 import HeartRateZonesCalculator from './pages/calculators/HeartRateZonesCalculator'
+import WorldCup2026Calculator from './pages/calculators/WorldCup2026Calculator'
 import FAQs from './pages/FAQs'
 
 function App() {
@@ -115,6 +116,7 @@ function App() {
         <Route path="/sports/pickleball-rating-calculator" element={<PickleballDUPRCalculator />} />
         <Route path="/sports/elo-rating-calculator" element={<EloRatingCalculator />} />
         <Route path="/sports/heart-rate-zones-calculator" element={<HeartRateZonesCalculator />} />
+        <Route path="/sports/world-cup-2026-bracket" element={<WorldCup2026Calculator />} />
         <Route path="/percentage-calculator" element={<PercentageCalculator />} />
         <Route path="/fraction-calculator" element={<FractionCalculator />} />
         <Route path="/ratio-calculator" element={<RatioCalculator />} />

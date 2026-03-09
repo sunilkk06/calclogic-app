@@ -83,6 +83,13 @@ const Sports = () => {
       title: 'Heart Rate Zones Calculator',
       description: 'Calculate your 5 heart rate training zones using the Karvonen method. Find your fat burn zone, cardio zone, and peak performance zone from your age and resting heart rate.',
       path: '/sports/heart-rate-zones-calculator'
+    },
+    {
+      icon: 'fas fa-trophy',
+      title: 'World Cup 2026 Bracket Simulator',
+      badge: '🔥 June 2026',
+      description: 'Simulate the 2026 FIFA World Cup bracket. Predict group winners, calculate standings with FIFA tiebreakers, and track your bracket through knockout rounds. 48 teams, 12 groups.',
+      path: '/sports/world-cup-2026-bracket'
     }
   ]
 
