@@ -12,76 +12,76 @@ const WorldCup2026Calculator = () => {
   // Official 2026 World Cup Groups with flag emojis
   const groups = {
     'Group A': [
-      { name: 'Argentina', flag: '🇦🇷', code: 'ARG' },
-      { name: 'Mexico', flag: '🇲🇽', code: 'MEX' },
-      { name: 'Poland', flag: '🇵🇱', code: 'POL' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' }
+      { name: 'Mexico', flag: '��', code: 'MEX' },
+      { name: 'South Africa', flag: '��', code: 'RSA' },
+      { name: 'Korea Republic', flag: '��', code: 'KOR' },
+      { name: 'European Play-Off D', flag: '🏳️', code: 'EPD' }
     ],
     'Group B': [
-      { name: 'England', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', code: 'ENG' },
-      { name: 'Spain', flag: '🇪🇸', code: 'ESP' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' }
+      { name: 'Canada', flag: '�🇦', code: 'CAN' },
+      { name: 'European Play-Off A', flag: '�️', code: 'EPA' },
+      { name: 'Qatar', flag: '�🇦', code: 'QAT' },
+      { name: 'Switzerland', flag: '�🇭', code: 'SUI' }
     ],
     'Group C': [
-      { name: 'France', flag: '🇫🇷', code: 'FRA' },
-      { name: 'Brazil', flag: '🇧🇷', code: 'BRA' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' }
+      { name: 'Brazil', flag: '�🇷', code: 'BRA' },
+      { name: 'Morocco', flag: '��', code: 'MAR' },
+      { name: 'Haiti', flag: '�🇹', code: 'HAI' },
+      { name: 'Scotland', flag: '�󠁧󠁢󠁳󠁣󠁴󠁿', code: 'SCO' }
     ],
     'Group D': [
-      { name: 'Germany', flag: '🇩🇪', code: 'GER' },
-      { name: 'Netherlands', flag: '🇳🇱', code: 'NED' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' }
+      { name: 'USA', flag: '��', code: 'USA' },
+      { name: 'Paraguay', flag: '��', code: 'PAR' },
+      { name: 'Australia', flag: '�🇺', code: 'AUS' },
+      { name: 'European Play-Off C', flag: '🏳️', code: 'EPC' }
     ],
     'Group E': [
-      { name: 'Portugal', flag: '🇵🇹', code: 'POR' },
-      { name: 'Belgium', flag: '🇧🇪', code: 'BEL' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' }
+      { name: 'Germany', flag: '��', code: 'GER' },
+      { name: 'Curaçao', flag: '��', code: 'CUW' },
+      { name: 'Côte d\'Ivoire', flag: '�🇮', code: 'CIV' },
+      { name: 'Ecuador', flag: '�🇨', code: 'ECU' }
     ],
     'Group F': [
-      { name: 'USA', flag: '🇺🇸', code: 'USA' },
-      { name: 'Canada', flag: '🇨🇦', code: 'CAN' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' }
+      { name: 'Netherlands', flag: '��', code: 'NED' },
+      { name: 'Japan', flag: '��', code: 'JPN' },
+      { name: 'European Play-Off B', flag: '🏳️', code: 'EPB' },
+      { name: 'Tunisia', flag: '�🇳', code: 'TUN' }
     ],
     'Group G': [
-      { name: 'Italy', flag: '🇮🇹', code: 'ITA' },
-      { name: 'Uruguay', flag: '🇺🇾', code: 'URU' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' }
+      { name: 'Belgium', flag: '��', code: 'BEL' },
+      { name: 'Egypt', flag: '��', code: 'EGY' },
+      { name: 'IR Iran', flag: '🇮�', code: 'IRN' },
+      { name: 'New Zealand', flag: '🇳�', code: 'NZL' }
     ],
     'Group H': [
-      { name: 'Colombia', flag: '🇨🇴', code: 'COL' },
-      { name: 'Chile', flag: '🇨🇱', code: 'CHI' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' }
+      { name: 'Spain', flag: '��', code: 'ESP' },
+      { name: 'Cabo Verde', flag: '🇨�', code: 'CPV' },
+      { name: 'Saudi Arabia', flag: '🇸�', code: 'KSA' },
+      { name: 'Uruguay', flag: '🇺�', code: 'URU' }
     ],
     'Group I': [
-      { name: 'Japan', flag: '🇯🇵', code: 'JPN' },
-      { name: 'South Korea', flag: '🇰🇷', code: 'KOR' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' }
+      { name: 'France', flag: '��', code: 'FRA' },
+      { name: 'Senegal', flag: '��', code: 'SEN' },
+      { name: 'FIFA Play-Off Tournament 2', flag: '🏳️', code: 'FP2' },
+      { name: 'Norway', flag: '🇳�', code: 'NOR' }
     ],
     'Group J': [
-      { name: 'Australia', flag: '🇦🇺', code: 'AUS' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' }
+      { name: 'Argentina', flag: '🇦�', code: 'ARG' },
+      { name: 'Algeria', flag: '🇩�', code: 'ALG' },
+      { name: 'Austria', flag: '🇦�', code: 'AUT' },
+      { name: 'Jordan', flag: '🇯�', code: 'JOR' }
     ],
     'Group K': [
-      { name: 'Senegal', flag: '🇸🇳', code: 'SEN' },
-      { name: 'Morocco', flag: '🇲🇦', code: 'MAR' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' }
+      { name: 'Portugal', flag: '��', code: 'POR' },
+      { name: 'FIFA Play-Off Tournament 1', flag: '�️', code: 'FP1' },
+      { name: 'Uzbekistan', flag: '🇺�', code: 'UZB' },
+      { name: 'Colombia', flag: '🇨�', code: 'COL' }
     ],
     'Group L': [
-      { name: 'Croatia', flag: '🇭🇷', code: 'CRO' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' },
-      { name: 'TBD', flag: '🏳️', code: 'TBD' }
+      { name: 'England', flag: '�󠁧󠁢󠁥󠁮󠁧󠁿', code: 'ENG' },
+      { name: 'Croatia', flag: '🇭�', code: 'CRO' },
+      { name: 'Ghana', flag: '🇬�', code: 'GHA' },
+      { name: 'Panama', flag: '🇵�', code: 'PAN' }
     ]
   }
 
