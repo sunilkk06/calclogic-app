@@ -59,6 +59,7 @@ import NetRunRateCalculator from './pages/calculators/NetRunRateCalculator'
 import ExpectedGoalsCalculator from './pages/calculators/ExpectedGoalsCalculator'
 import WilksCalculator from './pages/calculators/WilksCalculator'
 import PickleballDUPRCalculator from './pages/calculators/PickleballDUPRCalculator'
+import EloRatingCalculator from './pages/calculators/EloRatingCalculator'
 import FAQs from './pages/FAQs'
 
 function App() {
@@ -111,6 +112,7 @@ function App() {
         <Route path="/sports/expected-goals-calculator" element={<ExpectedGoalsCalculator />} />
         <Route path="/sports/wilks-calculator" element={<WilksCalculator />} />
         <Route path="/sports/pickleball-rating-calculator" element={<PickleballDUPRCalculator />} />
+        <Route path="/sports/elo-rating-calculator" element={<EloRatingCalculator />} />
         <Route path="/percentage-calculator" element={<PercentageCalculator />} />
         <Route path="/fraction-calculator" element={<FractionCalculator />} />
         <Route path="/ratio-calculator" element={<RatioCalculator />} />

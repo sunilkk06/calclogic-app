@@ -71,6 +71,12 @@ const Sports = () => {
       badge: '🔥 Trending',
       description: 'Estimate your pickleball DUPR rating from match results or skill self-assessment. Includes complete rating scale from beginner (2.0) to professional (8.0).',
       path: '/sports/pickleball-rating-calculator'
+    },
+    {
+      icon: 'fas fa-gamepad',
+      title: 'Elo Rating Calculator',
+      description: 'Calculate Elo rating changes for chess, League of Legends, Valorant, CS2, Dota 2 and any competitive game. Includes win probability, K-factor guide and multi-match tracker.',
+      path: '/sports/elo-rating-calculator'
     }
   ]
 
