@@ -56,6 +56,8 @@ import VO2MaxCalculator from './pages/calculators/VO2MaxCalculator'
 import OneRepMaxCalculator from './pages/calculators/OneRepMaxCalculator'
 import TrueShootingCalculator from './pages/calculators/TrueShootingCalculator'
 import NetRunRateCalculator from './pages/calculators/NetRunRateCalculator'
+import ExpectedGoalsCalculator from './pages/calculators/ExpectedGoalsCalculator'
+import WilksCalculator from './pages/calculators/WilksCalculator'
 import FAQs from './pages/FAQs'
 
 function App() {
@@ -105,6 +107,8 @@ function App() {
         <Route path="/sports/one-rep-max-calculator" element={<OneRepMaxCalculator />} />
         <Route path="/sports/true-shooting-calculator" element={<TrueShootingCalculator />} />
         <Route path="/sports/net-run-rate-calculator" element={<NetRunRateCalculator />} />
+        <Route path="/sports/expected-goals-calculator" element={<ExpectedGoalsCalculator />} />
+        <Route path="/sports/wilks-calculator" element={<WilksCalculator />} />
         <Route path="/percentage-calculator" element={<PercentageCalculator />} />
         <Route path="/fraction-calculator" element={<FractionCalculator />} />
         <Route path="/ratio-calculator" element={<RatioCalculator />} />

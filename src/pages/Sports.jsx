@@ -52,6 +52,18 @@ const Sports = () => {
       title: 'Net Run Rate Calculator',
       description: 'Calculate cricket Net Run Rate (NRR) for IPL, T20 and ODI matches. Includes tournament NRR, required NRR for qualification, and what-if scenarios.',
       path: '/sports/net-run-rate-calculator'
+    },
+    {
+      icon: 'fas fa-futbol',
+      title: 'Expected Goals Calculator',
+      description: 'Calculate Expected Goals (xG) for any soccer shot based on distance, angle, and shot type. Used by Premier League analysts worldwide.',
+      path: '/sports/expected-goals-calculator'
+    },
+    {
+      icon: 'fas fa-dumbbell',
+      title: 'Wilks Score Calculator',
+      description: 'Calculate your Wilks Score, Wilks2, and DOTS score for powerlifting. Compare squat, bench, and deadlift totals across different bodyweights and weight classes.',
+      path: '/sports/wilks-calculator'
     }
   ]
 
