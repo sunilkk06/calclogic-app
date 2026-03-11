@@ -3,9 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free online scientific calculator with advanced mathematical functions, trigonometry, logarithms, and more.">
-    <meta name="keywords" content="scientific calculator, trigonometry calculator, logarithm calculator, math functions, CalcLogic">
-    <title>Scientific Calculator - CalcLogic</title>
+    <meta name="description" content="Free online scientific calculator with trigonometry, logarithms, exponents, roots, constants and memory functions. Works on any device, no download required. Instant calculations.">
+    <meta name="keywords" content="scientific calculator, online scientific calculator, free scientific calculator, sin cos tan calculator, log calculator, scientific calculator online, trig calculator, exponent calculator, scientific notation calculator">
+    <link rel="canonical" href="https://calclogic.com/scientific-calculator">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Scientific Calculator — Free Online with Full Functions | CalcLogic">
+    <meta property="og:description" content="Free online scientific calculator. Trig, logarithms, exponents, roots, constants and memory — no download, works on any device instantly.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calclogic.com/scientific-calculator">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Scientific Calculator — Free Online | CalcLogic">
+    <meta name="twitter:description" content="Free online scientific calculator with trig, logs, exponents and more. Works on any device, no download needed.">
+
+    <!-- ============================================================
+      FAQ SCHEMA
+      ============================================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I calculate sin, cos, and tan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To calculate sin, cos, or tan, first make sure your calculator is in the correct angle mode (Degrees or Radians). Then press the sin, cos, or tan button followed by the angle value. For example, sin(30) in degrees equals 0.5. Most problems in everyday use require degrees mode; radians are used in advanced mathematics and physics."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Deg and Rad mode?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Deg (Degrees) and Rad (Radians) are two ways of measuring angles. A full circle is 360 degrees or 2 pi radians. Use Degrees mode for everyday geometry, navigation, and most school problems. Use Radians mode for calculus, physics, and advanced mathematics. To convert: radians = degrees multiplied by pi divided by 180."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between log and ln?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Log (written as log) is the base-10 logarithm, also called the common logarithm. Log(100) = 2 because 10 squared equals 100. Ln is the natural logarithm with base e (approximately 2.718). Ln is used extensively in calculus, statistics, and science. For example, ln(e) = 1. Use log for general calculations and ln for natural growth or decay problems."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I use the memory buttons (M+, M-, MR, MC)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Memory buttons let you store and recall values during multi-step calculations. M+ adds the current result to memory. M- subtracts the current result from memory. MR (Memory Recall) displays the stored value. MC (Memory Clear) erases the stored value. For example, calculate 15 multiplied by 4, press M+, then calculate your next expression, press MR to retrieve 60 and use it in your next calculation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate exponents and powers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the x squared button for squaring a number (x to the power 2), x cubed for cubing (x to the power 3), or the x to the y button for any custom exponent. For example, to calculate 2 to the power of 8, enter 2, press the x to y button, enter 8, and press equals to get 256. The exp button is used for scientific notation, representing powers of 10."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate square roots and other roots?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Press the square root button to find the square root of any number. For example, the square root of 144 equals 12. For other roots such as cube roots, use the x to the y button with a fractional exponent. For a cube root, raise the number to the power of 1 divided by 3. For example, 27 to the power of 0.333 equals 3."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does the mod button do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The mod button calculates the modulus, which is the remainder after division. For example, 17 mod 5 equals 2 because 17 divided by 5 is 3 with a remainder of 2. Modulus is widely used in programming, cryptography, and number theory. It is also useful for determining whether a number is odd or even: any number mod 2 equals either 0 (even) or 1 (odd)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are pi and e on a scientific calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pi (the pi symbol) is the mathematical constant approximately equal to 3.14159, representing the ratio of a circle's circumference to its diameter. It is essential for circle and sphere calculations. The constant e is Euler's number, approximately 2.71828, which is the base of the natural logarithm. It appears in compound interest, population growth, radioactive decay, and many other natural phenomena."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Use a Scientific Calculator",
+      "description": "Step-by-step guide to using CalcLogic's free online scientific calculator for trigonometry, logarithms, exponents, and more.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Select your angle mode",
+          "text": "Choose Deg (Degrees) for everyday geometry and school problems, or Rad (Radians) for calculus and advanced physics. This setting affects all trigonometric calculations."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Enter your expression",
+          "text": "Use the number buttons and operator buttons to enter your calculation. Use parentheses to group parts of complex expressions and control the order of operations."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Use scientific functions",
+          "text": "Press sin, cos, tan for trigonometry. Press log for base-10 logarithm or ln for natural logarithm. Use the power buttons for exponents and the square root button for roots. Press pi or e to insert those constants."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Use memory for multi-step calculations",
+          "text": "Press M+ to store a result in memory. Continue your calculation and press MR to recall the stored value when needed. Press MC to clear memory when done."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Press equals for your result",
+          "text": "Press the equals button to calculate your final result. Press C to clear and start a new calculation."
+        }
+      ]
+    }
+    </script>
+
+    <title>Scientific Calculator — Free Online with Full Functions | CalcLogic</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -122,35 +246,255 @@
             </div>
 
             <div class="calculator-info card-style">
-                <h3>How to Use</h3>
-                <div class="info-section">
-                    <h4>Basic Operations</h4>
-                    <ul>
-                        <li>Use number keys for input</li>
-                        <li>Basic operators: +, −, ×, ÷</li>
-                        <li>Press = or Enter to calculate</li>
-                        <li>C clears all, ⌫ deletes last character</li>
-                    </ul>
+                <h2>Complete Button Reference Guide</h2>
+                <p>CalcLogic's scientific calculator includes every function you need for advanced mathematics, science, and engineering. Here's what every button does — including the ones that confuse people most.</p>
+
+                <div class="btn-grid">
+                  <div class="btn-card">
+                    <h4><span class="btn-label">sin cos tan</span> Trigonometry</h4>
+                    <p>Calculates sine, cosine, and tangent of an angle. Switch between Deg and Rad mode depending on your problem. Essential for geometry, physics, and engineering.</p>
+                  </div>
+                  <div class="btn-card">
+                    <h4><span class="btn-label">log</span> Logarithm (base 10)</h4>
+                    <p>The common logarithm. log(100) = 2 because 10 squared equals 100. Used in chemistry (pH), acoustics (decibels), and earthquake measurement (Richter scale).</p>
+                  </div>
+                  <div class="btn-card">
+                    <h4><span class="btn-label">ln</span> Natural Logarithm</h4>
+                    <p>Logarithm with base e (2.71828). Used in calculus, compound interest, population growth, radioactive decay, and statistics.</p>
+                  </div>
+                  <div class="btn-card">
+                    <h4><span class="btn-label">x²</span> Square</h4>
+                    <p>Raises a number to the power of 2. Example: 9 squared = 81. Shortcut for multiplying a number by itself — faster than using the power button.</p>
+                  </div>
+                  <div class="btn-card">
+                    <h4><span class="btn-label">x³</span> Cube</h4>
+                    <p>Raises a number to the power of 3. Example: 4 cubed = 64. Common in volume calculations and polynomial equations.</p>
+                  </div>
+                  <div class="btn-card">
+                    <h4><span class="btn-label">xʸ</span> Power</h4>
+                    <p>Raises x to any power y. Enter base, press xʸ, enter exponent, press equals. Example: 2 to the power of 10 = 1,024.</p>
+                  </div>
+                  <div class="btn-card">
+                    <h4><span class="btn-label">√</span> Square Root</h4>
+                    <p>Finds the square root of a number. Example: square root of 225 = 15. For other roots, use xʸ with a fractional exponent.</p>
+                  </div>
+                  <div class="btn-card">
+                    <h4><span class="btn-label">1/x</span> Reciprocal</h4>
+                    <p>Divides 1 by the displayed number. Example: 1/8 = 0.125. Useful in optics, electronics, and harmonic calculations.</p>
+                  </div>
+                  <div class="btn-card">
+                    <h4><span class="btn-label">exp</span> Scientific Notation</h4>
+                    <p>Enters a power of 10. Example: 3 exp 6 = 3,000,000 (3 × 10⁶). Essential for very large or very small numbers in physics and chemistry.</p>
+                  </div>
+                  <div class="btn-card">
+                    <h4><span class="btn-label">mod</span> Modulus</h4>
+                    <p>Returns the remainder after division. Example: 17 mod 5 = 2. Widely used in programming, cryptography, and number theory.</p>
+                  </div>
+                  <div class="btn-card">
+                    <h4><span class="btn-label">π</span> Pi</h4>
+                    <p>Inserts pi (3.14159...). Used in all circle, sphere, and wave calculations. Example: area of circle = pi times radius squared.</p>
+                  </div>
+                  <div class="btn-card">
+                    <h4><span class="btn-label">e</span> Euler's Number</h4>
+                    <p>Inserts e (2.71828...). The base of the natural logarithm. Fundamental to compound interest, growth and decay, and probability.</p>
+                  </div>
                 </div>
-                <div class="info-section">
-                    <h4>Scientific Functions</h4>
-                    <ul>
-                        <li>Trigonometric: sin, cos, tan and their inverses</li>
-                        <li>Logarithmic: log (base 10), ln (natural log)</li>
-                        <li>Powers: x², xʸ, 10ˣ, eˣ</li>
-                        <li>Constants: π (pi), e (Euler's number)</li>
-                    </ul>
+
+                <h3>Degrees vs Radians — Which Mode Should You Use?</h3>
+                <p>This is the most common source of wrong answers on a scientific calculator. Choosing the wrong angle mode gives a completely different result for any trigonometric function.</p>
+
+                <div class="note">
+                  <strong>📌 Simple rule:</strong>
+                  Use <strong>Degrees</strong> for school geometry, navigation, construction, and everyday problems. Use <strong>Radians</strong> for calculus, physics equations, and university-level mathematics.
                 </div>
-                <div class="info-section">
-                    <h4>Memory Functions</h4>
-                    <ul>
-                        <li>MC - Memory Clear</li>
-                        <li>MR - Memory Recall</li>
-                        <li>M+ - Memory Add</li>
-                        <li>M- - Memory Subtract</li>
-                        <li>MS - Memory Store</li>
-                    </ul>
+
+                <table>
+                  <thead>
+                    <tr><th>Concept</th><th>Degrees</th><th>Radians</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Full circle</td><td>360°</td><td>2π (≈ 6.283)</td></tr>
+                    <tr><td>Half circle</td><td>180°</td><td>π (≈ 3.14159)</td></tr>
+                    <tr><td>Quarter circle</td><td>90°</td><td>π/2 (≈ 1.5708)</td></tr>
+                    <tr><td>sin(30° or π/6)</td><td>0.5</td><td>0.5</td></tr>
+                    <tr><td>cos(60° or π/3)</td><td>0.5</td><td>0.5</td></tr>
+                    <tr><td>tan(45° or π/4)</td><td>1</td><td>1</td></tr>
+                    <tr><td>Conversion formula</td><td>Degrees × π ÷ 180 = Radians</td><td>Radians × 180 ÷ π = Degrees</td></tr>
+                  </tbody>
+                </table>
+
+                <div class="example">
+                  <strong>📘 Why mode matters — a real example</strong>
+                  sin(30) in <strong>Degrees mode</strong> = <strong>0.5</strong> ✅ (correct for a 30-degree angle)<br>
+                  sin(30) in <strong>Radians mode</strong> = <strong>-0.988</strong> ❌ (wrong — 30 radians is a very different angle)<br><br>
+                  Always check your mode before any trig calculation.
                 </div>
+
+                <h3>Trigonometry Quick Reference Table</h3>
+                <p>The most commonly needed trig values — memorise these and you'll solve most geometry problems faster than reaching for a calculator.</p>
+
+                <table class="trig-table">
+                  <thead>
+                    <tr><th>Angle (Degrees)</th><th>Angle (Radians)</th><th>sin</th><th>cos</th><th>tan</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>0°</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+                    <tr><td>30°</td><td>π/6</td><td>0.5</td><td>0.866</td><td>0.577</td></tr>
+                    <tr><td>45°</td><td>π/4</td><td>0.707</td><td>0.707</td><td>1</td></tr>
+                    <tr><td>60°</td><td>π/3</td><td>0.866</td><td>0.5</td><td>1.732</td></tr>
+                    <tr><td>90°</td><td>π/2</td><td>1</td><td>0</td><td>Undefined</td></tr>
+                    <tr><td>180°</td><td>π</td><td>0</td><td>-1</td><td>0</td></tr>
+                    <tr><td>270°</td><td>3π/2</td><td>-1</td><td>0</td><td>Undefined</td></tr>
+                    <tr><td>360°</td><td>2π</td><td>0</td><td>1</td><td>0</td></tr>
+                  </tbody>
+                </table>
+
+                <h3>Logarithms Explained: log vs ln</h3>
+                <p>Logarithms are the inverse of exponents — they answer the question "what power do I raise the base to in order to get this number?" The calculator has two logarithm functions, and confusing them is a common mistake.</p>
+
+                <div class="formula">
+                log(x) = log base 10 of x<br><br>
+                <span class="dim"># log(1000) = 3 because 10³ = 1000</span><br>
+                <span class="dim"># log(100) = 2 because 10² = 100</span><br>
+                <span class="dim"># log(10) = 1 because 10¹ = 10</span><br><br>
+                ln(x) = log base e of x (natural logarithm)<br>
+                <span class="dim"># ln(e) = 1 because e¹ = e</span><br>
+                <span class="dim"># ln(1) = 0 because e⁰ = 1</span><br>
+                <span class="dim"># ln(7.389) ≈ 2 because e² ≈ 7.389</span>
+                </div>
+
+                <h4>Real-world uses of log and ln</h4>
+                <table>
+                  <thead>
+                    <tr><th>Function</th><th>Real-World Application</th><th>Example</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>log</strong></td><td>pH in chemistry</td><td>pH = -log[H+] concentration</td></tr>
+                    <tr><td><strong>log</strong></td><td>Decibels in acoustics</td><td>dB = 10 × log(power ratio)</td></tr>
+                    <tr><td><strong>log</strong></td><td>Richter earthquake scale</td><td>Each point = 10× increase in amplitude</td></tr>
+                    <tr><td><strong>ln</strong></td><td>Compound interest</td><td>Time to double = ln(2) ÷ interest rate</td></tr>
+                    <tr><td><strong>ln</strong></td><td>Radioactive decay</td><td>Half-life calculations use ln(0.5)</td></tr>
+                    <tr><td><strong>ln</strong></td><td>Population growth</td><td>Growth models use e as the base</td></tr>
+                  </tbody>
+                </table>
+
+                <h3>How to Use Memory Buttons for Multi-Step Calculations</h3>
+                <p>Memory buttons are one of the most underused features on scientific calculators. They eliminate the need to write down intermediate results and dramatically reduce errors in complex, multi-step calculations.</p>
+
+                <table>
+                  <thead>
+                    <tr><th>Button</th><th>Full Name</th><th>What It Does</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>M+</strong></td><td>Memory Add</td><td>Adds the current displayed value to whatever is stored in memory</td></tr>
+                    <tr><td><strong>M-</strong></td><td>Memory Subtract</td><td>Subtracts the current displayed value from whatever is stored in memory</td></tr>
+                    <tr><td><strong>MR</strong></td><td>Memory Recall</td><td>Displays the value currently stored in memory</td></tr>
+                    <tr><td><strong>MC</strong></td><td>Memory Clear</td><td>Erases the memory — sets stored value back to zero</td></tr>
+                  </tbody>
+                </table>
+
+                <div class="example">
+                  <strong>📘 Real example — calculating total area of multiple shapes</strong>
+                  Step 1: Calculate area of rectangle → 12 × 8 = 96 → press <strong>M+</strong> (memory now holds 96)<br>
+                  Step 2: Calculate area of triangle → 0.5 × 6 × 4 = 12 → press <strong>M+</strong> (memory now holds 108)<br>
+                  Step 3: Calculate area of circle → π × 3² = 28.27 → press <strong>M+</strong> (memory now holds 136.27)<br>
+                  Step 4: Press <strong>MR</strong> to display total area = <strong>136.27</strong><br>
+                  Step 5: Press <strong>MC</strong> to clear memory for next calculation
+                </div>
+
+                <h3>Order of Operations — How the Calculator Processes Expressions</h3>
+                <p>Scientific calculators follow the standard mathematical order of operations — often remembered by the acronym <strong>BODMAS</strong> (Brackets, Orders, Division, Multiplication, Addition, Subtraction) or <strong>PEMDAS</strong> in the US.</p>
+
+                <table>
+                  <thead>
+                    <tr><th>Priority</th><th>Operation</th><th>Example</th><th>Result</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>1st</td><td>Brackets / Parentheses</td><td>(3 + 5) × 2</td><td>16 (not 13)</td></tr>
+                    <tr><td>2nd</td><td>Exponents / Powers</td><td>2 + 3²</td><td>11 (not 25)</td></tr>
+                    <tr><td>3rd</td><td>Multiplication & Division</td><td>6 + 4 × 2</td><td>14 (not 20)</td></tr>
+                    <tr><td>4th</td><td>Addition & Subtraction</td><td>10 - 3 + 2</td><td>9</td></tr>
+                  </tbody>
+                </table>
+
+                <div class="tip">
+                  <strong>💡 When in doubt — use parentheses</strong>
+                  If you're unsure whether the calculator will process your expression in the right order, wrap the parts you want calculated first in parentheses. Extra parentheses never cause errors and always guarantee the correct order.
+                </div>
+
+                <h3>Scientific Notation — Using the EXP Button</h3>
+                <p>Scientific notation expresses very large or very small numbers as a value multiplied by a power of 10. It's essential in physics, chemistry, astronomy, and engineering where numbers like the speed of light (300,000,000 m/s) or the mass of an electron (0.00000000000000000000000000000091 kg) are common.</p>
+
+                <div class="formula">
+                Scientific notation: A × 10^n<br><br>
+                <span class="dim"># Speed of light: 3 × 10⁸ m/s → enter: 3 exp 8</span><br>
+                <span class="dim"># Avogadro's number: 6.022 × 10²³ → enter: 6.022 exp 23</span><br>
+                <span class="dim"># Electron charge: 1.602 × 10⁻¹⁹ → enter: 1.602 exp -19</span>
+                </div>
+
+                <div class="example">
+                  <strong>📘 How to enter scientific notation</strong>
+                  To enter 6.022 × 10²³ (Avogadro's number):<br>
+                  1. Type <strong>6.022</strong><br>
+                  2. Press <strong>exp</strong><br>
+                  3. Type <strong>23</strong><br>
+                  4. Press <strong>=</strong><br><br>
+                  The calculator displays: <strong>6.022e+23</strong>
+                </div>
+
+                <div class="internal-links">
+                  <h4>🔗 Related CalcLogic Calculators</h4>
+                  <a href="percentage-calculator.html">Percentage Calculator</a>
+                  <a href="fraction-calculator.html">Fraction Calculator</a>
+                  <a href="algebra-calculator.html">Algebra Calculator</a>
+                  <a href="grade-calculator.html">Grade Calculator</a>
+                  <a href="gpa-calculator.html">GPA Calculator</a>
+                  <a href="standard-deviation-calculator.html">Standard Deviation Calculator</a>
+                </div>
+
+                <h3>Frequently Asked Questions</h3>
+
+                <div class="faq-item">
+                  <h4>How do I calculate sin, cos, and tan?</h4>
+                  <p>First check your angle mode — press <strong>Deg</strong> for degrees or <strong>Rad</strong> for radians. Then press the sin, cos, or tan button and enter your angle value. For example, sin(30) in degrees = 0.5. For inverse trig (finding the angle from a ratio), most scientific calculators use a second function key — on this calculator, use the xʸ button with the appropriate expression.</p>
+                </div>
+
+                <div class="faq-item">
+                  <h4>What is the difference between Deg and Rad mode?</h4>
+                  <p>Degrees and radians are two units for measuring angles. A full circle equals 360 degrees or 2π radians. Use <strong>Degrees</strong> for everyday geometry, school problems, and navigation. Use <strong>Radians</strong> for calculus, physics, and advanced mathematics. Getting this wrong is the most common cause of incorrect trig results — always verify your mode before calculating.</p>
+                </div>
+
+                <div class="faq-item">
+                  <h4>What is the difference between log and ln?</h4>
+                  <p><strong>log</strong> is the base-10 logarithm (common log). log(1000) = 3 because 10³ = 1000. <strong>ln</strong> is the natural logarithm with base e (2.71828). ln(e) = 1. Use log for chemistry, acoustics, and general calculations. Use ln for calculus, compound interest, and natural growth or decay problems.</p>
+                </div>
+
+                <div class="faq-item">
+                  <h4>How do I calculate square roots and cube roots?</h4>
+                  <p>For square roots, press the <strong>√</strong> button and enter your number. For cube roots, use the <strong>xʸ</strong> button with an exponent of 0.333 (which equals 1 divided by 3). For example, to find the cube root of 125: enter 125, press xʸ, enter 0.333, press equals to get approximately 5. For the nth root, use an exponent of 1 divided by n.</p>
+                </div>
+
+                <div class="faq-item">
+                  <h4>How do I use memory buttons?</h4>
+                  <p>Memory buttons store values between calculations. <strong>M+</strong> adds the current value to memory. <strong>M-</strong> subtracts it. <strong>MR</strong> recalls the stored value. <strong>MC</strong> clears memory. This is especially useful for multi-step problems where you need to use an intermediate result later — store it with M+ instead of writing it down.</p>
+                </div>
+
+                <div class="faq-item">
+                  <h4>How do I enter scientific notation?</h4>
+                  <p>Use the <strong>exp</strong> button to enter scientific notation. Type the base number, press exp, then type the exponent (power of 10). For example, 3 × 10⁸ = enter 3, press exp, enter 8. For negative exponents (small numbers), enter a negative sign before the exponent number.</p>
+                </div>
+
+                <div class="faq-item">
+                  <h4>What does the mod button do?</h4>
+                  <p>The <strong>mod</strong> button calculates the modulus — the remainder after integer division. For example, 17 mod 5 = 2 (because 17 = 3 × 5 + 2). Modulus is widely used in programming and number theory. A quick test: any number mod 2 equals 0 if even, or 1 if odd.</p>
+                </div>
+
+                <div class="faq-item">
+                  <h4>Why is tan(90°) undefined?</h4>
+                  <p>Tangent is defined as sin divided by cos. At 90 degrees, cos = 0, and dividing by zero is mathematically undefined — it approaches infinity. This is why calculators show an error or a very large number for tan(90). The same applies to tan(270°). This is a mathematical reality, not a calculator bug.</p>
+                </div>
+
+                <p class="disclaimer">CalcLogic's scientific calculator is designed for educational and general-purpose use. For professional engineering, scientific research, or examination use, verify results with appropriate certified tools and consult your institution's approved calculator policy.</p>
             </div>
         </div>
     </section>
